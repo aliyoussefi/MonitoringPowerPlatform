@@ -1,0 +1,244 @@
+# Performance Markers in the Unified Interface
+
+Summary
+
+## Markers
+
+AllControlsInitialized
+
+      {
+        "name": "AllControlsInitialized",
+        "zone": "Core.KPI",
+        "time": 3459.96500000183,
+        "parameters": {
+          "LoadQuality": 8,
+          "NumberOfControls": "37",
+          "IsBoot": false,
+          "TimeSinceIdle": "8",
+          "EstimatedLatency": "79.81500000157394",
+          "PageName": "EditForm",
+          "LoadType": "0",
+          "FastNavigation": "false",
+          "NavigationOrigin": "EntityList",
+          "CleanLoad": "1"
+        }
+      }
+PageDataReady
+
+AllRibbonsInitialized
+
+      {
+        "name": "AllRibbonsInitialized",
+        "zone": "Core.KPI",
+        "time": 4047.835000004852,
+        "parameters": {
+          "LoadQuality": 8,
+          "NumberOfRibbons": "4",
+          "IsBoot": false,
+          "TimeSinceIdle": "8",
+          "EstimatedLatency": "79.81500000157394",
+          "PageName": "EditForm",
+          "LoadType": "0",
+          "FastNavigation": "false",
+          "NavigationOrigin": "EntityList",
+          "CleanLoad": "1"
+        }
+TimelineWall_KPI_Load
+
+      {
+        "name": "TimelineWall_KPI_Load",
+        "zone": "Core.KPI",
+        "time": 4830.5250000121305,
+        "parameters": {
+          "LoadQuality": 8,
+          "IsBoot": false,
+          "TimeSinceIdle": "8",
+          "EstimatedLatency": "79.81500000157394",
+          "PageName": "EditForm",
+          "LoadType": "0",
+          "FastNavigation": "false",
+          "NavigationOrigin": "EntityList",
+          "CleanLoad": "1"
+        }
+FullLoad
+
+      {
+        "name": "FullLoad",
+        "zone": "Core.KPI",
+        "time": 4913.390000001527,
+        "parameters": {
+          "LoadQuality": 8,
+          "EntityName": "account",
+          "TimeSinceIdle": "8",
+          "IsBoot": false,
+          "EstimatedLatency": "79.81500000157394",
+          "PageName": "EditForm",
+          "LoadType": "0",
+          "FastNavigation": "false",
+          "NavigationOrigin": "EntityList",
+          "Attribution": "{\"CustomControl\":{\"microsoftdynamics\":{\"BaseCustomControlsCore\":{\"9.0.1909.2025\":{\"MscrmControls.Grid.ReadOnlyGrid\":{\"destroy\":[{\"d\":6}],\"constructor\":[{\"d\":0}],\"init\":[{\"d\":1}],\"updateView\":[{\"d\":1},{\"d\":0}]},\"MscrmControls.Containers.FieldSectionItem\":{\"constructor\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}],\"init\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}],\"updateView\":[{\"d\":3},{\"d\":0},{\"d\":0},{\"d\":1},{\"d\":1},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":1},{\"d\":0},{\"d\":0},{\"d\":1},{\"d\":0},{\"d\":0},{\"d\":1},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":1},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}]},\"MscrmControls.FieldControls.TextBoxControl\":{\"constructor\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}],\"init\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}],\"updateView\":[{\"d\":3},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}]},\"MscrmControls.FieldControls.PhoneNumberControl\":{\"constructor\":[{\"d\":0}],\"init\":[{\"d\":0}],\"updateView\":[{\"d\":1},{\"d\":0}]},\"MscrmControls.FieldControls.UrlControl\":{\"constructor\":[{\"d\":0}],\"init\":[{\"d\":0}],\"updateView\":[{\"d\":1}]},\"MscrmControls.FieldControls.SimpleLookupControl\":{\"constructor\":[{\"d\":0},{\"d\":0},{\"d\":0}],\"init\":[{\"d\":4},{\"d\":4,\"r\":\"[{\\\"id\\\":\\\"d891df95-9c48-47b8-9d16-f038a7138589\\\",\\\"sync\\\":false}]\"},{\"d\":1}],\"updateView\":[{\"d\":15},{\"d\":1},{\"d\":0},{\"d\":1},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":1},{\"d\":0}]},\"MscrmControls.FieldControls.TickerSymbolControl\":{\"constructor\":[{\"d\":0}],\"init\":[{\"d\":0}],\"updateView\":[{\"d\":1}]},\"MscrmControls.FieldControls.OptionSet\":{\"constructor\":[{\"d\":0}],\"init\":[{\"d\":0}],\"updateView\":[{\"d\":2}]},\"MscrmControls.Map.MapControl\":{\"constructor\":[{\"d\":1}],\"init\":[{\"d\":2}],\"updateView\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}]},\"MscrmControls.CardFeedContainer.CardFeedContainer\":{\"constructor\":[{\"d\":0}],\"init\":[{\"d\":2}],\"updateView\":[{\"d\":0},{\"d\":0},{\"d\":1}]}}},\"CustomControlsCore\":{\"9.1.0000.9034\":{\"MscrmControls.TimelineWallControl.TimelineWall\":{\"constructor\":[{\"d\":0}],\"init\":[{\"d\":30}],\"updateView\":[{\"d\":5},{\"d\":2},{\"d\":3},{\"d\":16}]}}}}},\"RuleEvaluation\":{\"microsoftdynamics\":{\"AppforOutlookPatch\":{\"1.2.325.0\":{\"new_MailAppScriptResource\":{\"IsTrackWithoutRegardingAllowed\":[{\"d\":0},{\"d\":0}],\"HasMailContextAction\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":1},{\"d\":0}],\"IsTrackAllowed\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}],\"IsNotTrackedOrPending\":[{\"d\":0},{\"d\":0}],\"IsSpecifiedControl\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}],\"IsEmail\":[{\"d\":0},{\"d\":0}],\"IsAppointment\":[{\"d\":0},{\"d\":0}],\"IsTrackedOrPending\":[{\"d\":0},{\"d\":0}],\"IsUntrackAllowed\":[{\"d\":0},{\"d\":0}],\"IsTracked\":[{\"d\":0},{\"d\":0}],\"IsCRMIDNotEmpty\":[{\"d\":0},{\"d\":0}],\"IsComposeItemEnabled\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}],\"MailContextProperty\":[{\"d\":0},{\"d\":0}],\"IsFollowed\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}],\"IsRecordSaved\":[{\"d\":1},{\"d\":0}],\"IsSetRegardingCurrentRecord\":[{\"d\":0},{\"d\":0}],\"HasMailContext\":[{\"d\":0},{\"d\":0}]}}},\"msdynce_OfficeProductivity\":{\"9.0.2.1819\":{\"msdyn_/OfficeProductivity.js\":{\"OfficeProductivity.RibbonRules.showMSTeamsCollaborateCommand\":[{\"d\":5,\"r\":\"[{\\\"id\\\":\\\"65db706a-c9df-40a1-ac5b-5ed3a1bd2c26\\\",\\\"sync\\\":false}]\"},{\"d\":0}],\"OfficeProductivity.RibbonRules.hideCollaborateCommandForContextualEmail\":[{\"d\":1},{\"d\":0}]}}},\"msdyn_Playbook\":{\"9.0.1908.1010\":{\"Playbook/CommandBarActions/Playbook_CommandBarActions_library.js\":{\"PlaybookService.CommandBarActions.isDisplayPlayBook\":[{\"d\":1},{\"d\":0}]},\"Playbook/PlayBookSettings/Play_Book_Admin_Settings.js\":{\"Mscrm.PlayBookSettings.isPlaybookEnabled\":[{\"d\":2},{\"d\":0}]}}},\"ActivityFeedsCore\":{\"9.0.0.0\":{\"msdyn_/Follow.Command.js\":{\"Follow.FollowCommands.dummy\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}],\"Follow.FollowEnabled.isFollowButtonEnabled\":[{\"d\":1,\"r\":\"[{\\\"id\\\":\\\"d6d430df-df1c-4bd3-87e6-e67eb167e175\\\",\\\"sync\\\":false}]\"},{\"d\":0},{\"d\":0},{\"d\":0}],\"Follow.FollowEnableYammerCheck.shouldEnableFollow\":[{\"d\":0},{\"d\":0}]},\"msdyn_/InstalledLocales.js\":{\"Follow.FollowCommands.dummy\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}]},\"msdyn_/Scripts/PlatformScriptLoader.js\":{\"Follow.FollowCommands.dummy\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}]}}},\"YammerIntegration\":{\"9.0.1.065\":{\"msdyn_/YammerIntegration/Yammer_main_system_library.js\":{\"Yammer.Rules.showYammer\":[{\"d\":2},{\"d\":1}]}}}},\"MicrosoftCorporation\":{\"msdynce_ClientUtilityPatch\":{\"9.0.1909.1003\":{\"CRM/ClientUtility.js\":{\"ClientUtility.ClientUtil.isMobile\":[{\"d\":0},{\"d\":0}],\"ClientUtility.ClientUtil.ValidateCurrentAppModule\":[{\"d\":0},{\"d\":0}]}}},\"System\":{\"5.0\":{\"Main_system_library.js\":{\"XrmCore.Rules.AutoSave.isAutoSaveEnabled\":[{\"d\":1},{\"d\":0}],\"XrmCore.Rules.RefreshForm.isRefreshForm\":[{\"d\":0},{\"d\":0}],\"XrmCore.Rules.Online.IsEntityAvailableForUserInMocaOffline\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}],\"XrmCore.InternalUtilities.DialogUtilities.isMobileCompanionApp\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}],\"Mscrm.WorkflowWebResource.CanSwitchProcess\":[{\"d\":0},{\"d\":0}],\"Mscrm.WorkflowWebResource.IsBusinessProcessPresent\":[{\"d\":4},{\"d\":0}],\"Mscrm.WorkflowWebResource.ShowAbandon\":[{\"d\":3},{\"d\":4}],\"Mscrm.WorkflowWebResource.ShowReactivate\":[{\"d\":2},{\"d\":2}],\"Mscrm.WorkflowWebResource.ShowFinish\":[{\"d\":3},{\"d\":2}],\"XrmCore.Rules.Hierarchy.IsFormHierarchyEnabled\":[{\"d\":0},{\"d\":0}],\"XrmCore.InternalUtilities.DialogUtilities.isAllowLegacyDialogsEmbedding\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}],\"XrmCore.Commands.Flows.isMicrosoftFlowEnabled\":[{\"d\":0},{\"d\":0}],\"XrmCore.Commands.Flows.displayFlowSingleMenu\":[{\"d\":0},{\"d\":0}],\"XrmCore.Rules.Charts.disableButtonsWhenChartMaximized\":[{\"d\":0},{\"d\":0},{\"d\":0}],\"XrmCore.Rules.HierarchyView.isValidForHierarchyView\":[{\"d\":0},{\"d\":0},{\"d\":0}],\"XrmCore.Rules.Enabled.enableActivityForWeb\":[{\"d\":0},{\"d\":0}],\"XrmCore.Rules.Online.IsCustomActivityAvailableForUserInMocaOffline\":[{\"d\":0},{\"d\":0}],\"XrmCore.Rules.Export.EnabledForXlsxExport\":[{\"d\":0},{\"d\":0}],\"XrmCore.Rules.Enabled.enableExportToExcelOnlineForModern\":[{\"d\":0},{\"d\":0}],\"XrmCore.Rules.Export.EnableOnlyInBrowsersForModern\":[{\"d\":0},{\"d\":0}],\"XrmCore.Rules.Export.EnableExportToExcel\":[{\"d\":0},{\"d\":0}]}}},\"msdynce_MarketingPatch201905\":{\"9.0.1909.3007\":{\"Marketing/ClientCommon/Marketing_ClientCommon.js\":{\"Xrm.Internal.isUci\":[{\"d\":0}]},\"Marketing/List/List_main_system_library.js\":{\"Marketing.List.Commands.isListStatic\":[{\"d\":0}],\"Marketing.List.Commands.isListLocked\":[{\"d\":0}],\"Marketing.List.Commands.isNotDynamicList\":[{\"d\":0}]},\"Marketing/CommandActions/Marketing_CommandActions.js\":{\"Marketing.CommandActions.Instance.showButtonForListEntityOnly\":[{\"d\":0}],\"Marketing.CommandActions.Instance.showButtonForListEntityOnlyWebClient\":[{\"d\":0}]}}}}},\"onload\":{\"MicrosoftCorporation\":{\"msdynce_AppCommonPatch201904\":{\"9.0.1909.1003\":{\"AppCommon/Account/Account_main_system_library.js\":{\"AppCommon.Account.Instance.ra_onload\":[{\"d\":0}]}}}},\"microsoftdynamics\":{\"FieldService_Patch_9\":{\"7.5.8.93\":{\"msdyn_/Account/Account.Library.js\":{\"FS.Account.Library.Load\":[{\"d\":6}]}}}},\"DefaultPublisheralyoussefnaos\":{\"Active\":{\"1.0\":{\"ayw_/scripts/applicationinsights/tracktelemetry.js\":{\"captureTelemetry\":[{\"d\":7}],\"uploadResourceTimings\":[{\"d\":1087,\"r\":\"[{\\\"id\\\":\\\"8f6273f6-ce4a-4e22-a432-e0bc7288c966\\\",\\\"sync\\\":true}]\"}]}}}}}}",
+          "CustomScriptTime": "1270.9350000077393",
+          "SyncRequestTime": "1239.0350000059698",
+          "NetworkRequestInfo": "{\"metadata\":12,\"webService\":24,\"assetLoads\":50}",
+          "ZoneActivity": "{\"Core.Actions.Sync\":1297,\"Core.Scheduler\":1460,\"Core.AssetLoader\":1413,\"WebService\":4095,\"BrowserResourceTimings\":4337}",
+          "WorkBlockKpi": true,
+          "CleanLoad": "1"
+        }
+      }
+BPF.RenderProcessControl
+
+      {
+        "name": "BPF.RenderProcessControl",
+        "zone": "Core.KPI",
+        "time": 550.5550000088988,
+        "parameters": {
+          "LoadQuality": 0,
+          "ProcessId": "00000000-0000-0000-0000-000000000000",
+          "BusinessProcessFlowInstanceId": "",
+          "EntityTypeCode": "1",
+          "EntityId": "79baee2f-ebba-e911-a992-000d3a1bec70",
+          "CorrelationId": "17a46f56-02e2-4220-afae-f5630aa11321",
+          "PageId": "2",
+          "IsBoot": false,
+          "TimeSinceIdle": "8",
+          "EstimatedLatency": "79.81500000157394",
+          "PageName": "EditForm",
+          "LoadType": "0",
+          "FastNavigation": "false",
+          "NavigationOrigin": "EntityList",
+          "CleanLoad": "1"
+        }
+      }
+PageNavigationModuleReady
+
+      {
+        "name": "PageNavigationModuleReady",
+        "zone": "Core.KPI",
+        "time": 275.7150000106776,
+        "parameters": {
+          "LoadQuality": 0,
+          "IsBoot": false,
+          "TimeSinceIdle": "8",
+          "EstimatedLatency": "79.81500000157394",
+          "PageName": "EditForm",
+          "LoadType": "0",
+          "FastNavigation": "false",
+          "NavigationOrigin": "EntityList",
+          "CleanLoad": "1"
+        }
+      }
+PageNavigationStart
+
+      {
+        "name": "PageNavigationStart",
+        "zone": "Core.KPI",
+        "time": 7.5450000003911555,
+        "parameters": {
+          "LoadQuality": 0,
+          "IsBoot": false,
+          "TimeSinceIdle": "8",
+          "EstimatedLatency": "79.81500000157394",
+          "PageName": "EditForm",
+          "LoadType": "0",
+          "FastNavigation": "false",
+          "NavigationOrigin": "EntityList",
+          "CleanLoad": "1"
+        }
+RenderedEditReady
+
+      {
+        "name": "RenderedEditReady",
+        "zone": "Core.KPI",
+        "time": 3023.575000013807,
+        "parameters": {
+          "LoadQuality": 8,
+          "formId": "8448b78f-8f42-454e-8e2a-f8196b0419af",
+          "recordId": "79baee2f-ebba-e911-a992-000d3a1bec70",
+          "etn": "account",
+          "IsBoot": false,
+          "TimeSinceIdle": "8",
+          "EstimatedLatency": "79.81500000157394",
+          "PageName": "EditForm",
+          "LoadType": "0",
+          "FastNavigation": "false",
+          "NavigationOrigin": "EntityList",
+          "CleanLoad": "1"
+        }
+      }
+PageDataReady
+
+      {
+        "name": "PageDataReady",
+        "zone": "Core.KPI",
+        "time": 1917.0750000048429,
+        "parameters": {
+          "LoadQuality": 0,
+          "IsBoot": false,
+          "TimeSinceIdle": "8",
+          "EstimatedLatency": "79.81500000157394",
+          "PageName": "EditForm",
+          "LoadType": "0",
+          "FastNavigation": "false",
+          "NavigationOrigin": "EntityList",
+          "CleanLoad": "1"
+        }
+      }
+## Metadata
+
+      "PageName": "EditForm",
+      "LoadType": "0",
+      "FastNavigation": "false",
+      "NavigationOrigin": "EntityList",
+      "telemetryActivityId": "c26906e7-fc22-4ccd-b7cd-aa759280cc94",
+      "IsBoot": false,
+      "TimeSinceIdle": "8",
+      "EstimatedLatency": "79.81500000157394",
+      "timestamp": "Tue Oct 15 2019 08:03:44 GMT-0500 (Central Daylight Time)",
+      "windowWidth": 1920,
+      "windowHeight": 925
+
+
+This Timeline Event Marker is greater than 1000. Please Review :router.navigateTo.asyncCore.Actions.Async
+This Timeline Event Marker is greater than 1000. Please Review :page.initialize.asyncCore.Actions.Async
+This Timeline Event Marker is greater than 1000. Please Review :initialize.editFormAction.asyncCore.Actions.Async
+This Timeline Event Marker is greater than 1000. Please Review :timelinewall.load.metadata.asyncCore.Actions.Async
+This Timeline Event Marker is greater than 1000. Please Review :recordRecordData.forForm.asyncCore.Actions.Async
+This Timeline Event Marker is greater than 1000. Please Review :recordData.retrieve.asyncCore.Actions.Async
+This Timeline Event Marker is greater than 1000. Please Review :ExecuteWebService
+This Timeline Event Marker is greater than 1000. Please Review :entity.retrieve.asyncCore.Actions.Async
+This Timeline Event Marker is greater than 1000. Please Review :gcm.retrieve.asyncCore.Actions.Async
+This Timeline Event Marker is greater than 1000. Please Review :SendRequestWebService
+This Timeline Event Marker is greater than 1000. Please Review :FrameSlowFrames
+This Timeline Event Marker is greater than 1000. Please Review :eventManager.execute.formEventHandlerCore.Actions.Sync
+This Timeline Event Marker is greater than 1000. Please Review :ExecuteFunctionCustomScripts
+This Timeline Event Marker is greater than 1000. Please Review :XMLHttpRequestBrowserResourceTimings
+This Timeline Event Marker is greater than 1000. Please Review :commanding.initCmdBarCore.Actions.Async
+This Timeline Event Marker is greater than 1000. Please Review :CreateCommandManagerCommanding
+This Timeline Event Marker is greater than 1000. Please Review :ribbon.evaluaterule.asyncCore.Actions.Async
+This Timeline Event Marker is greater than 1000. Please Review :timelinewall.data.retrieve.nextpage.asyncCore.Actions.Async
+This Timeline Event Marker is greater than 1000. Please Review :timelinewall.data.retrieve.nextpage.asyncCore.Actions.Async
+This Timeline Event Marker is greater than 1000. Please Review :ExecuteWebService
+
+
+
+PageName
+
+LoadType
+
+FastNavigation
+
+NavigationOrigin
+
+telemetryActivityId
+
+IsBoot
+
+TimeSinceIdle
+
+EstimatedLatency
+
+timestamp
+
+windowWidth
+
+windowHeight

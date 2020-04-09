@@ -1,0 +1,37 @@
+{
+    "time": "2020-03-25T12:28:06.559Z",
+    "iKey": "854cd4af-5243-457a-9dfb-f2c7a9bdc9dc",
+    "name": "Microsoft.ApplicationInsights.854cd4af5243457a9dfbf2c7a9bdc9dc.Event",
+    "tags": {
+        "ai.session.id": "Rzz1W",
+        "ai.device.id": "browser",
+        "ai.device.type": "Browser",
+        "ai.internal.sdkVersion": "javascript:1.0.21",
+        "ai.user.id": "nhiAr",
+        "ai.operation.id": "hzGhO",
+        "ai.operation.name": "/main.aspx"
+    },
+    "data": {
+        "baseType": "EventData",
+        "baseData": {
+            "ver": 2,
+            "name": "init",
+            "properties": {
+                "orgid": "77551056-38c3-409c-9bbd-e4b223d2313f",
+                "userid": "90f0352e-c324-43da-8e38-f774b56a2d93",
+                "crmversion": "9.1.0000.14448",
+                "clientname": "Web",
+                "lcid": "1033",
+                "formfactor": "1",
+                "crmgeo": "NAM",
+                "orgtype": "5",
+                "tenantid": "1557f771-4c8e-4dbd-8b80-dd00a88e833e",
+                "appname": "alyousse-UCI",
+                "apppublishername": "undefined",
+                "appuniquename": "new_alyousseUCI",
+                "appversion": "26398162",
+                "subtenant": "Custom"
+            }
+        }
+    }
+}

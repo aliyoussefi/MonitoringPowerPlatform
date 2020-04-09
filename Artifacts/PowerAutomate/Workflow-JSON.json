@@ -1,0 +1,19 @@
+{
+  "id": "/subscriptions/fa00899a-0d59-4cf6-8549-07188f03a6ee/resourceGroups/72F988BF86F141AF91AB2D7CD011DB47-97B05BB5073F4A9D8E08A8FFB43169F1/providers/Microsoft.Logic/workflows/4bde3b8e-1396-40fd-a31b-d6fedcbe70a9",
+  "name": "4bde3b8e-1396-40fd-a31b-d6fedcbe70a9",
+  "type": "Microsoft.Logic/workflows",
+  "location": "westus",
+  "tags": {
+    "flowDisplayName": "HTTP Triggered with Conditions and CorrelationId",
+    "environmentName": "50c433cf-01ed-40b2-b6aa-aa5d09c5afe8",
+    "logicAppName": "4bde3b8e-1396-40fd-a31b-d6fedcbe70a9",
+    "environmentWorkflowId": "50c433cf:2D01ed:2D40b2:2Db6aa:2Daa5d09c5afe8-a5154136:2D3c4f:2Dea11:2Da812:2D000d3a347d1c",
+    "environmentFlowSuspensionReason": "50c433cf:2D01ed:2D40b2:2Db6aa:2Daa5d09c5afe8-None",
+    "sharingType": "CommonDataService"
+  },
+  "run": {
+    "id": "/subscriptions/fa00899a-0d59-4cf6-8549-07188f03a6ee/resourceGroups/72F988BF86F141AF91AB2D7CD011DB47-97B05BB5073F4A9D8E08A8FFB43169F1/providers/Microsoft.Logic/workflows/4bde3b8e-1396-40fd-a31b-d6fedcbe70a9/runs/08586165045686467288269631985CU125",
+    "name": "08586165045686467288269631985CU125",
+    "type": "Microsoft.Logic/workflows/runs"
+  }
+}

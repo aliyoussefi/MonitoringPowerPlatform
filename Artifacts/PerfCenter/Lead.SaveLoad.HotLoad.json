@@ -1,0 +1,2548 @@
+{
+  "timeline": {
+    "events": [
+      {
+        "name": "WorkStart",
+        "zone": "Core.Performance",
+        "time": 0,
+        "parameters": null
+      },
+      {
+        "name": "form.notification.clear",
+        "zone": "Core.Actions.Sync",
+        "time": 1.5649999976158142,
+        "timeEnd": 1.949999999254942,
+        "parameters": null
+      },
+      {
+        "name": "form.save.async",
+        "zone": "Core.Actions.Async",
+        "time": 2.4249999970197678,
+        "timeEnd": 108.13500000163913,
+        "parameters": null
+      },
+      {
+        "name": "form.save.async",
+        "zone": "Core.Actions.Sync",
+        "time": 2.4950000010430813,
+        "timeEnd": 14.179999999701977,
+        "parameters": null
+      },
+      {
+        "name": "set.formSaving.sync",
+        "zone": "Core.Actions.Sync",
+        "time": 4.775000002235174,
+        "timeEnd": 13.620000001043081,
+        "parameters": null
+      },
+      {
+        "name": "form.SavingState.set",
+        "zone": "Core.Actions.Sync",
+        "time": 4.925000000745058,
+        "timeEnd": 13.54500000178814,
+        "parameters": null
+      },
+      {
+        "name": "form.setIsAutoSaving",
+        "zone": "Core.Actions.Sync",
+        "time": 13.745000001043081,
+        "timeEnd": 13.995000001043081,
+        "parameters": null
+      },
+      {
+        "name": "control.update.value",
+        "zone": "Core.Actions.Sync",
+        "time": 20.344999998807907,
+        "timeEnd": 23.225000001490116,
+        "parameters": null
+      },
+      {
+        "name": "control.update.value",
+        "zone": "Core.Actions.Sync",
+        "time": 22.304999999701977,
+        "timeEnd": 23.16999999806285,
+        "parameters": null
+      },
+      {
+        "name": "eventManager.execute.formEventHandler",
+        "zone": "Core.Actions.Sync",
+        "time": 24.615000002086163,
+        "timeEnd": 25.855000000447035,
+        "parameters": null
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 25.519999999552965,
+        "timeEnd": 25.66999999806285,
+        "parameters": {
+          "method": "Mscrm.LeadMainSystemLibraryWebResource.form_OnSave",
+          "webResourceName": "LeadManagement/Lead/Lead_main_system_library.js",
+          "solutionName": "msdynce_LeadManagementPatch",
+          "solutionVersion": "9.0.2002.2001",
+          "publisherName": "MicrosoftCorporation",
+          "type": "onsave"
+        }
+      },
+      {
+        "name": "set.formSaving.sync",
+        "zone": "Core.Actions.Sync",
+        "time": 26.225000001490116,
+        "timeEnd": 26.58999999985099,
+        "parameters": null
+      },
+      {
+        "name": "form.SavingState.set",
+        "zone": "Core.Actions.Sync",
+        "time": 26.280000001192093,
+        "timeEnd": 26.560000002384186,
+        "parameters": null
+      },
+      {
+        "name": "form.setIsAutoSaving",
+        "zone": "Core.Actions.Sync",
+        "time": 26.649999998509884,
+        "timeEnd": 26.804999999701977,
+        "parameters": null
+      },
+      {
+        "name": "form.notification.clear",
+        "zone": "Core.Actions.Sync",
+        "time": 27.609999999403954,
+        "timeEnd": 27.62999999895692,
+        "parameters": null
+      },
+      {
+        "name": "offline.resolve.syncerror.record",
+        "zone": "Core.Actions.Async",
+        "time": 27.774999998509884,
+        "timeEnd": 72.37999999895692,
+        "parameters": null
+      },
+      {
+        "name": "offline.resolve.syncerror.record",
+        "zone": "Core.Actions.Sync",
+        "time": 27.78500000014901,
+        "timeEnd": 27.884999997913837,
+        "parameters": null
+      },
+      {
+        "name": "commandbar.refresh.async",
+        "zone": "Core.Actions.Async",
+        "time": 28.00499999895692,
+        "timeEnd": 771.8799999989569,
+        "parameters": null
+      },
+      {
+        "name": "commandbar.refresh.async",
+        "zone": "Core.Actions.Sync",
+        "time": 28.010000001639128,
+        "timeEnd": 64.5299999974668,
+        "parameters": null
+      },
+      {
+        "name": "ribbon.evaluaterule.async",
+        "zone": "Core.Actions.Async",
+        "time": 28.29000000283122,
+        "timeEnd": 771.839999999851,
+        "parameters": null
+      },
+      {
+        "name": "ribbon.evaluaterule.async",
+        "zone": "Core.Actions.Sync",
+        "time": 28.304999999701977,
+        "timeEnd": 64.42999999970198,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 30.149999998509884,
+        "timeEnd": 72.39000000059605,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 30.155000001192093,
+        "timeEnd": 30.434999998658895,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 30.820000000298023,
+        "timeEnd": 72.39000000059605,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 30.82999999821186,
+        "timeEnd": 30.855000000447035,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 31.074999999254942,
+        "timeEnd": 72.39499999955297,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 31.07999999821186,
+        "timeEnd": 31.109999999403954,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 31.350000001490116,
+        "timeEnd": 72.39999999850988,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 31.359999999403954,
+        "timeEnd": 31.390000000596046,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 33.46499999985099,
+        "timeEnd": 72.39999999850988,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 33.4700000025332,
+        "timeEnd": 33.514999996870756,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 33.78500000014901,
+        "timeEnd": 72.39999999850988,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 33.78500000014901,
+        "timeEnd": 33.82000000029802,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 34.21499999985099,
+        "timeEnd": 72.4049999974668,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 34.2200000025332,
+        "timeEnd": 34.26500000059605,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 36.16000000014901,
+        "timeEnd": 72.41000000014901,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 36.16000000014901,
+        "timeEnd": 36.19500000029802,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 38.57000000029802,
+        "timeEnd": 72.41499999910593,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 38.57000000029802,
+        "timeEnd": 38.61500000208616,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 39.649999998509884,
+        "timeEnd": 72.41999999806285,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 39.67000000178814,
+        "timeEnd": 39.69999999925494,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 40.03999999910593,
+        "timeEnd": 72.42500000074506,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 40.04500000178814,
+        "timeEnd": 40.61500000208616,
+        "parameters": null
+      },
+      {
+        "name": "garbage.collector.update.data.entities.sync",
+        "zone": "Core.Actions.Sync",
+        "time": 40.149999998509884,
+        "timeEnd": 40.58000000193715,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 40.82000000029802,
+        "timeEnd": 72.42999999970198,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 40.82499999925494,
+        "timeEnd": 40.91000000014901,
+        "parameters": null
+      },
+      {
+        "name": "garbage.collector.update.data.entities.sync",
+        "zone": "Core.Actions.Sync",
+        "time": 40.86499999836087,
+        "timeEnd": 40.88500000163913,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 41.41499999910593,
+        "timeEnd": 72.42999999970198,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 41.42000000178814,
+        "timeEnd": 41.53000000119209,
+        "parameters": null
+      },
+      {
+        "name": "garbage.collector.update.data.entities.sync",
+        "zone": "Core.Actions.Sync",
+        "time": 41.48499999940395,
+        "timeEnd": 41.50499999895692,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 41.724999997764826,
+        "timeEnd": 72.43500000238419,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 41.730000000447035,
+        "timeEnd": 41.75500000268221,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 41.94500000029802,
+        "timeEnd": 72.43500000238419,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 41.94500000029802,
+        "timeEnd": 41.974999997764826,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 42.21499999985099,
+        "timeEnd": 72.43500000238419,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 42.21999999880791,
+        "timeEnd": 42.26500000059605,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 43.03999999910593,
+        "timeEnd": 72.43999999761581,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 43.04500000178814,
+        "timeEnd": 43.150000002235174,
+        "parameters": null
+      },
+      {
+        "name": "garbage.collector.update.data.entities.sync",
+        "zone": "Core.Actions.Sync",
+        "time": 43.10999999940395,
+        "timeEnd": 43.13000000268221,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 43.59499999880791,
+        "timeEnd": 72.43999999761581,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 43.59499999880791,
+        "timeEnd": 43.644999999552965,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 43.815000001341105,
+        "timeEnd": 72.44500000029802,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 43.81999999657273,
+        "timeEnd": 43.86499999836087,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 44.184999998658895,
+        "timeEnd": 72.44999999925494,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 44.190000001341105,
+        "timeEnd": 44.230000000447035,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 44.50500000268221,
+        "timeEnd": 72.44999999925494,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 44.50999999791384,
+        "timeEnd": 44.54999999701977,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 45.66999999806285,
+        "timeEnd": 72.49500000104308,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 45.67999999970198,
+        "timeEnd": 45.70499999821186,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 45.89000000059605,
+        "timeEnd": 72.49500000104308,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 45.894999999552965,
+        "timeEnd": 45.91499999910593,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 47.33000000193715,
+        "timeEnd": 72.50499999895692,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 47.350000001490116,
+        "timeEnd": 47.41499999910593,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 47.75,
+        "timeEnd": 72.50499999895692,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 47.75499999895692,
+        "timeEnd": 47.78999999910593,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 48.21999999880791,
+        "timeEnd": 72.50499999895692,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 48.224999997764826,
+        "timeEnd": 48.26500000059605,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 48.75499999895692,
+        "timeEnd": 72.50499999895692,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 48.76500000059605,
+        "timeEnd": 48.79499999806285,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 50.30499999970198,
+        "timeEnd": 72.52499999850988,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 50.30499999970198,
+        "timeEnd": 50.41000000014901,
+        "parameters": null
+      },
+      {
+        "name": "garbage.collector.update.data.entities.sync",
+        "zone": "Core.Actions.Sync",
+        "time": 50.35999999940395,
+        "timeEnd": 50.39000000059605,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 51.04000000283122,
+        "timeEnd": 72.53500000014901,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 51.04499999806285,
+        "timeEnd": 51.07000000029802,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 51.39000000059605,
+        "timeEnd": 72.53500000014901,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 51.395000003278255,
+        "timeEnd": 51.41999999806285,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 54.55000000074506,
+        "timeEnd": 72.53999999910593,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 54.55499999970198,
+        "timeEnd": 54.58500000089407,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 55.059999998658895,
+        "timeEnd": 72.53999999910593,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 55.065000001341105,
+        "timeEnd": 55.08999999985099,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 56.480000000447035,
+        "timeEnd": 72.55000000074506,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 56.48499999940395,
+        "timeEnd": 56.53500000014901,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 56.690000001341105,
+        "timeEnd": 72.55000000074506,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 56.69500000029802,
+        "timeEnd": 56.71499999985099,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 58,
+        "timeEnd": 72.55000000074506,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 58.014999996870756,
+        "timeEnd": 58.05499999970198,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 58.315000001341105,
+        "timeEnd": 72.55499999970198,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 58.32000000029802,
+        "timeEnd": 58.36999999731779,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 58.60999999940395,
+        "timeEnd": 72.5599999986589,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 58.60999999940395,
+        "timeEnd": 58.644999999552965,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 59.07000000029802,
+        "timeEnd": 72.5599999986589,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 59.07499999925494,
+        "timeEnd": 59.100000001490116,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 59.28000000119209,
+        "timeEnd": 72.57000000029802,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 59.28500000014901,
+        "timeEnd": 59.309999998658895,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 59.46999999880791,
+        "timeEnd": 72.57000000029802,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 59.475000001490116,
+        "timeEnd": 59.49500000104308,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 59.66499999910593,
+        "timeEnd": 72.57000000029802,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 59.67500000074506,
+        "timeEnd": 59.73999999836087,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 60.809999998658895,
+        "timeEnd": 72.57000000029802,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 60.815000001341105,
+        "timeEnd": 60.83999999985099,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Async",
+        "time": 61.08999999985099,
+        "timeEnd": 72.57500000298023,
+        "parameters": null
+      },
+      {
+        "name": "recordRecordData.forOrg.async",
+        "zone": "Core.Actions.Sync",
+        "time": 61.09499999880791,
+        "timeEnd": 61.12000000104308,
+        "parameters": null
+      },
+      {
+        "name": "form.setIsAutoSaving",
+        "zone": "Core.Actions.Sync",
+        "time": 67.92499999701977,
+        "timeEnd": 68.26500000059605,
+        "parameters": null
+      },
+      {
+        "name": "set.formSaving.sync",
+        "zone": "Core.Actions.Sync",
+        "time": 68.41499999910593,
+        "timeEnd": 68.76500000059605,
+        "parameters": null
+      },
+      {
+        "name": "form.SavingState.set",
+        "zone": "Core.Actions.Sync",
+        "time": 68.54500000178814,
+        "timeEnd": 68.72999999672174,
+        "parameters": null
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 72.77499999850988,
+        "timeEnd": 73.67500000074506,
+        "parameters": {
+          "method": "HasMailContextAction",
+          "webResourceName": "new_MailAppScriptResource",
+          "solutionName": "AppforOutlookPatch",
+          "solutionVersion": "1.2.353.0",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 73.83000000193715,
+        "timeEnd": 74.87000000104308,
+        "parameters": {
+          "method": "XrmCore.Rules.AutoSave.isAutoSaveEnabled",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 74.97499999776483,
+        "timeEnd": 74.99499999731779,
+        "parameters": {
+          "method": "XrmCore.Rules.RefreshForm.isRefreshForm",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 75.03500000014901,
+        "timeEnd": 75.20999999716878,
+        "parameters": {
+          "method": "XrmCore.Rules.Online.IsEntityAvailableForUserInMocaOffline",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 75.26999999955297,
+        "timeEnd": 75.33999999985099,
+        "parameters": {
+          "method": "HasMailContext",
+          "webResourceName": "new_MailAppScriptResource",
+          "solutionName": "AppforOutlookPatch",
+          "solutionVersion": "1.2.353.0",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 75.46499999985099,
+        "timeEnd": 87.8099999986589,
+        "parameters": {
+          "method": "FpsUtils.Form.isBookButtonEnabled",
+          "webResourceName": "msdyn_/fps/Utils/FpsUtils.js",
+          "solutionName": "MicrosoftDynamicsScheduling",
+          "solutionVersion": "3.12.0.448",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation",
+          "requests": "[{\"id\":\"bc54e601-9509-4ee4-905a-d22563976219\",\"sync\":false}]"
+        }
+      },
+      {
+        "name": "entity.retrieve.async",
+        "zone": "Core.Actions.Async",
+        "time": 77.38500000163913,
+        "timeEnd": 177.88500000163913,
+        "parameters": null
+      },
+      {
+        "name": "entity.retrieve.async",
+        "zone": "Core.Actions.Sync",
+        "time": 77.39499999955297,
+        "timeEnd": 87.43500000238419,
+        "parameters": null
+      },
+      {
+        "name": "gcm.retrieve.async",
+        "zone": "Core.Actions.Async",
+        "time": 78.58999999985099,
+        "timeEnd": 177.875,
+        "parameters": null
+      },
+      {
+        "name": "gcm.retrieve.async",
+        "zone": "Core.Actions.Sync",
+        "time": 78.62000000104308,
+        "timeEnd": 87.19500000029802,
+        "parameters": null
+      },
+      {
+        "name": "SendRequest",
+        "zone": "WebService",
+        "time": 81.89499999955297,
+        "timeEnd": 130.44499999657273,
+        "parameters": {
+          "urlParameters": "GetClientMetadata(ClientMetadataQuery=@ClientMetadataQuery)?@ClientMetadataQuery={\"MetadataType\"%3A\"entity\",\"MetadataSubtype\"%3A\"{\\\"msdyn_bookingsetupmetadata\\\":[\\\"Privileges\\\"]}\",\"EntityLogicalName\"%3Anull,\"MetadataId\"%3Anull,\"MetadataNames\"%3A[],\"GetDefault\"%3Afalse,\"DependencyDepth\"%3A\"OnDemandWithoutContext\",\"ChangedAfter\"%3A\"4256922\",\"Exclude\"%3A[],\"AppId\"%3Anull}&umv=4256922&mv=5005865&api-version=9.1",
+          "requestId": "7fddd7e5-98ea-46b8-8b5a-2577a0f41900"
+        }
+      },
+      {
+        "name": "Fetch",
+        "zone": "BrowserResourceTimings",
+        "time": 84.51000000163913,
+        "timeEnd": 86.85999999940395,
+        "parameters": {
+          "connectEnd": "22642725.315000005",
+          "connectStart": "22642725.315000005",
+          "domainLookupEnd": "22642725.315000005",
+          "domainLookupStart": "22642725.315000005",
+          "duration": "2.349999997764826",
+          "fetchStart": "22642725.315000005",
+          "name": "https://alyousseeasyreprodemo.crm.dynamics.com/api/data/v9.0/GetClientMetadata(ClientMetadataQuery=@ClientMetadataQuery)?@ClientMetadataQuery={%22MetadataType%22%3A%22entity%22,%22MetadataSubtype%22%3A%22{\\%22msdyn_bookingsetupmetadata\\%22:[\\%22Privileges\\%22]}%22,%22EntityLogicalName%22%3Anull,%22MetadataId%22%3Anull,%22MetadataNames%22%3A[],%22GetDefault%22%3Afalse,%22DependencyDepth%22%3A%22OnDemandWithoutContext%22,%22ChangedAfter%22%3A%224256922%22,%22Exclude%22%3A[],%22AppId%22%3Anull}&umv=4256922&mv=5005865&api-version=9.1",
+          "requestStart": "22642726.255000003",
+          "responseEnd": "22642727.665000003",
+          "responseStart": "22642726.430000003",
+          "startTime": "22642725.315000005",
+          "decodedBodySize": "49896",
+          "encodedBodySize": "4318",
+          "nextHopProtocol": "h2",
+          "cached": "true",
+          "window": "MainWindow",
+          "url": "https://alyousseeasyreprodemo.crm.dynamics.com/api/data/v9.0/GetClientMetadata(ClientMetadataQuery=@ClientMetadataQuery)?@ClientMetadataQuery={%22MetadataType%22%3A%22entity%22,%22MetadataSubtype%22%3A%22{\\%22msdyn_bookingsetupmetadata\\%22:[\\%22Privileges\\%22]}%22,%22EntityLogicalName%22%3Anull,%22MetadataId%22%3Anull,%22MetadataNames%22%3A[],%22GetDefault%22%3Afalse,%22DependencyDepth%22%3A%22OnDemandWithoutContext%22,%22ChangedAfter%22%3A%224256922%22,%22Exclude%22%3A[],%22AppId%22%3Anull}&umv=4256922&mv=5005865&api-version=9.1",
+          "patchStartTime": 22642724,
+          "fetch": true,
+          "windowId": "MainWindow",
+          "sync": false,
+          "method": "GET",
+          "id": "bc54e601-9509-4ee4-905a-d22563976219",
+          "h2": true,
+          "ServerActivityId": "7fddd7e5-98ea-46b8-8b5a-2577a0f41900",
+          "status": 200,
+          "patchDuration": 122.05000000447035
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 88.23000000044703,
+        "timeEnd": 89.17500000074506,
+        "parameters": {
+          "method": "Yammer.Rules.showYammer",
+          "webResourceName": "msdyn_/YammerIntegration/Yammer_main_system_library.js",
+          "solutionName": "YammerIntegration",
+          "solutionVersion": "9.1.1.001",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 89.23499999940395,
+        "timeEnd": 90.12999999895692,
+        "parameters": {
+          "method": "OfficeProductivity.RibbonRules.showMSTeamsCollaborateCommand",
+          "webResourceName": "msdyn_/OfficeProductivity.js",
+          "solutionName": "msdynce_OfficeProductivity",
+          "solutionVersion": "9.0.2.11021",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 90.21499999985099,
+        "timeEnd": 90.66499999910593,
+        "parameters": {
+          "method": "OfficeProductivity.RibbonRules.hideCollaborateCommandForContextualEmail",
+          "webResourceName": "msdyn_/OfficeProductivity.js",
+          "solutionName": "msdynce_OfficeProductivity",
+          "solutionVersion": "9.0.2.11021",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 90.70499999821186,
+        "timeEnd": 90.91999999806285,
+        "parameters": {
+          "method": "ClientUtility.ClientUtil.isUCI",
+          "webResourceName": "MarketingSales/Lead/Lead_main_system_library.js",
+          "solutionName": "msdynce_MarketingSalesPatch",
+          "solutionVersion": "9.0.1912.5013",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 90.96000000089407,
+        "timeEnd": 90.98499999940395,
+        "parameters": {
+          "method": "XrmCore.Rules.Online.IsEntityAvailableForUserInMocaOffline",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 91.00500000268221,
+        "timeEnd": 91.02500000223517,
+        "parameters": {
+          "method": "XrmCore.Rules.Online.IsEntityAvailableForUserInMocaOffline",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 91.04500000178814,
+        "timeEnd": 91.0599999986589,
+        "parameters": {
+          "method": "XrmCore.Rules.Online.IsEntityAvailableForUserInMocaOffline",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 91.08999999985099,
+        "timeEnd": 91.10000000149012,
+        "parameters": {
+          "method": "ClientUtility.ClientUtil.isUCI",
+          "webResourceName": "MarketingSales/Lead/Lead_main_system_library.js",
+          "solutionName": "msdynce_MarketingSalesPatch",
+          "solutionVersion": "9.0.1912.5013",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 91.12000000104308,
+        "timeEnd": 91.67000000178814,
+        "parameters": {
+          "method": "Sales.CommandBarActions.Instance.isSdkAvailable",
+          "webResourceName": "Sales/CommandBarActions/SalesCommandBarActions.js",
+          "solutionName": "msdynce_SalesPatch202001",
+          "solutionVersion": "9.0.2002.2022",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 91.7199999988079,
+        "timeEnd": 93.4699999988079,
+        "parameters": {
+          "method": "Mscrm.AdminSettings.isPdfCommandEnabled",
+          "webResourceName": "Sales/Settings/Sale_Admin_Settings.js",
+          "solutionName": "msdynce_SalesPatch202001",
+          "solutionVersion": "9.0.2002.2022",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "oData.retrieve.async",
+        "zone": "Core.Actions.Async",
+        "time": 92.74500000104308,
+        "timeEnd": 673.4600000008941,
+        "parameters": null
+      },
+      {
+        "name": "oData.retrieve.async",
+        "zone": "Core.Actions.Sync",
+        "time": 92.75,
+        "timeEnd": 93.24000000208616,
+        "parameters": null
+      },
+      {
+        "name": "oDataRetrieve",
+        "zone": "Storage",
+        "time": 92.82499999925494,
+        "timeEnd": 673.429999999702,
+        "parameters": null
+      },
+      {
+        "name": "entity.retrieve.async",
+        "zone": "Core.Actions.Async",
+        "time": 92.85499999672174,
+        "timeEnd": 108.64000000059605,
+        "parameters": null
+      },
+      {
+        "name": "entity.retrieve.async",
+        "zone": "Core.Actions.Sync",
+        "time": 92.85499999672174,
+        "timeEnd": 93.08999999985099,
+        "parameters": null
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 93.54000000283122,
+        "timeEnd": 93.55000000074506,
+        "parameters": {
+          "method": "Sales.CommandBarActions.Instance.isSdkAvailable",
+          "webResourceName": "Sales/CommandBarActions/SalesCommandBarActions.js",
+          "solutionName": "msdynce_SalesPatch202001",
+          "solutionVersion": "9.0.2002.2022",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 93.57000000029802,
+        "timeEnd": 94.05000000074506,
+        "parameters": {
+          "method": "Mscrm.AdminSettings.isPdfCommandEnabled",
+          "webResourceName": "Sales/Settings/Sale_Admin_Settings.js",
+          "solutionName": "msdynce_SalesPatch202001",
+          "solutionVersion": "9.0.2002.2022",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "oData.retrieve.async",
+        "zone": "Core.Actions.Async",
+        "time": 93.6550000011921,
+        "timeEnd": 764.2799999974668,
+        "parameters": null
+      },
+      {
+        "name": "oData.retrieve.async",
+        "zone": "Core.Actions.Sync",
+        "time": 93.65999999642372,
+        "timeEnd": 93.95499999821186,
+        "parameters": null
+      },
+      {
+        "name": "oDataRetrieve",
+        "zone": "Storage",
+        "time": 93.67000000178814,
+        "timeEnd": 764.2550000026822,
+        "parameters": null
+      },
+      {
+        "name": "entity.retrieve.async",
+        "zone": "Core.Actions.Async",
+        "time": 93.6849999986589,
+        "timeEnd": 111.26000000163913,
+        "parameters": null
+      },
+      {
+        "name": "entity.retrieve.async",
+        "zone": "Core.Actions.Sync",
+        "time": 93.6900000013411,
+        "timeEnd": 93.87499999627471,
+        "parameters": null
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 94.125,
+        "timeEnd": 94.21499999985099,
+        "parameters": {
+          "method": "Mscrm.WorkflowWebResource.CanSwitchProcess",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 94.26000000163913,
+        "timeEnd": 94.35999999940395,
+        "parameters": {
+          "method": "Mscrm.WorkflowWebResource.IsBPFCommandsAvaialableOffline",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 94.4400000013411,
+        "timeEnd": 94.85500000044703,
+        "parameters": {
+          "method": "Mscrm.WorkflowWebResource.IsBusinessProcessPresent",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 94.87999999895692,
+        "timeEnd": 98.14000000059605,
+        "parameters": {
+          "method": "Mscrm.WorkflowWebResource.ShowAbandon",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 98.17499999701977,
+        "timeEnd": 99.76499999687076,
+        "parameters": {
+          "method": "Mscrm.WorkflowWebResource.ShowReactivate",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 99.79500000178814,
+        "timeEnd": 105.02499999850988,
+        "parameters": {
+          "method": "Mscrm.WorkflowWebResource.ShowFinish",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 105.08999999985099,
+        "timeEnd": 105.43999999761581,
+        "parameters": {
+          "method": "PlaybookService.CommandBarActions.isDisplayPlayBook",
+          "webResourceName": "Playbook/CommandBarActions/Playbook_CommandBarActions_library.js",
+          "solutionName": "msdyn_Playbook",
+          "solutionVersion": "9.0.2002.1090 ",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 105.55000000074506,
+        "timeEnd": 105.57000000029802,
+        "parameters": {
+          "method": "XrmCore.Rules.Enabled.alwaysEnabled",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 105.59999999776483,
+        "timeEnd": 105.60999999940395,
+        "parameters": {
+          "method": "XrmCore.Rules.Enabled.neverEnabled",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 105.6849999986589,
+        "timeEnd": 105.7800000011921,
+        "parameters": {
+          "method": "XrmCore.Rules.Hierarchy.IsFormHierarchyEnabled",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 105.8450000025332,
+        "timeEnd": 106.04499999806285,
+        "parameters": {
+          "method": "XrmCore.InternalUtilities.DialogUtilities.isAllowLegacyDialogsEmbedding",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 106.10499999672174,
+        "timeEnd": 106.16999999806285,
+        "parameters": {
+          "method": "Follow.FollowCommands.dummy",
+          "webResourceName": "msdyn_/Follow.Command.js",
+          "solutionName": "ActivityFeedsCore",
+          "solutionVersion": "9.0.0.0",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 106.21000000089407,
+        "timeEnd": 106.21499999985099,
+        "parameters": {
+          "method": "Follow.FollowCommands.dummy",
+          "webResourceName": "msdyn_/Scripts/PlatformScriptLoader.js",
+          "solutionName": "ActivityFeedsCore",
+          "solutionVersion": "9.0.0.0",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 106.23499999940395,
+        "timeEnd": 106.24000000208616,
+        "parameters": {
+          "method": "Follow.FollowCommands.dummy",
+          "webResourceName": "msdyn_/InstalledLocales.js",
+          "solutionName": "ActivityFeedsCore",
+          "solutionVersion": "9.0.0.0",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 106.30499999970198,
+        "timeEnd": 107.37999999895692,
+        "parameters": {
+          "method": "Follow.FollowEnabled.isFollowButtonEnabled",
+          "webResourceName": "msdyn_/Follow.Command.js",
+          "solutionName": "ActivityFeedsCore",
+          "solutionVersion": "9.0.0.0",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 107.46499999985099,
+        "timeEnd": 107.58999999985099,
+        "parameters": {
+          "method": "Follow.FollowEnableYammerCheck.shouldEnableFollow",
+          "webResourceName": "msdyn_/Follow.Command.js",
+          "solutionName": "ActivityFeedsCore",
+          "solutionVersion": "9.0.0.0",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 107.63499999791384,
+        "timeEnd": 107.64000000059605,
+        "parameters": {
+          "method": "Follow.FollowCommands.dummy",
+          "webResourceName": "msdyn_/Follow.Command.js",
+          "solutionName": "ActivityFeedsCore",
+          "solutionVersion": "9.0.0.0",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 107.66000000014901,
+        "timeEnd": 107.66499999910593,
+        "parameters": {
+          "method": "Follow.FollowCommands.dummy",
+          "webResourceName": "msdyn_/Scripts/PlatformScriptLoader.js",
+          "solutionName": "ActivityFeedsCore",
+          "solutionVersion": "9.0.0.0",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 107.67499999701977,
+        "timeEnd": 107.67999999970198,
+        "parameters": {
+          "method": "Follow.FollowCommands.dummy",
+          "webResourceName": "msdyn_/InstalledLocales.js",
+          "solutionName": "ActivityFeedsCore",
+          "solutionVersion": "9.0.0.0",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 107.69499999657273,
+        "timeEnd": 107.76500000059605,
+        "parameters": {
+          "method": "Follow.FollowEnabled.isFollowButtonEnabled",
+          "webResourceName": "msdyn_/Follow.Command.js",
+          "solutionName": "ActivityFeedsCore",
+          "solutionVersion": "9.0.0.0",
+          "publisherName": "microsoftdynamics",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 107.83000000193715,
+        "timeEnd": 107.98999999836087,
+        "parameters": {
+          "method": "XrmCore.Commands.Flows.isMicrosoftFlowEnabled",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "ExecuteFunction",
+        "zone": "CustomScripts",
+        "time": 108.01500000059605,
+        "timeEnd": 108.11499999836087,
+        "parameters": {
+          "method": "XrmCore.Commands.Flows.displayFlowSingleMenu",
+          "webResourceName": "Main_system_library.js",
+          "solutionName": "System",
+          "solutionVersion": "5.0",
+          "publisherName": "MicrosoftCorporation",
+          "type": "RuleEvaluation"
+        }
+      },
+      {
+        "name": "SendRequest",
+        "zone": "WebService",
+        "time": 110.38499999791384,
+        "timeEnd": 672.125,
+        "parameters": {
+          "urlParameters": "organizations(043bca91-660c-4c2c-850f-19b7478d80d0)?$select=ispdfgenerationenabled",
+          "requestId": "5b1963bd-a4d8-4324-a714-e862a17f6535"
+        }
+      },
+      {
+        "name": "Fetch",
+        "zone": "BrowserResourceTimings",
+        "time": 110.95000000298023,
+        "timeEnd": 670.355000000447,
+        "parameters": {
+          "connectEnd": "22642919.470000003",
+          "connectStart": "22642807.695000004",
+          "domainLookupEnd": "22642807.695000004",
+          "domainLookupStart": "22642752.435000002",
+          "duration": "559.4049999974668",
+          "fetchStart": "22642751.755000006",
+          "name": "https://alyousseeasyreprodemo.crm.dynamics.com/api/data/v9.0/organizations(043bca91-660c-4c2c-850f-19b7478d80d0)?$select=ispdfgenerationenabled",
+          "requestStart": "22642919.620000005",
+          "responseEnd": "22643311.160000004",
+          "responseStart": "22643309.610000003",
+          "startTime": "22642751.755000006",
+          "decodedBodySize": "267",
+          "encodedBodySize": "183",
+          "nextHopProtocol": "h2",
+          "secureConnectionStart": "22642861.245000005",
+          "transferSize": "153",
+          "cached": "false",
+          "window": "MainWindow",
+          "url": "https://alyousseeasyreprodemo.crm.dynamics.com/api/data/v9.0/organizations(043bca91-660c-4c2c-850f-19b7478d80d0)?$select=ispdfgenerationenabled",
+          "patchStartTime": 22642751,
+          "fetch": true,
+          "windowId": "MainWindow",
+          "sync": false,
+          "method": "GET",
+          "h2": true,
+          "ServerActivityId": "5b1963bd-a4d8-4324-a714-e862a17f6535",
+          "status": 200,
+          "patchDuration": 563.7000000029802
+        }
+      },
+      {
+        "name": "SendRequest",
+        "zone": "WebService",
+        "time": 111.41000000014901,
+        "timeEnd": 763.5399999991059,
+        "parameters": {
+          "urlParameters": "organizations(043bca91-660c-4c2c-850f-19b7478d80d0)?$select=ispdfgenerationenabled",
+          "requestId": "73d40d87-e483-490d-9b30-3ff71e5522b2"
+        }
+      },
+      {
+        "name": "Fetch",
+        "zone": "BrowserResourceTimings",
+        "time": 112.18500000238419,
+        "timeEnd": 762.015000000596,
+        "parameters": {
+          "connectEnd": "22642752.990000006",
+          "connectStart": "22642752.990000006",
+          "domainLookupEnd": "22642752.990000006",
+          "domainLookupStart": "22642752.990000006",
+          "duration": "649.8299999982119",
+          "fetchStart": "22642752.990000006",
+          "name": "https://alyousseeasyreprodemo.crm.dynamics.com/api/data/v9.0/organizations(043bca91-660c-4c2c-850f-19b7478d80d0)?$select=ispdfgenerationenabled",
+          "requestStart": "22643311.370000005",
+          "responseEnd": "22643402.820000004",
+          "responseStart": "22643401.590000004",
+          "startTime": "22642752.990000006",
+          "decodedBodySize": "267",
+          "encodedBodySize": "183",
+          "nextHopProtocol": "h2",
+          "secureConnectionStart": "22642752.990000006",
+          "transferSize": "153",
+          "cached": "false",
+          "window": "MainWindow",
+          "url": "https://alyousseeasyreprodemo.crm.dynamics.com/api/data/v9.0/organizations(043bca91-660c-4c2c-850f-19b7478d80d0)?$select=ispdfgenerationenabled",
+          "patchStartTime": 22642752,
+          "fetch": true,
+          "windowId": "MainWindow",
+          "sync": false,
+          "method": "GET",
+          "h2": true,
+          "ServerActivityId": "73d40d87-e483-490d-9b30-3ff71e5522b2",
+          "status": 200,
+          "patchDuration": 660.8400000035763
+        }
+      },
+      {
+        "name": "ParseMetadata",
+        "zone": "WebService",
+        "time": 161.0050000026822,
+        "timeEnd": 162.3800000026822,
+        "parameters": null
+      },
+      {
+        "name": "gcm.retrieve",
+        "zone": "Core.Actions.Sync",
+        "time": 174.69999999925494,
+        "timeEnd": 177.77499999850988,
+        "parameters": null
+      },
+      {
+        "name": "XMLHttpRequest",
+        "zone": "BrowserResourceTimings",
+        "time": 203.79500000178814,
+        "timeEnd": 556.714999999851,
+        "parameters": {
+          "connectEnd": "22642844.600000005",
+          "connectStart": "22642844.600000005",
+          "domainLookupEnd": "22642844.600000005",
+          "domainLookupStart": "22642844.600000005",
+          "duration": "352.91999999806285",
+          "fetchStart": "22642844.600000005",
+          "name": "https://alyousseeasyreprodemo.crm.dynamics.com/api/data/v9.0/msdyn_bookingsetupmetadatas?$select=msdyn_entitylogicalname,statecode,msdyn_requirementrelationshiplogicalname,msdyn_enablequickbook,msdyn_defaultbookingduration",
+          "requestStart": "22642920.285",
+          "responseEnd": "22643197.520000003",
+          "responseStart": "22643196.150000006",
+          "startTime": "22642844.600000005",
+          "decodedBodySize": "1680",
+          "encodedBodySize": "436",
+          "nextHopProtocol": "h2",
+          "secureConnectionStart": "22642844.600000005",
+          "transferSize": "1059",
+          "cached": "false",
+          "window": "ClientApiFrame_4",
+          "url": "https://alyousseeasyreprodemo.crm.dynamics.com/api/data/v9.0/msdyn_bookingsetupmetadatas?$select=msdyn_entitylogicalname,statecode,msdyn_requirementrelationshiplogicalname,msdyn_enablequickbook,msdyn_defaultbookingduration",
+          "fetch": false,
+          "windowId": "ClientApiFrame_id-398",
+          "sync": false,
+          "method": "GET",
+          "patchStartTime": 22642843.55,
+          "h2": true,
+          "ServerActivityId": "97214983-53ce-4e59-9a8d-00f6e82c9c3c",
+          "patchDuration": 355.875,
+          "status": 200
+        }
+      },
+      {
+        "name": "TaskScheduler.Rendering",
+        "zone": "Core.Scheduler",
+        "time": 207.01500000059605,
+        "timeEnd": 296.85500000044703,
+        "parameters": null
+      },
+      {
+        "name": "RenderingUpdate",
+        "zone": "Core.Scheduler",
+        "time": 207.33000000193715,
+        "timeEnd": 296.8150000013411,
+        "parameters": {
+          "actions": [ "form.SavingState.set", "form.setIsAutoSaving", "form.SavingState.set", "form.setIsAutoSaving", "form.setIsAutoSaving", "form.SavingState.set", "gcm.retrieve" ],
+          "controlUpdates": 0,
+          "measuringUpdates": "0"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 239.49500000104308,
+        "timeEnd": 243.01000000163913,
+        "parameters": {
+          "controlId": "MscrmControls.Containers.ProcessBreadCrumb",
+          "parentId": "",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 251.214999999851,
+        "timeEnd": 252.47500000149012,
+        "parameters": {
+          "controlId": "subject",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 252.51999999955297,
+        "timeEnd": 252.89000000059605,
+        "parameters": {
+          "controlId": "subject.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 253.0949999988079,
+        "timeEnd": 253.48000000044703,
+        "parameters": {
+          "controlId": "msdyn_ordertype",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 253.5,
+        "timeEnd": 253.8100000023842,
+        "parameters": {
+          "controlId": "msdyn_ordertype.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 253.964999999851,
+        "timeEnd": 254.23499999940395,
+        "parameters": {
+          "controlId": "fullname_compositionLinkControl_firstname",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 254.27499999850988,
+        "timeEnd": 254.625,
+        "parameters": {
+          "controlId": "fullname_compositionLinkControl_firstname.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 254.8150000013411,
+        "timeEnd": 255.125,
+        "parameters": {
+          "controlId": "fullname_compositionLinkControl_lastname",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 255.1549999974668,
+        "timeEnd": 255.42999999970198,
+        "parameters": {
+          "controlId": "fullname_compositionLinkControl_lastname.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 255.589999999851,
+        "timeEnd": 255.785000000149,
+        "parameters": {
+          "controlId": "jobtitle",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 255.80499999970198,
+        "timeEnd": 255.98000000044703,
+        "parameters": {
+          "controlId": "jobtitle.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 256.10500000044703,
+        "timeEnd": 256.3499999977648,
+        "parameters": {
+          "controlId": "telephone1",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 256.3699999973178,
+        "timeEnd": 256.55000000074506,
+        "parameters": {
+          "controlId": "telephone1.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 256.73499999940395,
+        "timeEnd": 256.964999999851,
+        "parameters": {
+          "controlId": "mobilephone",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 256.98499999940395,
+        "timeEnd": 257.22999999672174,
+        "parameters": {
+          "controlId": "mobilephone.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 257.4050000011921,
+        "timeEnd": 257.70499999821186,
+        "parameters": {
+          "controlId": "emailaddress1",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 257.7249999977648,
+        "timeEnd": 257.9050000011921,
+        "parameters": {
+          "controlId": "emailaddress1.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 258.285000000149,
+        "timeEnd": 258.4699999988079,
+        "parameters": {
+          "controlId": "companyname",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 258.4899999983609,
+        "timeEnd": 258.679999999702,
+        "parameters": {
+          "controlId": "companyname.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 258.81999999657273,
+        "timeEnd": 259,
+        "parameters": {
+          "controlId": "websiteurl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 259.01999999955297,
+        "timeEnd": 259.1849999986589,
+        "parameters": {
+          "controlId": "websiteurl.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 259.32499999925494,
+        "timeEnd": 259.535000000149,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_line1",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 259.54999999701977,
+        "timeEnd": 259.7449999973178,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_line1.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 259.8500000014901,
+        "timeEnd": 260.01999999955297,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_line2",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 260.035000000149,
+        "timeEnd": 260.19499999657273,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_line2.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 260.32499999925494,
+        "timeEnd": 260.4949999973178,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_line3",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 260.51500000059605,
+        "timeEnd": 260.67500000074506,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_line3.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 260.80000000074506,
+        "timeEnd": 261.0649999976158,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_city",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 261.0999999977648,
+        "timeEnd": 261.3999999985099,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_city.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 262.42500000074506,
+        "timeEnd": 266.44999999925494,
+        "parameters": {
+          "controlId": "notescontrol",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 275.95500000193715,
+        "timeEnd": 279.5,
+        "parameters": {
+          "controlId": "Stakeholders",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 281.7549999989569,
+        "timeEnd": 282.25,
+        "parameters": {
+          "controlId": "Competitors",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 283.035000000149,
+        "timeEnd": 283.179999999702,
+        "parameters": {
+          "controlId": "MscrmControls.Containers.ProcessStageControl",
+          "parentId": "",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "ribbon.evaluaterules.batch",
+        "zone": "Core.Actions.Sync",
+        "time": 764.769999999553,
+        "timeEnd": 771.7100000008941,
+        "parameters": null
+      },
+      {
+        "name": "TaskScheduler.Rendering",
+        "zone": "Core.Scheduler",
+        "time": 773.4549999982119,
+        "timeEnd": 797.3300000019372,
+        "parameters": null
+      },
+      {
+        "name": "RenderingUpdate",
+        "zone": "Core.Scheduler",
+        "time": 773.5,
+        "timeEnd": 797.234999999404,
+        "parameters": {
+          "actions": [ "ribbon.evaluaterules.batch" ],
+          "controlUpdates": 0,
+          "measuringUpdates": "0"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 778.2799999974668,
+        "timeEnd": 778.464999999851,
+        "parameters": {
+          "controlId": "MscrmControls.Containers.ProcessBreadCrumb",
+          "parentId": "",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 779.7649999968708,
+        "timeEnd": 780.0449999980628,
+        "parameters": {
+          "controlId": "subject",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 780.0649999976158,
+        "timeEnd": 780.2899999991059,
+        "parameters": {
+          "controlId": "subject.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 780.4050000011921,
+        "timeEnd": 780.644999999553,
+        "parameters": {
+          "controlId": "msdyn_ordertype",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 780.660000000149,
+        "timeEnd": 780.8299999982119,
+        "parameters": {
+          "controlId": "msdyn_ordertype.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 780.9200000017881,
+        "timeEnd": 781.0500000007451,
+        "parameters": {
+          "controlId": "fullname_compositionLinkControl_firstname",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 781.0649999976158,
+        "timeEnd": 781.1849999986589,
+        "parameters": {
+          "controlId": "fullname_compositionLinkControl_firstname.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 781.269999999553,
+        "timeEnd": 781.4600000008941,
+        "parameters": {
+          "controlId": "fullname_compositionLinkControl_lastname",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 781.4700000025332,
+        "timeEnd": 781.5949999988079,
+        "parameters": {
+          "controlId": "fullname_compositionLinkControl_lastname.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 781.6750000007451,
+        "timeEnd": 781.804999999702,
+        "parameters": {
+          "controlId": "jobtitle",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 781.820000000298,
+        "timeEnd": 781.9449999965727,
+        "parameters": {
+          "controlId": "jobtitle.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 782.0249999985099,
+        "timeEnd": 782.1599999964237,
+        "parameters": {
+          "controlId": "telephone1",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 782.1750000007451,
+        "timeEnd": 782.320000000298,
+        "parameters": {
+          "controlId": "telephone1.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 782.4199999980628,
+        "timeEnd": 782.660000000149,
+        "parameters": {
+          "controlId": "mobilephone",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 782.6699999980628,
+        "timeEnd": 782.859999999404,
+        "parameters": {
+          "controlId": "mobilephone.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 783.0099999979138,
+        "timeEnd": 783.1849999986589,
+        "parameters": {
+          "controlId": "emailaddress1",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 783.1999999992549,
+        "timeEnd": 783.355000000447,
+        "parameters": {
+          "controlId": "emailaddress1.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 783.5999999977648,
+        "timeEnd": 783.7450000010431,
+        "parameters": {
+          "controlId": "companyname",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 783.7499999962747,
+        "timeEnd": 783.8799999989569,
+        "parameters": {
+          "controlId": "companyname.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 783.9699999988079,
+        "timeEnd": 784.1000000014901,
+        "parameters": {
+          "controlId": "websiteurl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 784.1150000020862,
+        "timeEnd": 784.234999999404,
+        "parameters": {
+          "controlId": "websiteurl.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 784.3249999992549,
+        "timeEnd": 784.4550000019372,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_line1",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 784.464999999851,
+        "timeEnd": 784.5850000008941,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_line1.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 784.6649999991059,
+        "timeEnd": 784.7899999991059,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_line2",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 784.804999999702,
+        "timeEnd": 784.9250000007451,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_line2.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 785.0050000026822,
+        "timeEnd": 785.1299999989569,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_line3",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 785.140000000596,
+        "timeEnd": 785.2600000016391,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_line3.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 785.355000000447,
+        "timeEnd": 785.5500000007451,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_city",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 785.570000000298,
+        "timeEnd": 785.734999999404,
+        "parameters": {
+          "controlId": "address1_composite_compositionLinkControl_address1_city.fieldControl",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 786.375,
+        "timeEnd": 788.1499999985099,
+        "parameters": {
+          "controlId": "notescontrol",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 789.9250000007451,
+        "timeEnd": 790.929999999702,
+        "parameters": {
+          "controlId": "Stakeholders",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 792.3350000008941,
+        "timeEnd": 792.7750000022352,
+        "parameters": {
+          "controlId": "Competitors",
+          "parentId": "e3b6ddb7",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "CustomControlHostSelectors.mapStateToProps",
+        "zone": "CustomControlsFramework",
+        "time": 793.214999999851,
+        "timeEnd": 793.359999999404,
+        "parameters": {
+          "controlId": "MscrmControls.Containers.ProcessStageControl",
+          "parentId": "",
+          "level": "0",
+          "updatedProperties": "[]"
+        }
+      },
+      {
+        "name": "SaveForm",
+        "zone": "Core.KPI",
+        "time": 798.5100000016391,
+        "parameters": {
+          "LoadQuality": 0,
+          "CorrelationId": "759ff817-d20c-4de6-a2fd-37d34f6db3ef",
+          "SaveMode": "1",
+          "TimeSinceIdle": "3",
+          "IsBoot": false,
+          "EstimatedLatency": "66.32500000024447",
+          "Attribution": "{\"onsave\":{\"MicrosoftCorporation\":{\"msdynce_LeadManagementPatch\":{\"9.0.2002.2001\":{\"LeadManagement/Lead/Lead_main_system_library.js\":{\"Mscrm.LeadMainSystemLibraryWebResource.form_OnSave\":[{\"d\":0}]}}}}},\"RuleEvaluation\":{\"microsoftdynamics\":{\"AppforOutlookPatch\":{\"1.2.353.0\":{\"new_MailAppScriptResource\":{\"HasMailContextAction\":[{\"d\":1}],\"HasMailContext\":[{\"d\":0}]}}},\"MicrosoftDynamicsScheduling\":{\"3.12.0.448\":{\"msdyn_/fps/Utils/FpsUtils.js\":{\"FpsUtils.Form.isBookButtonEnabled\":[{\"d\":12,\"r\":\"[{\\\"id\\\":\\\"bc54e601-9509-4ee4-905a-d22563976219\\\",\\\"sync\\\":false}]\"}]}}},\"YammerIntegration\":{\"9.1.1.001\":{\"msdyn_/YammerIntegration/Yammer_main_system_library.js\":{\"Yammer.Rules.showYammer\":[{\"d\":1}]}}},\"msdynce_OfficeProductivity\":{\"9.0.2.11021\":{\"msdyn_/OfficeProductivity.js\":{\"OfficeProductivity.RibbonRules.showMSTeamsCollaborateCommand\":[{\"d\":1}],\"OfficeProductivity.RibbonRules.hideCollaborateCommandForContextualEmail\":[{\"d\":0}]}}},\"msdyn_Playbook\":{\"9.0.2002.1090 \":{\"Playbook/CommandBarActions/Playbook_CommandBarActions_library.js\":{\"PlaybookService.CommandBarActions.isDisplayPlayBook\":[{\"d\":0}]}}},\"ActivityFeedsCore\":{\"9.0.0.0\":{\"msdyn_/Follow.Command.js\":{\"Follow.FollowCommands.dummy\":[{\"d\":0},{\"d\":0}],\"Follow.FollowEnabled.isFollowButtonEnabled\":[{\"d\":1},{\"d\":0}],\"Follow.FollowEnableYammerCheck.shouldEnableFollow\":[{\"d\":0}]},\"msdyn_/Scripts/PlatformScriptLoader.js\":{\"Follow.FollowCommands.dummy\":[{\"d\":0},{\"d\":0}]},\"msdyn_/InstalledLocales.js\":{\"Follow.FollowCommands.dummy\":[{\"d\":0},{\"d\":0}]}}}},\"MicrosoftCorporation\":{\"System\":{\"5.0\":{\"Main_system_library.js\":{\"XrmCore.Rules.AutoSave.isAutoSaveEnabled\":[{\"d\":1}],\"XrmCore.Rules.RefreshForm.isRefreshForm\":[{\"d\":0}],\"XrmCore.Rules.Online.IsEntityAvailableForUserInMocaOffline\":[{\"d\":0},{\"d\":0},{\"d\":0},{\"d\":0}],\"Mscrm.WorkflowWebResource.CanSwitchProcess\":[{\"d\":0}],\"Mscrm.WorkflowWebResource.IsBPFCommandsAvaialableOffline\":[{\"d\":0}],\"Mscrm.WorkflowWebResource.IsBusinessProcessPresent\":[{\"d\":0}],\"Mscrm.WorkflowWebResource.ShowAbandon\":[{\"d\":3}],\"Mscrm.WorkflowWebResource.ShowReactivate\":[{\"d\":2}],\"Mscrm.WorkflowWebResource.ShowFinish\":[{\"d\":5}],\"XrmCore.Rules.Enabled.alwaysEnabled\":[{\"d\":0}],\"XrmCore.Rules.Enabled.neverEnabled\":[{\"d\":0}],\"XrmCore.Rules.Hierarchy.IsFormHierarchyEnabled\":[{\"d\":0}],\"XrmCore.InternalUtilities.DialogUtilities.isAllowLegacyDialogsEmbedding\":[{\"d\":0}],\"XrmCore.Commands.Flows.isMicrosoftFlowEnabled\":[{\"d\":0}],\"XrmCore.Commands.Flows.displayFlowSingleMenu\":[{\"d\":0}]}}},\"msdynce_MarketingSalesPatch\":{\"9.0.1912.5013\":{\"MarketingSales/Lead/Lead_main_system_library.js\":{\"ClientUtility.ClientUtil.isUCI\":[{\"d\":0},{\"d\":0}]}}},\"msdynce_SalesPatch202001\":{\"9.0.2002.2022\":{\"Sales/CommandBarActions/SalesCommandBarActions.js\":{\"Sales.CommandBarActions.Instance.isSdkAvailable\":[{\"d\":1},{\"d\":0}]},\"Sales/Settings/Sale_Admin_Settings.js\":{\"Mscrm.AdminSettings.isPdfCommandEnabled\":[{\"d\":2},{\"d\":0}]}}}}}}",
+          "CustomScriptTime": "33.04499998688698",
+          "SyncRequestTime": "0",
+          "NetworkRequestInfo": "{\"metadata\":1,\"webService\":3,\"assetLoads\":0}",
+          "ZoneActivity": "{\"Core.Actions.Sync\":38,\"WebService\":651,\"Core.Scheduler\":113,\"BrowserResourceTimings\":653}",
+          "WorkBlockKpi": true,
+          "CleanLoad": "1"
+        }
+      },
+      {
+        "name": "WorkEnd",
+        "zone": "Core.Performance",
+        "time": 798.5100000016391,
+        "parameters": null
+      }
+    ],
+    "metadata": {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36 Edg/80.0.361.69",
+      "clientVersion": "1.4.284-2002.3",
+      "serverVersion": "9.1.0000.14448",
+      "serverDatabaseVersion": "9.1.0.14448",
+      "languageCode": "1033",
+      "clientHost": "Browser",
+      "clientHostSubtype": "",
+      "clientHostVersion": "null",
+      "telemetrySessionId": "e0000526-1d5b-4c44-821b-4e6dcbc2ba6a",
+      "telemetryActivityId": "cd474d02-f842-4cc2-81ae-ff0fd5f7a892",
+      "IsBoot": false,
+      "EstimatedLatency": "66.32500000024447",
+      "timestamp": "Mon Mar 23 2020 14:54:28 GMT-0500 (Central Daylight Time)",
+      "windowWidth": 1550,
+      "windowHeight": 882
+    },
+    "tags": []
+  },
+  "keyPerformanceIndicators": [
+    {
+      "name": "SaveForm",
+      "value": 798.5100000016391
+    }
+  ]
+}

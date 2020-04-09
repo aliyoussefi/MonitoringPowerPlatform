@@ -1,0 +1,21 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "x-ms-workflow-run-id": "08586164691702351831364616174CU73",
+    "x-ms-correlation-id": "5022b590-f457-4a86-80da-ce22ce2d24a6",
+    "x-ms-client-tracking-id": "08586164692660680536305951133CU82",
+    "x-ms-client-keywords": "testFlow",
+    "x-ms-trigger-history-name": "08586164691702351831364616174CU73",
+    "x-ms-execution-location": "westus",
+    "x-ms-workflow-system-id": "/locations/westus/scaleunits/prod-25/workflows/098c813ad62944398b06ed0b179d0f93",
+    "x-ms-workflow-id": "098c813ad62944398b06ed0b179d0f93",
+    "x-ms-workflow-version": "08586164691968675365",
+    "x-ms-workflow-name": "78c5f9da-3d8d-4216-98a2-27928a2e64fa",
+    "x-ms-tracking-id": "8a21219c-8f1a-4a32-b43c-a814003bf9f3",
+    "Content-Type": "application/json; charset=utf-8"
+  },
+  "body": {
+    "responsevalue": "\"\"",
+    "responsestatus": "Done"
+  }
+}

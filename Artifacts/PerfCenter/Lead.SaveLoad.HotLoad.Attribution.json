@@ -1,0 +1,118 @@
+{
+  "onsave": { "MicrosoftCorporation": { "msdynce_LeadManagementPatch": { "9.0.2002.2001": { "LeadManagement/Lead/Lead_main_system_library.js": { "Mscrm.LeadMainSystemLibraryWebResource.form_OnSave": [ { "d": 0 } ] } } } } },
+  "RuleEvaluation": {
+    "microsoftdynamics": {
+      "AppforOutlookPatch": {
+        "1.2.353.0": {
+          "new_MailAppScriptResource": {
+            "HasMailContextAction": [ { "d": 1 } ],
+            "HasMailContext": [ { "d": 0 } ]
+          }
+        }
+      },
+      "MicrosoftDynamicsScheduling": {
+        "3.12.0.448": {
+          "msdyn_/fps/Utils/FpsUtils.js": {
+            "FpsUtils.Form.isBookButtonEnabled": [
+              {
+                "d": 12,
+                "r": "[{\"id\":\"bc54e601-9509-4ee4-905a-d22563976219\",\"sync\":false}]"
+              }
+            ]
+          }
+        }
+      },
+      "YammerIntegration": { "9.1.1.001": { "msdyn_/YammerIntegration/Yammer_main_system_library.js": { "Yammer.Rules.showYammer": [ { "d": 1 } ] } } },
+      "msdynce_OfficeProductivity": {
+        "9.0.2.11021": {
+          "msdyn_/OfficeProductivity.js": {
+            "OfficeProductivity.RibbonRules.showMSTeamsCollaborateCommand": [ { "d": 1 } ],
+            "OfficeProductivity.RibbonRules.hideCollaborateCommandForContextualEmail": [ { "d": 0 } ]
+          }
+        }
+      },
+      "msdyn_Playbook": { "9.0.2002.1090 ": { "Playbook/CommandBarActions/Playbook_CommandBarActions_library.js": { "PlaybookService.CommandBarActions.isDisplayPlayBook": [ { "d": 0 } ] } } },
+      "ActivityFeedsCore": {
+        "9.0.0.0": {
+          "msdyn_/Follow.Command.js": {
+            "Follow.FollowCommands.dummy": [
+              { "d": 0 },
+              { "d": 0 }
+            ],
+            "Follow.FollowEnabled.isFollowButtonEnabled": [
+              { "d": 1 },
+              { "d": 0 }
+            ],
+            "Follow.FollowEnableYammerCheck.shouldEnableFollow": [ { "d": 0 } ]
+          },
+          "msdyn_/Scripts/PlatformScriptLoader.js": {
+            "Follow.FollowCommands.dummy": [
+              { "d": 0 },
+              { "d": 0 }
+            ]
+          },
+          "msdyn_/InstalledLocales.js": {
+            "Follow.FollowCommands.dummy": [
+              { "d": 0 },
+              { "d": 0 }
+            ]
+          }
+        }
+      }
+    },
+    "MicrosoftCorporation": {
+      "System": {
+        "5.0": {
+          "Main_system_library.js": {
+            "XrmCore.Rules.AutoSave.isAutoSaveEnabled": [ { "d": 1 } ],
+            "XrmCore.Rules.RefreshForm.isRefreshForm": [ { "d": 0 } ],
+            "XrmCore.Rules.Online.IsEntityAvailableForUserInMocaOffline": [
+              { "d": 0 },
+              { "d": 0 },
+              { "d": 0 },
+              { "d": 0 }
+            ],
+            "Mscrm.WorkflowWebResource.CanSwitchProcess": [ { "d": 0 } ],
+            "Mscrm.WorkflowWebResource.IsBPFCommandsAvaialableOffline": [ { "d": 0 } ],
+            "Mscrm.WorkflowWebResource.IsBusinessProcessPresent": [ { "d": 0 } ],
+            "Mscrm.WorkflowWebResource.ShowAbandon": [ { "d": 3 } ],
+            "Mscrm.WorkflowWebResource.ShowReactivate": [ { "d": 2 } ],
+            "Mscrm.WorkflowWebResource.ShowFinish": [ { "d": 5 } ],
+            "XrmCore.Rules.Enabled.alwaysEnabled": [ { "d": 0 } ],
+            "XrmCore.Rules.Enabled.neverEnabled": [ { "d": 0 } ],
+            "XrmCore.Rules.Hierarchy.IsFormHierarchyEnabled": [ { "d": 0 } ],
+            "XrmCore.InternalUtilities.DialogUtilities.isAllowLegacyDialogsEmbedding": [ { "d": 0 } ],
+            "XrmCore.Commands.Flows.isMicrosoftFlowEnabled": [ { "d": 0 } ],
+            "XrmCore.Commands.Flows.displayFlowSingleMenu": [ { "d": 0 } ]
+          }
+        }
+      },
+      "msdynce_MarketingSalesPatch": {
+        "9.0.1912.5013": {
+          "MarketingSales/Lead/Lead_main_system_library.js": {
+            "ClientUtility.ClientUtil.isUCI": [
+              { "d": 0 },
+              { "d": 0 }
+            ]
+          }
+        }
+      },
+      "msdynce_SalesPatch202001": {
+        "9.0.2002.2022": {
+          "Sales/CommandBarActions/SalesCommandBarActions.js": {
+            "Sales.CommandBarActions.Instance.isSdkAvailable": [
+              { "d": 1 },
+              { "d": 0 }
+            ]
+          },
+          "Sales/Settings/Sale_Admin_Settings.js": {
+            "Mscrm.AdminSettings.isPdfCommandEnabled": [
+              { "d": 2 },
+              { "d": 0 }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

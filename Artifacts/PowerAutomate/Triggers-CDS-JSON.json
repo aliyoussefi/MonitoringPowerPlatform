@@ -1,0 +1,44 @@
+{
+  "name": "When_a_record_is_created",
+  "inputs": {
+    "host": {
+      "apiId": "subscriptions/4a971bbd-c3d8-46e1-b150-4870cac9f19c/providers/Microsoft.Web/locations/westus/runtimes/msmanaged-na/apis/commondataservice",
+      "connectionReferenceName": "shared_commondataservice",
+      "operationId": "SubscribeOnNewItems"
+    },
+    "parameters": {
+      "dataset": "default.cds",
+      "table": "msdyn_flow_approvals",
+      "scope": "Organization"
+    }
+  },
+  "outputs": {
+    "headers": {
+      "Connection": "Keep-Alive",
+      "Expect": "100-continue",
+      "Host": "prod-05.westus.logic.azure.com",
+      "x-ms-correlation-request-id": "c52a4565-4019-44de-9512-40ff5de4e9ed",
+      "x-ms-client-request-id": "c52a4565-4019-44de-9512-40ff5de4e9ed",
+      "x-ms-user-id": "7c0f6666-5dfc-4aa6-8f95-63def54aad05",
+      "Content-Length": "1630",
+      "Content-Type": "application/json"
+    },
+    "body": {
+     ...
+      "ItemInternalId": "efbcb260-7029-4a90-af73-cf9ac1443955",
+      "SdkMessage": "Create",
+      "RunAsSystemUserId": "f1455c4f-abee-e911-a95d-000d3a36ed49",
+      "RowVersion": "26529793"
+    }
+  },
+  "startTime": "2020-03-25T02:39:21.1073883Z",
+  "endTime": "2020-03-25T02:39:21.1073883Z",
+  "trackingId": "dd9b1593-b621-4e18-9577-6ee106bd18f9",
+  "clientTrackingId": "08586165031096435013355935884CU100",
+  "originHistoryName": "08586165029243551440516020308CU01",
+  "sourceHistoryName": "08586165029702049717631699141CU99",
+  "clientKeywords": [
+    "testFlow"
+  ],
+  "status": "Succeeded"
+}

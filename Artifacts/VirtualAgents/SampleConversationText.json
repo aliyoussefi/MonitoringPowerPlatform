@@ -1,0 +1,275 @@
+{
+    "activities": [
+        {
+            "id": "I1HEt9rfrF1LFzzIm5uncT-o|0000000",
+            "type": "message",
+            "timestamp": 1586192297,
+            "from": {
+                "role": 1
+            },
+            "textFormat": "plain",
+            "text": "route a service",
+            "attachments": []
+        },
+        {
+            "id": null,
+            "type": "message",
+            "timestamp": 1586192299,
+            "from": {
+                "role": 0
+            },
+            "textFormat": "plain",
+            "text": "Sorry, I am not able to find a related topic. Can you rephrase and try again?",
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000000"
+        },
+        {
+            "id": "I1HEt9rfrF1LFzzIm5uncT-o|0000002",
+            "type": "message",
+            "timestamp": 1586192304,
+            "from": {
+                "role": 1
+            },
+            "textFormat": "plain",
+            "text": "recommend a service",
+            "attachments": []
+        },
+        {
+            "value": {
+                "triggerUtterance": "recommend a service",
+                "normalizedTriggerUtterance": "recommend service",
+                "intentCandidates": [
+                    {
+                        "intentId": "38b49c13-ade7-4238-9af7-eb9ff8d1361a",
+                        "intentScore": {
+                            "score": 0.82570415735244751,
+                            "Type": 1,
+                            "Title": "Dispatch Bot Router"
+                        }
+                    }
+                ]
+            },
+            "valueType": "IntentCandidates",
+            "id": "2346256a06dd4381877cc5ae2066f85c",
+            "type": "trace",
+            "timestamp": 1586192305,
+            "from": {
+                "role": 0
+            },
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000002"
+        },
+        {
+            "id": null,
+            "type": "message",
+            "timestamp": 1586192305,
+            "from": {
+                "role": 0
+            },
+            "textFormat": "plain",
+            "text": "Did you mean Dispatch Bot Router?",
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000002"
+        },
+        {
+            "id": "I1HEt9rfrF1LFzzIm5uncT-o|0000004",
+            "type": "message",
+            "timestamp": 1586192307,
+            "from": {
+                "role": 1
+            },
+            "textFormat": "plain",
+            "text": "Yes",
+            "attachments": []
+        },
+        {
+            "value": {
+                "intentId": "38b49c13-ade7-4238-9af7-eb9ff8d1361a",
+                "intentScore": {
+                    "score": 0.82570415735244751,
+                    "Type": 1,
+                    "Title": "Dispatch Bot Router"
+                },
+                "triggerUtterance": "Yes",
+                "normalizedTriggerUtterance": "yes"
+            },
+            "valueType": "IntentRecognition",
+            "id": "416c45b7dd00457a900ff3556f114d44",
+            "type": "trace",
+            "timestamp": 1586192307,
+            "from": {
+                "role": 0
+            },
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000004"
+        },
+        {
+            "id": null,
+            "type": "message",
+            "timestamp": 1586192307,
+            "from": {
+                "role": 0
+            },
+            "textFormat": "markdown",
+            "text": "Welcome to the Managed IP Services Dispatch Bot! My name is Steve! beep boop!",
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000004"
+        },
+        {
+            "id": null,
+            "type": "message",
+            "timestamp": 1586192307,
+            "from": {
+                "role": 0
+            },
+            "textFormat": "markdown",
+            "text": "Let's get started! Before we begin can you help me better understand what you're looking for?",
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000004"
+        },
+        {
+            "id": null,
+            "type": "message",
+            "timestamp": 1586192307,
+            "from": {
+                "role": 0
+            },
+            "textFormat": "markdown",
+            "text": "Looks like you want some help with service recommendations! One moment while I connect up!",
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000004"
+        },
+        {
+            "value": {
+                "targetDialogId": "76e5ea30-94cc-43ab-9a24-f2289f2c0303",
+                "targetDialogType": "Regular"
+            },
+            "valueType": "DialogRedirect",
+            "id": "4e97a4c996004395bc26a45b3d5f1dac",
+            "type": "trace",
+            "timestamp": 1586192307,
+            "from": {
+                "role": 0
+            },
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000004"
+        },
+        {
+            "id": null,
+            "type": "message",
+            "timestamp": 1586192307,
+            "from": {
+                "role": 0
+            },
+            "textFormat": "markdown",
+            "text": "Welcome to Recommend a Service!",
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000004"
+        },
+        {
+            "id": null,
+            "type": "message",
+            "timestamp": 1586192307,
+            "from": {
+                "role": 0
+            },
+            "textFormat": "markdown",
+            "text": "Does the customer know what they are looking for or need help with?",
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000004"
+        },
+        {
+            "id": "I1HEt9rfrF1LFzzIm5uncT-o|0000010",
+            "type": "message",
+            "timestamp": 1586192311,
+            "from": {
+                "role": 1
+            },
+            "textFormat": "plain",
+            "text": "No",
+            "attachments": []
+        },
+        {
+            "id": null,
+            "type": "message",
+            "timestamp": 1586192312,
+            "from": {
+                "role": 0
+            },
+            "textFormat": "markdown",
+            "text": "Hmm...let's see if we can try to find out what they may be interested in. I have a couple of questions I'm hoping you can answer so I can better assist!",
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000010"
+        },
+        {
+            "id": null,
+            "type": "message",
+            "timestamp": 1586192312,
+            "from": {
+                "role": 0
+            },
+            "textFormat": "markdown",
+            "text": "What product do you think they are interested in a service for?",
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000010"
+        },
+        {
+            "id": "I1HEt9rfrF1LFzzIm5uncT-o|0000013",
+            "type": "message",
+            "timestamp": 1586192350,
+            "from": {
+                "role": 1
+            },
+            "textFormat": "plain",
+            "text": "Dynamics 365 CE",
+            "attachments": []
+        },
+        {
+            "id": null,
+            "type": "message",
+            "timestamp": 1586192352,
+            "from": {
+                "role": 0
+            },
+            "textFormat": "markdown",
+            "text": "Sounds like they could use some help with Dynamics 365 CE!",
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000013"
+        },
+        {
+            "id": null,
+            "type": "message",
+            "timestamp": 1586192352,
+            "from": {
+                "role": 0
+            },
+            "textFormat": "markdown",
+            "text": "Has the customer mentioned any of these concerns?",
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000013"
+        },
+        {
+            "id": "I1HEt9rfrF1LFzzIm5uncT-o|0000016",
+            "type": "message",
+            "timestamp": 1586192357,
+            "from": {
+                "role": 1
+            },
+            "textFormat": "plain",
+            "text": "Performance",
+            "attachments": []
+        },
+        {
+            "id": null,
+            "type": "message",
+            "timestamp": 1586192358,
+            "from": {
+                "role": 0
+            },
+            "textFormat": "markdown",
+            "text": "Have they mentioned anything about having a service delivered on-site?",
+            "attachments": [],
+            "replyToId": "I1HEt9rfrF1LFzzIm5uncT-o|0000016"
+        }
+    ]
+}
