@@ -1,0 +1,14 @@
+RunspaceId   : 1df8b861-b012-4e53-bc15-1e4f59f03282
+RecordType   : PowerAppsApp
+CreationDate : 3/30/2020 5:42:35 AM
+UserIds      : arpitas@pfecrmonline.onmicrosoft.com
+Operations   : PowerAppPermissionEdited
+AuditData    : {"CreationTime":"2020-03-30T05:42:35","Id":"7153ea76-d228-4dd2-bd6d-ca247f532011","Operation":"PowerAppPermissionEdited","OrganizationId":"1557f771-4c8e-4dbd-8b80-dd00a88e833e","RecordT
+               ype":45,"ResultStatus":"Success","UserKey":"arpitas@pfecrmonline.onmicrosoft.com","UserType":0,"Version":1,"Workload":"PowerApps","ObjectId":"8bc4ae57-cbe6-4a0b-9763-eb3624c821a7","User
+               Id":"arpitas@pfecrmonline.onmicrosoft.com","AdditionalInfo":"{\"targetObjectId\":\"bec33726-2e4f-46c7-b247-29b57c4df65d\",\"permissionType\":\"CanEdit\",\"environmentName\":\"45631aa5-f
+               43e-4672-959c-8dfa4f1e5ca8\"}","AppName":"\/providers\/Microsoft.PowerApps\/apps\/1fb9dc99-24c8-419d-b13c-da06524b31f3"}
+ResultIndex  : 12
+ResultCount  : 12
+Identity     : 7153ea76-d228-4dd2-bd6d-ca247f532011
+IsValid      : True
+ObjectState  : Unchanged

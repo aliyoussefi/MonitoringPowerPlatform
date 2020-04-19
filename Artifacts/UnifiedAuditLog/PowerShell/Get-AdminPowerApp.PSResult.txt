@@ -1,0 +1,14 @@
+AppName                  : ff089778-9492-4b2b-b569-70b2ed03df91
+DisplayName              : PowerApps-Monitoring-Workshop
+CreatedTime              : 2020-03-04T20:48:39.4118383Z
+Owner                    : @{id=90f0352e-c324-43da-8e38-f774b56a2d93; displayName=Ali Youssefi; type=User; 
+                           tenantId=1557f771-4c8e-4dbd-8b80-dd00a88e833e; userPrincipalName=alyousse@pfecrmonline.onmicrosoft.com}
+LastModifiedTime         : 2020-03-04T20:49:35.9215733Z
+EnvironmentName          : 10195613-f7d0-4d8e-bc74-f8f6bf1fe7d4
+UnpublishedAppDefinition : 
+IsFeaturedApp            : False
+IsHeroApp                : False
+BypassConsent            : False
+Internal                 : @{name=ff089778-9492-4b2b-b569-70b2ed03df91; id=/providers/Microsoft.PowerApps/scopes/admin/environments/10195613-f7d0-4
+                           d8e-bc74-f8f6bf1fe7d4/apps/ff089778-9492-4b2b-b569-70b2ed03df91; type=Microsoft.PowerApps/scopes/admin/apps; tags=; 
+                           properties=; logicalName=pfe_powerappsmonitoringworkshop_a6681; isAppComponentLibrary=False; appType=ClassicCanvasApp}
