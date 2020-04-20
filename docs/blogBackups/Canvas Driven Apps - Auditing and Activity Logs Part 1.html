@@ -1,0 +1,227 @@
+<h2 class="md-end-block md-heading"><span class="md-plain">Summary</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class=""><strong><span class="md-plain">Microsoft Power Apps Canvas Apps</span></strong></span><span class="md-plain md-expand"> provide users the ability to quickly create and publish applications to their enterprise. With this ability comes concerns with governance to ensure users are allowed the appropriate permissions as well as identifying and highlighting specific apps across the organization. This article will explore </span><span class=""><strong><span class="md-plain">promoting a Canvas App as a featured or hero app</span></strong></span><span class="md-plain"> which can be used as communication devices during crisis, internal training, etc. From there the article will discuss other scenarios useful for monitoring </span><span class=""><strong><span class="md-plain">Canvas Apps</span></strong></span><span class="md-plain"> with the </span><span class=""><strong><span class="md-plain">Power Apps Administration PowerShell</span></strong></span><span class="md-plain"> cmdlets. From there the article will go into </span><span class=""><strong><span class="md-plain">activity events </span></strong></span><span class="md-plain"> taken within the </span><span class=""><strong><span class="md-plain">Power Platform</span></strong></span><span class="md-plain">. </span></p>
+<h2 class="md-end-block md-heading"><span class="md-plain">Featured and Hero Apps</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">Once your enterprise begins creating </span><span class=""><strong><span class="md-plain">Power Apps</span></strong></span><span class="md-plain">, one thing users will begin to notice is abundance of apps in your </span><span class=""><strong><span class="md-plain">Power Apps</span></strong></span><span class="md-plain"> environment. The </span><span class=""><strong><span class="md-plain">Power Apps Player</span></strong></span><span class="md-plain"> has functionality to allow users to search for a specific app but knowing what to look for and who published it can be a challenge. </span><span><u><span class="md-plain">By default </span><span class=""><strong><span class="md-plain">Power Apps</span></strong></span><span class="md-plain"> provides views which can help distinguish apps created or favorites by a user.</span></u></span><span class="md-plain"> </span></p>
+<p class="md-end-block md-p" style="padding-left: 300px;"><span class="md-image md-img-loaded" data-src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/PowerApps.FeaturedAppView.png"><img alt="" height="201" src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/PowerApps.FeaturedAppView.png" width="327" /></span></p>
+<p class="md-end-block md-p"><span class="md-plain">For an enterprise, the ability to quickly create and promote an app is key driver for choosing </span><span class=""><strong><span class="md-plain">Power Apps</span></strong></span><span class="md-plain"> as a platform. </span><span class=""><em><span class="md-plain">In a real world example, consider the COVID-19 crisis</span></em></span><span class="md-plain">. An enterprise may want to push out an app that </span><span class=""><strong><span class="md-plain">allows users to check in</span></strong></span><span class="md-plain">, </span><span class=""><strong><span class="md-plain">provide emergency contacts</span></strong></span><span class="md-plain">, or </span><span class=""><strong><span class="md-plain">stay up to date on the latest news</span></strong></span><span class="md-plain">. An example of such as app is the </span><span class=" md-link"><a href="https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/sample-crisis-communication-app" rel="noopener noreferrer" target="_blank"><span class="md-plain">Crisis Communication Template</span></a></span><span class="md-plain">, developed by Microsoft. Luckily Power Apps provides a mechanism to set an app to be a featured app which will prominently display in a specific view allowing users to quickly find and open the app.</span></p>
+<p class="md-end-block md-p" style="padding-left: 300px;"><span class="md-image md-img-loaded" data-src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/PowerApps.FeaturedAppAndHeroApp.png"><img alt="" height="294" src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/PowerApps.FeaturedAppAndHeroApp.png" width="350" /></span></p>
+<p class="md-end-block md-p"><span class="md-plain">As shown above, multiple featured apps can be added to a list available to all </span><span class=""><strong><span class="md-plain">Power Apps</span></strong></span><span class="md-plain"> users within the organization. </span></p>
+<p class="md-end-block md-p"><span class="md-plain">A </span><span class=""><strong><span class="md-plain">Hero App</span></strong></span><span class="md-plain">, is an app that will be shown at the top of default list for </span><span class=""><strong><span class="md-plain">Power Apps</span></strong></span><span class="md-plain">. This is also extended to other lists, even the Featured List. The </span><span class=""><strong><span class="md-plain">Hero App</span></strong></span><span class="md-plain"> will also be given the headline "</span><span class=""><strong><span class="md-plain">FEATURED APP</span></strong></span><span class="md-plain">" to help distinguish it from other apps. </span><span class=" md-link"><a href="https://powerapps.microsoft.com/en-us/blog/powerapps-discoverability-in-the-enterprise/" rel="noopener noreferrer" target="_blank"><span class="md-plain">As described in Pat Dunn's article, Discoverability in the Enterprise</span></a></span><span class="md-plain">, there can be only one </span><span class=""><strong><span class="md-plain">Hero App</span></strong></span><span class="md-plain"> for an organization. Also detailed in the article are the </span><span class=""><strong><span class="md-plain">PowerShell</span></strong></span><span class="md-plain"> cmdlets needed to create </span><span class=""><strong><span class="md-plain">Featured and Hero Apps</span></strong></span><span class="md-plain">.</span></p>
+<p class="md-end-block md-p" style="padding-left: 300px;"><span class="md-image md-img-loaded" data-src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/PowerApps.HeroApp.png"><img alt="" height="296" src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/PowerApps.HeroApp.png" width="349" /></span></p>
+<h3 class="md-end-block md-heading"><span class="md-plain">Using PowerShell to create Featured and Hero Apps</span></h3>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">To set an app as a </span><span class=""><strong><span class="md-plain">Featured</span></strong></span><span class="md-plain"> or </span><span class=""><strong><span class="md-plain">Hero</span></strong></span><span class="md-plain"> app, two </span><span class=""><strong><span class="md-plain">PowerShell</span></strong></span><span class="md-plain"> cmdlets are required. Before using the cmdlets, the specific modules that contain them need to be downloaded for use. The article, </span><span class=" md-link"><a href="https://docs.microsoft.com/en-us/power-platform/admin/powerapps-powershell" rel="noopener noreferrer" target="_blank"><span class="md-plain">PowerShell support for Power Apps</span></a></span><span class="md-plain">, has step by step instructions of how to get and work with the modules. </span></p>
+<h4 class="md-end-block md-heading"><span class="md-plain">Install the Modules</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">To download the modules as an administrator, use the following command in </span><span class=""><strong><span class="md-plain">PowerShell</span></strong></span><span class="md-plain">:</span></p>
+<pre class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><span>Install-Module -Name Microsoft.PowerApps.Administration.PowerShell </span></pre>
+<p class="md-end-block md-p"><span class="md-plain">If you don't have admin rights, use the following </span><span class=""><strong><span class="md-plain">PowerShell</span></strong></span><span class="md-plain"> command:</span></p>
+<pre class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><span>Save-Module -Name Microsoft.PowerApps.Administration.PowerShell -Path </span><br /><span>Import-Module -Name Microsoft.PowerApps.Administration.PowerShell</span></pre>
+<p class="md-end-block md-p"><span class="md-plain">Be mindful of the -Path argument if working with automation such as </span><span class=""><strong><span class="md-plain">Azure DevOps Pipelines</span></strong></span><span class="md-plain">.</span></p>
+<h4 class="md-end-block md-heading"><span class="md-plain">Connect to Power Apps</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">To connect to your </span><span class=""><strong><span class="md-plain">Power Apps</span></strong></span><span class="md-plain"> tenant, run the following command in </span><span class=""><strong><span class="md-plain">PowerShell</span></strong></span><span class="md-plain">:</span></p>
+<pre class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><span>Add-PowerAppsAccount</span></pre>
+<p class="md-end-block md-p"><span class="md-plain">That command will prompt you for credentials. Using the </span><span class=""><em><span class="md-plain">-Username</span></em></span><span class="md-plain"> and </span><span class=""><em><span class="md-plain">-Password</span></em></span><span class="md-plain"> arguments, a script can run a passive authentication without user input.</span></p>
+<h4 class="md-end-block md-heading"><span class="md-plain">Get Environment and Canvas App Identifiers</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">Once connected, you'll need the </span><span class=""><strong><span class="md-plain">Canvas App</span></strong></span><span class="md-plain"> identifier to set as the </span><span class=""><strong><span class="md-plain">Featured or Hero App</span></strong></span><span class="md-plain">. A quick way for a </span><span class=""><strong><span class="md-plain">Power App</span></strong></span><span class="md-plain"> Maker or Admin to find the values needed are to navigate to the app itself and get the identifiers from the URL. The below URL is from my app I want to set as a Featured App:</span></p>
+<p class="md-end-block md-p"><span class="md-link"><a href="https://make.powerapps.com/environments/">https://make.powerapps.com/environments/</a></span><span class="md-plain">{Environment ID}/apps/{Canvas App ID}/</span></p>
+<p class="md-end-block md-p"><span class="md-plain">This approach works well today if the URL continues to show the </span><span class=""><strong><span class="md-plain">Canvas App</span></strong></span><span class="md-plain"> Identifier. Another approach is to use </span><span class=""><strong><span class="md-plain">PowerShell</span></strong></span><span class="md-plain"> to get the App Id. The Environment Id can be found using the </span><span class=""><strong><span class="md-plain">Get-AdminPowerAppEnvironment</span></strong></span><span class="md-plain"> cmdlet (</span><span class=""><em><span class="md-plain">EnvironmentName</span></em></span><span class="md-plain">) while the App id can be found in the </span><span class=""><strong><span class="md-plain">Get-AdminPowerApp</span></strong></span><span class="md-plain"> cmdlet (</span><span class=""><em><span class="md-plain">AppName</span></em></span><span class="md-plain">). Combining those values we can now use the Featured and Hero commands in PowerShell.</span></p>
+<h4 class="md-end-block md-heading"><span class="md-plain">Set Canvas App as Featured or Hero App</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class=""><strong><span class="md-plain">To mark an app as a Featured App</span></strong></span><span class="md-plain"> use the following PowerShell cmdlet:</span></p>
+<pre class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><span>Set-AdminPowerAppAsFeatured -AppName {AppName}</span></pre>
+<p class="md-end-block md-p"><span class=""><strong><span class="md-plain">To mark an app as a Hero App</span></strong></span><span class="md-plain"> use the following PowerShell cmdlet:</span></p>
+<pre class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><span>Set-AdminPowerAppAsHero -AppName {AppName}</span></pre>
+<p class="md-end-block md-p"><span class="md-plain">When the commands are run, a response is sent back with a success HTTP code and headers including a request identifier. To confirm the </span><span class=""><strong><span class="md-plain">Power App is Featured or Hero</span></strong></span><span class="md-plain">, a user can navigate to the </span><span class=""><strong><span class="md-plain">Power Apps Player</span></strong></span><span class="md-plain"> to view. As an administrator, I'll want tighter control and visibility into these actions as well as other lifecycle events for </span><span class=""><strong><span class="md-plain">Power Apps</span></strong></span><span class="md-plain">. Capturing when apps are created and destroyed, updated and restored are integral to better understanding usage patterns and ensuring governance is applied. To find out more, refer to </span><span class=""><strong><span class="md-plain">Part 2</span></strong></span><span class="md-plain"> where we will begin to search the </span><span class=""><strong><span class="md-plain">Unified Audit Log</span></strong></span><span class="md-plain"> for activity and audit logs.</span></p>
+<h3 class="md-end-block md-heading"><span class="md-plain">Other Useful Power Apps Administration PowerShell Tasks</span></h3>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">The </span><span class=""><strong><span class="md-plain">PowerShell module for Power Apps Administration tasks</span></strong></span><span class="md-plain"> is an extremely useful way to view and take action on environments, apps, flows, connectors and permissions. The </span><span class=""><strong><span class="md-plain">PowerShell Support for Power Apps</span></strong></span><span class="md-plain"> page </span><span class=" md-link"><a href="https://docs.microsoft.com/en-us/power-platform/admin/powerapps-powershell#environments-commands" rel="noopener noreferrer" target="_blank"><span class="md-plain">contains a list of common operations</span></a></span><span class="md-plain"> an administrator would find useful for governing an organization's use of the </span><span class=""><strong><span class="md-plain">Power Platform</span></strong></span><span class="md-plain"> and its environments. Some commands I'd like to call out are:</span></p>
+<figure class="md-table-fig">
+<table class="md-table" border="2">
+<thead>
+<tr class="md-end-block">
+<th><span class="td-span"><span class="md-plain">Command</span></span></th>
+<th><span class="td-span"><span class="md-plain">Description</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Get-AdminDlpPolicy</span></span></td>
+<td><span class="td-span"><span class="md-plain">Displays all of the Data Loss Prevention Policies</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Remove-AllowedConsentPlans</span></span></td>
+<td>
+<p><span class="td-span"><span class="md-plain">Can be used to remove the ability for uses to create trial licenses.</span><span class="md-br md-tag"> </span></span></p>
+<p><span class="td-span"><span class="md-plain">NOTE: It is important to note that when using </span><span class=""><em><span class="md-plain">Remove-AllowedConsentPlans</span></em></span><span class="md-plain"> all existing plans of the specified type will be removed from all users in the tenant and will not be recoverable.</span></span></p>
+</td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Set-AdminPowerAppOwner</span></span></td>
+<td><span class="td-span"><span class="md-plain">Changes the owner of a Power App. This is useful for reassigning if someone leave the organization.</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Set-AdminFlowOwnerRole</span></span></td>
+<td><span class="td-span"><span class="md-plain">Changes the owner of a Power Automate Flow. Again, useful for reassignment.</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Recover-AdminPowerAppEnvironment</span></span></td>
+<td><span class="td-span"><span class="md-plain">Recover a Power App Environment</span></span></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<p class="md-end-block md-p"><span class="md-plain">The "</span><span class=""><strong><span class="md-plain">Get</span></strong></span><span class="md-plain">" cmdlets can all be used for </span><span class=""><strong><span class="md-plain">reporting and logging of the current state of an environment</span></strong></span><span class="md-plain">. The below command from the examples on the </span><span class=""><strong><span class="md-plain">Power Apps PowerShell</span></strong></span><span class="md-plain"> page shows how to use the </span><span class=""><strong><span class="md-plain">OutputFilePath</span></strong></span><span class="md-plain"> argument to </span><span class=""><strong><span class="md-plain">write to a text file</span></strong></span><span class="md-plain">.</span></p>
+<pre class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><span>Get-AdminPowerAppsUserDetails -OutputFilePath '.\adminUserDetails.txt' &ndash;UserPrincipalName 'admin@bappartners.onmicrosoft.com'</span></pre>
+<p class="md-end-block md-p"><span class="md-plain">Consider the use of these commands with techniques discussed in </span><span class=""><em><span class="md-plain">Part 2 of Canvas Apps - Auditing and Activity Logs</span></em></span><span class="md-plain"> for additional logging capabilities.</span></p>
+<h2 class="md-end-block md-heading"><span class="md-plain">Activity Events for Canvas Apps</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<h3 class="md-end-block md-heading"><span class="md-plain">What events are audited?</span></h3>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">The events audited by the </span><span class=""><strong><span class="md-plain">Office 365 Security and Compliance Center</span></strong></span><span class="md-plain"> allow for administrators to search across multiple services offered including </span><span class=""><strong><span class="md-plain">Power Apps</span></strong></span><span class="md-plain">. These </span><span class=""><strong><span class="md-plain">logs are collected at the SDK layer</span></strong></span><span class="md-plain"> meaning one action can actually trigger multiple event logs in the log store. Events collected include app lifecycle actions such as when an app is created, edited or deleted. User actions include launching an app or modifying permissions.</span></p>
+<h4 class="md-end-block md-heading"><span class="md-plain">Common Audit Properties</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">Each audit record includes common properties that can be used to help search or even correlate events together. Fields such as </span><span class=""><strong><span class="md-plain">precise time stamp</span></strong></span><span class="md-plain">s, the </span><span class=""><strong><span class="md-plain">specific Canvas App</span></strong></span><span class="md-plain">, the </span><span class=""><strong><span class="md-plain">operation performed</span></strong></span><span class="md-plain"> and </span><span class=""><strong><span class="md-plain">Identity of the record</span></strong></span><span class="md-plain">. </span></p>
+<figure class="md-table-fig">
+<table class="md-table" border="2">
+<thead>
+<tr class="md-end-block">
+<th><span class="td-span"><span class="md-plain">Field name</span></span></th>
+<th><span class="td-span"><span class="md-plain">Description</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Date</span></span></td>
+<td><span class="td-span"><span class="md-plain">Date and time of when the log was generated in UTC</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">App Name</span></span></td>
+<td><span class="td-span"><span class="md-plain">Unique Identifier of the Power Apps Canvas App</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Id</span></span></td>
+<td><span class="td-span"><span class="md-plain">Unique GUID for every row logged</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Result Status</span></span></td>
+<td><span class="td-span"><span class="md-plain">Status of the row logged. Success in most cases.</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Organization Id</span></span></td>
+<td><span class="td-span"><span class="md-plain">Unique identifier of the organization from which the log was generated.</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">CreationTime</span></span></td>
+<td><span class="td-span"><span class="md-plain">Date and time of when the log was generated in UTC</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Operation</span></span></td>
+<td><span class="td-span"><span class="md-plain">Name of operation</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">UserKey</span></span></td>
+<td><span class="td-span"><span class="md-plain">Unique Identifier of the User in Azure AD</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">UserType</span></span></td>
+<td><span class="td-span"><span class="md-plain">The audit type (Admin, Regular, System)</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Additional Info</span></span></td>
+<td><span class="td-span"><span class="md-plain">Additional information if any (e.g. the environment name)</span></span></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<p class="md-end-block md-p"><span class="md-plain">The </span><span class=""><strong><span class="md-plain">Identity</span></strong></span><span class="md-plain"> value is key as it can help us better understand a chain of events. Consider when promoting an app as a Featured App. </span><span class=""><strong><span class="md-plain">Marking an app as featured creates three events</span></strong></span><span class="md-plain">:</span></p>
+<p class="md-end-block md-p"><span class=""><em><span class="md-plain">MarkPowerAppAsFeatured</span></em></span></p>
+<p class="md-end-block md-p"><span class=""><em><span class="md-plain">PublishPowerApp</span></em></span></p>
+<p class="md-end-block md-p"><span class=""><em><span class="md-plain">UpdatePowerApp</span></em></span></p>
+<p class="md-end-block md-p"><span class="md-plain">The same goes with </span><span class=""><strong><span class="md-plain">promoting a Hero app</span></strong></span><span class="md-plain"> as well as other events such as </span><span class=""><strong><span class="md-plain">restoring a Canvas App</span></strong></span><span class="md-plain"> from a previous version.</span></p>
+<p class="md-end-block md-p" style="padding-left: 330px;"><span class="md-image md-img-loaded" data-src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/CanvasApp.Restore.JPG"><img alt="" height="313" src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/CanvasApp.Restore.JPG" width="271" /></span></p>
+<p class="md-end-block md-p"><span class=""><strong><span class="md-plain">In Part 2</span></strong></span><span class="md-plain">, we will cover these events in detail to show how they are connected to paint a broader picture.</span></p>
+<h4 class="md-end-block md-heading"><span class="md-plain">List of Events</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">The table below shows the events captured for Power Apps including </span><span class=""><strong><span class="md-plain">life cycle events of app</span></strong></span><span class="md-plain">, </span><span class=""><strong><span class="md-plain">user modifications</span></strong></span><span class="md-plain"> and when a user launched a specific </span><span class=""><strong><span class="md-plain">Canvas App</span></strong></span><span class="md-plain">. For an up to date reference check out the </span><span class=" md-link"><a href="https://docs.microsoft.com/en-us/power-platform/admin/logging-powerapps" rel="noopener noreferrer" target="_blank"><span class="md-plain">Activity logging for Power Apps Audit Schema</span></a></span><span class="md-plain"> document.</span></p>
+<figure class="md-table-fig">
+<table class="md-table" border="2">
+<thead>
+<tr class="md-end-block">
+<th><span class="td-span"><span class="md-plain">Event</span></span></th>
+<th><span class="td-span"><span class="md-plain">Description</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Created app</span></span></td>
+<td><span class="td-span"><span class="md-plain">When the app gets created for the first time by a maker</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Launched app</span></span></td>
+<td><span class="td-span"><span class="md-plain">When the app gets launched</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Marked app as Featured</span></span></td>
+<td><span class="td-span"><span class="md-plain">Every time the app is marked as Featured</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Restored app version</span></span></td>
+<td><span class="td-span"><span class="md-plain">The version of the app when restored</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Edited app</span></span></td>
+<td><span class="td-span"><span class="md-plain">Any updates made to the app by the maker</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Published app</span></span></td>
+<td><span class="td-span"><span class="md-plain">When the app is published and is now made available to others in the environment</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Edited app permission</span></span></td>
+<td><span class="td-span"><span class="md-plain">Every time a user's permissions to the app is changed</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Deleted app</span></span></td>
+<td><span class="td-span"><span class="md-plain">When the app is deleted</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Marked app as Hero</span></span></td>
+<td><span class="td-span"><span class="md-plain">Every time the app is marked as Hero</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Deleted app permission</span></span></td>
+<td><span class="td-span"><span class="md-plain">Every time a user's permissions to the app is removed</span></span></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<h5 class="md-end-block md-heading"><span class="md-plain">Life Cycle Events</span></h5>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">Life cycle events include when a maker creates an app, edits and publishes an app. Other events include restoring an app to a prior version as well as the previously mentioned promoting to a featured or hero app.</span></p>
+<h5 class="md-end-block md-heading"><span class="md-plain">Launched Event</span></h5>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">The Launched event is a highly asked for event that captured the precise time that a user logins into an app. This audited event allows admins to see the </span><span class=""><strong><span class="md-plain">user's Azure identifier</span></strong></span><span class="md-plain"> and </span><span class=""><strong><span class="md-plain">which app they logged into</span></strong></span><span class="md-plain">. Not shown is the </span><span class=""><strong><span class="md-plain">user's session identifier</span></strong></span><span class="md-plain"> but this can be found </span><span class=""><strong><span class="md-plain">within the specific Canvas App run</span></strong></span><span class="md-plain"> which will be discussed later.</span></p>
+<h5 class="md-end-block md-heading"><span class="md-plain">Edited App Permission Event</span></h5>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">The </span><span class=""><strong><span class="md-plain">Edited App Permission event</span></strong></span><span class="md-plain"> is of interest as it shows </span><span class=""><strong><span class="md-plain">when and who shared an app</span></strong></span><span class="md-plain">. The permission level (</span><span class=""><strong><em><span class="md-plain">CanEdit</span></em></strong></span><span class="md-plain"> or </span><span class=""><strong><em><span class="md-plain">CanView</span></em></strong></span><span class="md-plain">) given, the </span><span class=""><strong><span class="md-plain">owner who shared</span></strong></span><span class="md-plain"> and </span><span class=""><strong><span class="md-plain">when they shared the app</span></strong></span><span class="md-plain"> is audited.</span></p>
+<p class="md-end-block md-p"><img alt="" height="307" src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/ShareAnApp.gif" width="807" /></p>
+<p class="md-end-block md-p"><span class="md-image md-img-loaded" data-src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/ShareAnApp.gif"></span></p>
+<p class="md-end-block md-p"><span class="md-plain">Resources can be shared and specifically for the </span><span class=""><strong><span class="md-plain">Common Data Service</span></strong></span><span class="md-plain"> connector, </span><span class=" md-link"><a href="https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/share-app-resources" rel="noopener noreferrer" target="_blank"><span class="md-plain">security roles can be assigned for use with the connector</span></a></span><span class="md-plain">, which </span><span class=""><strong><span class="md-plain">will also assign the security role to the user within the environment</span></strong></span><span class="md-plain">.</span></p>
+<p class="md-end-block md-p" style="padding-left: 360px;"><span class="md-image md-img-loaded" data-src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/CustomSysAdminRoleInPowerApps.JPG"><img alt="" height="308" src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/CustomSysAdminRoleInPowerApps.JPG" width="215" /></span></p>
+<p class="md-end-block md-p"><span class="md-plain">In the image above, I gave the user the "</span><span class=""><em><span class="md-plain">Custom Sys Admins</span></em></span><span class="md-plain">" security role for the </span><span class=""><strong><span class="md-plain">Common Data Service connector</span></strong></span><span class="md-plain">. Navigating to the user roles within the </span><span class=""><strong><span class="md-plain">Model Driven App</span></strong></span><span class="md-plain"> I can see the user now </span><span><u><span class="md-plain">has the same security role</span></u></span><span class="md-plain">. Consider the implications before adding a security role to a </span><span class=""><strong><span class="md-plain">Canvas App</span></strong></span><span class="md-plain"> user. For further reference, check out the </span><span class=" md-link"><a href="https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/security-model" rel="noopener noreferrer" target="_blank"><span class=""><strong><span class="md-plain">Security Model for Common Data Service</span></strong></span></a></span><span class="md-plain">.</span></p>
+<p class="md-end-block md-p" style="padding-left: 300px;"><span class="md-image md-img-loaded" data-src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/CustomSysAdminRoleInCRM.JPG"><img alt="" height="273" src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/UnifiedAuditLog/CanvasApps/CustomSysAdminRoleInCRM.JPG" width="366" /></span></p>
+<h2 class="md-end-block md-heading"><span class="md-plain">Next Steps</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">In this article we have covered getting started with the </span><span class=""><strong><span class="md-plain">Power App Administration PowerShell</span></strong></span><span class="md-plain"> module and cmdlets for </span><span class=""><strong><span class="md-plain">Featured and Hero App promotion</span></strong></span><span class="md-plain">. Continue exploring the capabilities of this module as it pertains to your </span><span class=""><strong><span class="md-plain">Power Apps Canvas App</span></strong></span><span class="md-plain"> administrative operations. </span></p>
+<p class="md-end-block md-p"><span class="md-plain">We have also covered the what activities are currently captured for </span><span class=""><strong><span class="md-plain">Power Apps Canvas Apps</span></strong></span><span class="md-plain">. Discussed in </span><span class=""><strong><span class="md-plain">Part 2</span></strong></span><span class="md-plain"> are techniques to view the audit logs within the </span><span class=""><strong><span class="md-plain">Office 365 Security and Compliance Portal</span></strong></span><span class="md-plain"> as well as </span><span class=""><strong><span class="md-plain">automated techniques</span></strong></span><span class="md-plain">. </span></p>
+<p class="md-end-block md-p"><span class="md-plain">This article is designed to supplement the article on </span><span class=""><strong><span class="md-plain">Power App Analytics</span></strong></span><span class="md-plain">, which provides more of an all up view of </span><span class=""><strong><span class="md-plain">Canvas App</span></strong></span><span class="md-plain"> usage. Combining these two documents, an administrator can now </span><span><u><span class="md-plain">track analytic metrics as well as the events that define those metrics</span></u></span><span class="md-plain">.</span></p>
+<p class="md-end-block md-p"><span class="md-plain">If you are interested in learning more about </span><span class=" md-link"><a href="/crm/b/crminthefield/posts/pfe-dynamics-365-service-offerings" rel="noopener noreferrer" target="_blank"><span class=""><strong><span class="md-plain">specialized guidance and training</span></strong></span><span class="md-plain"> for monitoring or other areas of the Power Platform</span></a></span><span class="md-plain">, which includes a </span><span class=" md-link"><a href="/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/WorkshopPLUS-_2D00_-Dynamics-365-Customer-Engagement-Monitoring-with-Application-lnsights-1-Day-with-Lab_2D00_FA5D599F_2D00_20E4_2D00_4087_2D00_A713_2D00_39FBD14DF7E5.pdf" rel="noopener noreferrer" target="_blank"><span class="md-plain">monitoring workshop</span></a></span><span class="md-plain">, please contact your </span><span class=""><strong><span class="md-plain">Technical Account Manager</span></strong></span><span class="md-plain"> or </span><span class=""><strong><span class="md-plain">Microsoft representative</span></strong></span><span class="md-plain"> for further details. </span></p>
+<p class="md-end-block md-p"><span class="md-plain">Your feedback is </span><span class=""><strong><span><u><span class="md-plain">extremely valuable</span></u></span></strong></span><span class="md-plain"> so please leave a comment below and I'll be happy to help where I can! Also, if you find any inconsistencies, omissions or have suggestions, </span><span class=" md-link"><a href="https://github.com/aliyoussefi/MonitoringPowerPlatform/issues" rel="noopener noreferrer" target="_blank"><span class="md-plain">please go here to submit a new issue</span></a></span><span class="md-plain">.</span></p>
+<h2 class="md-end-block md-heading"><span class="md-plain">Index</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p md-focus"><span class="md-link"><a href="/crm/b/crminthefield/posts/monitoring-the-power-platform-introduction" rel="noopener noreferrer" target="_blank"><span class="md-plain">Monitoring the Power Platform: Introduction and Index</span></a></span></p>
