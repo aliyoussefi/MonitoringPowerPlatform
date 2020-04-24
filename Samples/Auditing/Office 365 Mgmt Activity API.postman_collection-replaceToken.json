@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "9ae5821e-9f14-4b83-8936-62efa7eacaee",
+		"name": "Office 365 Mgmt Activity API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Conte",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "resource",
+							"value": "https://manage.office.com",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "<your client id>",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "<your client secret>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login.microsoftonline.com/<your tenant>/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"login",
+						"microsoftonline",
+						"com"
+					],
+					"path": [
+						"<your oauth token>",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start Subscription Audit.General",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <your token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"webhook\": {\n    \"address\": \"https://prod-01.westus.logic.azure.com:443/workflows/<your workflow id>/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Txv0ZNMGjx0mK6Ao_lFDQOuAEklRR6z8KT0vxhokulQ\",\n    \"authId\": \"\",\n    \"expiration\": \"\"\n  }\n}"
+				},
+				"url": {
+					"raw": "https://manage.office.com/api/v1.0/<your tenant id>/activity/feed/subscriptions/start?contentType=Audit.General&PublisherIdentifier=<your tenant id>",
+					"protocol": "https",
+					"host": [
+						"manage",
+						"office",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.0",
+						"<your tenant id>",
+						"activity",
+						"feed",
+						"subscriptions",
+						"start"
+					],
+					"query": [
+						{
+							"key": "contentType",
+							"value": "Audit.General"
+						},
+						{
+							"key": "PublisherIdentifier",
+							"value": "<your tenant id>"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start Subscription Audit.General Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <your token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"webhook\": {\n    \"address\": \"https://prod-01.westus.logic.azure.com:443/workflows/<your workflow id>/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Txv0ZNMGjx0mK6Ao_lFDQOuAEklRR6z8KT0vxhokulQ\",\n    \"authId\": \"\",\n    \"expiration\": \"\"\n  }\n}"
+				},
+				"url": {
+					"raw": "https://manage.office.com/api/v1.0/<your tenant id>/activity/feed/subscriptions/content?contentType=Audit.General",
+					"protocol": "https",
+					"host": [
+						"manage",
+						"office",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.0",
+						"<your tenant id>",
+						"activity",
+						"feed",
+						"subscriptions",
+						"content"
+					],
+					"query": [
+						{
+							"key": "contentType",
+							"value": "Audit.General"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Example of Specific content blob",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your token>",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://manage.office.com/api/v1.0/<your tenant id>/activity/feed/audit/20200420205116115094307$20200420205918371138454$audit_general$Audit_General$na0045",
+					"protocol": "https",
+					"host": [
+						"manage",
+						"office",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.0",
+						"<your tenant id>",
+						"activity",
+						"feed",
+						"audit",
+						"20200420205116115094307$20200420205918371138454$audit_general$Audit_General$na0045"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Poll Audit.General for Content Blob",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <your token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"webhook\": {\n    \"address\": \"https://prod-01.westus.logic.azure.com:443/workflows/<your workflow trigger>/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Txv0ZNMGjx0mK6Ao_lFDQOuAEklRR6z8KT0vxhokulQ\",\n    \"authId\": \"\",\n    \"expiration\": \"\"\n  }\n}"
+				},
+				"url": {
+					"raw": "https://manage.office.com/api/v1.0/<your tenant id>/activity/feed/subscriptions/content?contentType=Audit.General",
+					"protocol": "https",
+					"host": [
+						"manage",
+						"office",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1.0",
+						"<your tenant id>",
+						"activity",
+						"feed",
+						"subscriptions",
+						"content"
+					],
+					"query": [
+						{
+							"key": "contentType",
+							"value": "Audit.General"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
