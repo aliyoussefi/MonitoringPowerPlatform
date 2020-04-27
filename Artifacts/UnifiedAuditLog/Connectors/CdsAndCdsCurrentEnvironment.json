@@ -1,0 +1,306 @@
+{
+    "name": "shared_commondataserviceforapps",
+    "id": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+    "type": "Microsoft.PowerApps/apis",
+    "properties": {
+        "displayName": "Common Data Service (current environment)",
+        "iconUri": "https://connectoricons-prod.azureedge.net/commondataservice/icon_1.0.1002.1175.png",
+        "iconBrandColor": "#742775",
+        "apiEnvironment": "Shared",
+        "isCustomApi": false,
+        "connectionParameters": {
+            "token": {
+                "type": "oauthSetting",
+                "oAuthSettings": {
+                    "identityProvider": "dynamicscrmonlinecertificate",
+                    "clientId": "7ab7862c-4c57-491e-8a45-d52a7e023983",
+                    "scopes": [],
+                    "redirectUrl": "https://msmanaged-na.consent.azure-apim.net/redirect",
+                    "properties": {
+                        "IsFirstParty": "True"
+                    },
+                    "customParameters": {
+                        "resourceUriAAD": {
+                            "value": "https://disco.crm.dynamics.com/"
+                        },
+                        "resourceUri": {
+                            "value": "https://disco.crm.dynamics.com/"
+                        }
+                    }
+                }
+            },
+            "token:clientId": {
+                "type": "string",
+                "uiDefinition": {
+                    "displayName": "Client ID",
+                    "description": "Client (or Application) ID of the Azure Active Directory application.",
+                    "constraints": {
+                        "required": "false",
+                        "hidden": "true"
+                    }
+                }
+            },
+            "token:clientSecret": {
+                "type": "securestring",
+                "uiDefinition": {
+                    "displayName": "Client Secret",
+                    "description": "Client secret of the Azure Active Directory application.",
+                    "constraints": {
+                        "required": "false",
+                        "hidden": "true"
+                    }
+                }
+            },
+            "token:TenantId": {
+                "type": "string",
+                "uiDefinition": {
+                    "displayName": "Tenant",
+                    "description": "The tenant ID of for the Azure Active Directory application.",
+                    "constraints": {
+                        "required": "false",
+                        "hidden": "true"
+                    }
+                }
+            },
+            "token:resourceUri": {
+                "type": "string",
+                "uiDefinition": {
+                    "displayName": "ResourceUri",
+                    "description": "The resource you are requesting authorization to use.",
+                    "constraints": {
+                        "required": "false",
+                        "hidden": "true"
+                    }
+                }
+            },
+            "token:grantType": {
+                "type": "string",
+                "allowedValues": [
+                    {
+                        "value": "code"
+                    },
+                    {
+                        "value": "client_credentials"
+                    }
+                ],
+                "uiDefinition": {
+                    "displayName": "Grant Type",
+                    "description": "Grant type",
+                    "constraints": {
+                        "required": "false",
+                        "hidden": "true",
+                        "allowedValues": [
+                            {
+                                "text": "Code",
+                                "value": "code"
+                            },
+                            {
+                                "text": "Client Credentials",
+                                "value": "client_credentials"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "runtimeUrls": [
+            "https://msmanaged-na.azure-apim.net/apim/commondataserviceforapps"
+        ],
+        "primaryRuntimeUrl": "https://msmanaged-na.azure-apim.net/apim/commondataserviceforapps",
+        "metadata": {
+            "source": "marketplace",
+            "brandColor": "#742775"
+        },
+        "capabilities": [
+            "triggers",
+            "actions"
+        ],
+        "description": "Enables interaction with the Common Data Service in current environment.",
+        "createdTime": "2019-03-19T00:25:14.674717Z",
+        "changedTime": "2020-04-07T23:01:08.882841Z",
+        "releaseTag": "Production",
+        "tier": "Premium",
+        "publisher": "Microsoft"
+    }
+},
+{
+    "name": "shared_commondataservice",
+    "id": "/providers/Microsoft.PowerApps/apis/shared_commondataservice",
+    "type": "Microsoft.PowerApps/apis",
+    "properties": {
+        "displayName": "Common Data Service",
+        "iconUri": "https://connectoricons-prod.azureedge.net/commondataservice/icon_1.0.1335.1964.png",
+        "iconBrandColor": "#742775",
+        "apiEnvironment": "Shared",
+        "isCustomApi": false,
+        "connectionParameters": {
+            "token": {
+                "type": "oauthSetting",
+                "oAuthSettings": {
+                    "identityProvider": "dynamicscrmonlinecertificate",
+                    "clientId": "7ab7862c-4c57-491e-8a45-d52a7e023983",
+                    "scopes": [],
+                    "redirectMode": "Direct",
+                    "redirectUrl": "https://msmanaged-na.consent.azure-apim.net/redirect",
+                    "properties": {
+                        "IsFirstParty": "True"
+                    },
+                    "customParameters": {
+                        "resourceUriAAD": {
+                            "value": "https://disco.crm.dynamics.com/"
+                        },
+                        "resourceUri": {
+                            "value": "https://disco.crm.dynamics.com/"
+                        },
+                        "loginUri": {
+                            "value": "https://login.microsoftonline.com"
+                        },
+                        "loginUriAAD": {
+                            "value": "https://login.microsoftonline.com"
+                        }
+                    }
+                },
+                "uiDefinition": {
+                    "displayName": "Login with Common Data Service Credentials",
+                    "description": "Login with Common Data Service Credentials",
+                    "tooltip": "Provide Common Data Service Credentials",
+                    "constraints": {
+                        "required": "true"
+                    }
+                }
+            },
+            "environment": {
+                "type": "string",
+                "uiDefinition": {
+                    "displayName": "Environment id",
+                    "description": "Environment id",
+                    "tooltip": "Environment id",
+                    "constraints": {
+                        "required": " false",
+                        "hidden": "true"
+                    }
+                }
+            },
+            "token:clientId": {
+                "type": "string",
+                "uiDefinition": {
+                    "displayName": "Client ID",
+                    "description": "Client (or Application) ID of the Azure Active Directory application.",
+                    "constraints": {
+                        "required": "false",
+                        "hidden": "true"
+                    }
+                }
+            },
+            "token:clientSecret": {
+                "type": "securestring",
+                "uiDefinition": {
+                    "displayName": "Client Secret",
+                    "description": "Client secret of the Azure Active Directory application.",
+                    "constraints": {
+                        "required": "false",
+                        "hidden": "true"
+                    }
+                }
+            },
+            "token:TenantId": {
+                "type": "string",
+                "metadata": {
+                    "sourceType": "AzureActiveDirectoryTenant"
+                },
+                "uiDefinition": {
+                    "displayName": "Tenant",
+                    "description": "The tenant ID for the Azure Active Directory application.",
+                    "constraints": {
+                        "required": "false",
+                        "hidden": "true"
+                    }
+                }
+            },
+            "token:resourceUri": {
+                "type": "string",
+                "uiDefinition": {
+                    "displayName": "ResourceUri",
+                    "description": "The resource you are requesting authorization to use.",
+                    "constraints": {
+                        "required": "false",
+                        "hidden": "true"
+                    }
+                }
+            },
+            "token:grantType": {
+                "type": "string",
+                "allowedValues": [
+                    {
+                        "value": "code"
+                    },
+                    {
+                        "value": "client_credentials"
+                    }
+                ],
+                "uiDefinition": {
+                    "displayName": "Grant Type",
+                    "description": "Grant type",
+                    "constraints": {
+                        "required": "false",
+                        "hidden": "true",
+                        "allowedValues": [
+                            {
+                                "text": "Code",
+                                "value": "code"
+                            },
+                            {
+                                "text": "Client Credentials",
+                                "value": "client_credentials"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "runtimeUrls": [
+            "https://msmanaged-na.azure-apim.net/apim/commondataservice"
+        ],
+        "primaryRuntimeUrl": "https://msmanaged-na.azure-apim.net/apim/commondataservice",
+        "metadata": {
+            "source": "marketplace",
+            "brandColor": "#742775",
+            "version": {
+                "previous": "master\\1.0.1328.1945",
+                "current": "releases/v1.0.1335\\1.0.1335.1964"
+            }
+        },
+        "capabilities": [
+            "actions",
+            "trigger",
+            "tabular"
+        ],
+        "interfaces": {
+            "CDPTabular1": {
+                "revisions": {
+                    "1": {
+                        "baseUrl": "/",
+                        "status": "Production"
+                    },
+                    "2": {
+                        "baseUrl": "/v2",
+                        "status": "Preview"
+                    }
+                }
+            }
+        },
+        "description": "Provides access to the environment database on the Microsoft Common Data Service.",
+        "createdTime": "2018-02-15T00:26:21.6966522Z",
+        "changedTime": "2020-04-23T17:16:54.0928321Z",
+        "releaseTag": "Production",
+        "tier": "Premium",
+        "publisher": "Microsoft",
+        "scopes": {
+            "will": [
+                "Read your user profile",
+                "Create, read, update, and delete items"
+            ],
+            "wont": []
+        }
+    }
+}
