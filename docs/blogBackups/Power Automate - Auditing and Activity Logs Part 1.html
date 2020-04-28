@@ -1,0 +1,191 @@
+<h2 class="md-end-block md-heading"><span class="md-plain">Summary</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p md-focus"><span class="md-link"><a href="https://docs.microsoft.com/en-us/power-automate/getting-started" rel="noopener noreferrer" target="_blank"><span class=""><strong><span class="md-plain">Microsoft Power Automate</span></strong></span></a></span><span class="md-plain md-expand"> provides users the ability to quickly create and integrate applications within the enterprise. With this ability comes concerns with governance to ensure users are allowed the appropriate permissions as well as identifying specific connections created and shared across the organization. </span><span class=""><strong><span class="md-plain">Power Automate Flows</span></strong></span><span class="md-plain"> offer a wide array of connectors and the ability to identify which of these are used and the connections created is essential to applying security policies to the </span><span class=""><strong><span class="md-plain">Power Platform</span></strong></span><span class="md-plain">. </span></p>
+<p class="md-end-block md-p"><span class="md-plain">This article begins by discussing the concept of </span><span class=""><strong><span class="md-plain">solution aware flows</span></strong></span><span class="md-plain">. After that, we will briefly touch on the </span><span class=""><strong><span class="md-plain">Power Automate</span></strong></span><span class="md-plain"> admin connectors available for both </span><span class=""><strong><span class="md-plain">Power Automate Flows</span></strong></span><span class="md-plain">. Tool sets for </span><span class=""><strong><span class="md-plain">PowerShell</span></strong></span><span class="md-plain"> will be explored that allow administrators tight control and visibility across a tenant. Finally the audited events for </span><span class=""><strong><span class="md-plain">Power Automate</span></strong></span><span class="md-plain"> will be detailed which will lead us into the </span><span class=""><strong><span class="md-plain">Office 365 Security and Compliance</span></strong></span><span class="md-plain"> topic.</span></p>
+<h2 class="md-end-block md-heading"><span class="md-plain">Differences between My Flows and Solution Flows</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">Before getting into the different flow events that can be managed and reported on, we need to first address the differences between </span><span class=""><strong><span class="md-plain">My Flows</span></strong></span><span class="md-plain"> and Flows that are contained within a solution. </span><span class=""><strong><span class="md-plain">My Flows</span></strong></span><span class="md-plain"> are created in the </span><span class="md-link"><a href="https://flow.microsoft.com" rel="noopener noreferrer" target="_blank">https://flow.microsoft.com</a></span><span class="md-plain"> portal and </span><span class=""><u><span class="md-plain">reside within the environment the maker created them in</span></u></span><span class="md-plain">. </span><span class=""><strong><span class="md-plain">Flows within solutions</span></strong></span><span class="md-plain">, have similar characteristics as </span><span class=""><strong><span class="md-plain">My Flows</span></strong></span><span class="md-plain"> but </span><span class=""><strong><span class="md-plain">reside within a Common Data Service solution</span></strong></span><span class="md-plain">. These are called "</span><span class=""><strong><span><u><span class="md-plain">solution aware flows</span></u></span></strong></span><span class="md-plain">". The distinction may seem small at first but actually has a big impact into what we can do as both makers and admins.</span></p>
+<p class="md-end-block md-p"><span class=""><u><span class="md-plain">My Flows:</span></u></span></p>
+<p class="md-end-block md-p" style="padding-left: 150px;"><strong><span class=""><u><span class="md-plain">Author's Note: Click each image to expand and clarify</span></u></span></strong></p>
+<p class="md-end-block md-p" style="padding-left: 150px;"><span class="md-image md-img-loaded"><img alt=" " src="/resized-image/__size/320x240/__key/communityserver-components-multipleuploadfilemanager/c58a8dd9_2D00_bd5a_2D00_4e84_2D00_aacd_2D00_6a40cbb5af39-245500-complete/pastedimage1588036913973v10.jpeg" /></span></p>
+<p class="md-end-block md-p"><span><u><span class="md-plain">Solution Aware Flows:</span></u></span></p>
+<p class="md-end-block md-p" style="padding-left: 150px;"><span class="md-image md-img-loaded"><img alt=" " src="/resized-image/__size/320x240/__key/communityserver-components-multipleuploadfilemanager/c58a8dd9_2D00_bd5a_2D00_4e84_2D00_aacd_2D00_6a40cbb5af39-245500-complete/pastedimage1588036913976v11.jpeg" /></span></p>
+<p class="md-end-block md-p"><span class="md-plain">Reviewing the article </span><span class=""><strong><span class=" md-link"><a href="/crm/b/crminthefield/posts/monitoring-the-power-platform-power-automate---power-automate-analytics" rel="noopener noreferrer" target="_blank"><span class="md-plain">Power Automate Analytics</span></a></span></strong></span><span class="md-plain">, we begin to see where differences in reporting and even the tools we can use differ between the two. In that article, the analytics reported from either a </span><span class=""><strong><span class="md-plain">My Flow</span></strong></span><span class="md-plain"> or a </span><span class=""><strong><span class="md-plain">solution aware flow</span></strong></span><span class="md-plain"> show much different level or insight. Each flow within a solution can be viewed across an environment while </span><span class=""><strong><span class="md-plain">My Flows</span></strong></span><span class="md-plain"> are shown individually.</span></p>
+<p class="md-end-block md-p"><span class="md-plain">For tooling, </span><span class=""><strong><span class="md-plain">My Flows</span></strong></span><span class="md-plain"> do not have a concept of using the </span><span class=""><strong><span class="md-plain">Common Data Service's current environment</span></strong></span><span class="md-plain"> as shown in <strong><a href="/members/aaronric" rel="noopener noreferrer" target="_blank">Aaron Richards</a></strong></span><span class=""><strong><span class="md-plain">'</span></strong></span><span class="md-plain"> article "</span><span class=""><strong><span class=" md-link"><a href="/crm/b/crminthefield/posts/using-the-common-data-service-current-environment-power-automate-connector" rel="noopener noreferrer" target="_blank"><span class="md-plain">Using the Common Data Service (Current Environment) Power Automate Connector</span></a></span></strong></span><span class="md-plain">". As the article showcases, utilizing the </span><span class=""><strong><span class="md-plain">Common Data Service current environment connector</span></strong></span><span class="md-plain"> allows for actions such as </span><span class=""><strong><span class="md-plain">bound and unbound actions</span></strong></span><span class="md-plain">, utilizing </span><span class=""><strong><span class="md-plain">FetchXml</span></strong></span><span class="md-plain"> and other </span><span class=""><strong><span class="md-plain">Dynamics 365</span></strong></span><span class="md-plain"> or </span><span class=""><strong><span class="md-plain">Model Driven App</span></strong></span><span class="md-plain"> concepts.</span></p>
+<p class="md-end-block md-p"><span class="md-plain">Another very important piece to point out is </span><span class=" md-link"><a href="https://docs.microsoft.com/en-us/power-automate/overview-solution-flows" rel="noopener noreferrer" target="_blank"><span class=""><strong><span class="md-plain">Application Lifecycle Management with Flows</span></strong></span></a></span><span class="md-plain">. As an enterprise utilizing flows in a production ready environment, administrators will want </span><span class=""><strong><span class="md-plain">automation tools to migrate changes from developers</span></strong></span><span class="md-plain">. </span><span class=""><strong><span class="md-plain">Solution aware flows, as part of a Common Data Service solution, can be neatly packaged and moved across sandbox and test environments towards production.</span></strong></span><span class="md-plain"> They also can leverage existing tools such as </span><span class=" md-link"><a href="https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/compress-extract-solution-file-solutionpackager" rel="noopener noreferrer" target="_blank"><span class=""><strong><span class="md-plain">Solution Packager</span></strong></span></a></span><span class="md-plain"> to unpack and store within source control.</span></p>
+<p class="md-end-block md-p"><span class="md-plain">Finally, solution aware flows allow administrators the ability to use additional </span><span class=""><strong><span class="md-plain">API</span></strong></span><span class="md-plain"> and </span><span class=""><strong><span class="md-plain">PowerShell</span></strong></span><span class="md-plain"> commands to report and manage flow and <a href="https://powerapps.microsoft.com/en-us/blog/gdpr-admin-powershell-cmdlets/" rel="noopener noreferrer" target="_blank">individual flow runs</a></span><span class="md-plain">. This article continues down this path as we explore the </span><span class=""><strong><span class="md-plain">Power Apps Connectors</span></strong></span><span class="md-plain"> and </span><span class=""><strong><span class="md-plain">Power Apps PowerShell</span></strong></span><span class="md-plain"> commands.</span></p>
+<h2 class="md-end-block md-heading"><span class="md-plain">Quick Note on Connectors and Connections</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">The connection and connector actions for </span><span class=""><strong><span class="md-plain">Power Automate</span></strong></span><span class="md-plain"> include the </span><span class=""><strong><span class="md-plain">Power Automate Management</span></strong></span><span class="md-plain"> and </span><span class=""><strong><span class="md-plain">Power Automate for Flow connectors</span></strong></span><span class="md-plain">. </span><span class=""><strong><span class="md-plain">Connectors</span></strong></span><span class="md-plain"> represent what can be connected to with a </span><span class=""><strong><span class="md-plain">Power Automate Flow</span></strong></span><span class="md-plain"> or </span><span class=""><strong><span class="md-plain">Power Apps Canvas App</span></strong></span><span class="md-plain">. For this article just be aware that administrators can list all available connectors and connections or get a specific connector and connection.</span></p>
+<p class="md-end-block md-p"><span class=" md-link"><a href="https://docs.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention" rel="noopener noreferrer" target="_blank"><span class=""><strong><span class="md-plain">Data Loss Prevention Policies</span></strong></span></a></span><span class="md-plain"> need to also be briefly mentioned here as well as they are useful for restricting access to connectors in your enterprise. As detailed in "</span><strong><span class=" md-link"><a href="https://flow.microsoft.com/en-us/blog/introducing-http-and-custom-connector-support-for-data-loss-prevention-policies/" rel="noopener noreferrer" target="_blank"><span class="md-plain">Introducing HTTP and Custom Connector Support for Data Loss Prevention Policies</span></a></span></strong><span class="md-plain">" by </span><strong><span class=" md-link"><a href="https://flow.microsoft.com/en-us/blog/author/jolevesq/" rel="noopener noreferrer" target="_blank"><span class="md-plain">Jonathon Levesque</span></a></span></strong><span class="md-plain">, these policies can be used for HTTP and Custom Connectors as well as other First and Third party integrations. A deep dive into </span><span class=""><strong><span class="md-plain">DLP Policies</span></strong></span><span class="md-plain"> will be included in the <strong><a href="/crm/b/crminthefield/posts/monitoring-the-power-platform-power-automate--connectors-and-connections" rel="noopener noreferrer" target="_blank">Connections and Connector article</a></strong></span><span class="md-plain">.</span></p>
+<p class="md-end-block md-p"><span class="md-plain">Some of the </span><span class=""><strong><span class="md-plain">PowerShell</span></strong></span><span class="md-plain"> tasks addressed below are part of the connectors while others are not currently available. Consider the use of both the </span><span class=""><strong><span class="md-plain">PowerShell module for Power Apps Administration tasks</span></strong></span><span class="md-plain"> as well as the </span><span class=""><strong><span class="md-plain">Power Automate Management</span></strong></span><span class="md-plain"> and </span><span class=""><strong><span class="md-plain">Admin Connectors</span></strong></span><span class="md-plain"> as part of your governance strategy. A good article to review for this is "</span><span class=" md-link"><a href="https://flow.microsoft.com/en-us/blog/security-governance-strategy/" rel="noopener noreferrer" target="_blank"><span class="md-plain">Power platform Security &amp; Governance: Deploying a Defense in Depth Strategy</span></a></span><span class="md-plain">" by </span><strong><span class=" md-link"><a href="https://flow.microsoft.com/en-us/blog/author/keweare/" rel="noopener noreferrer" target="_blank"><span class="md-plain">Kent Weare</span></a></span></strong><span class="md-plain">.</span></p>
+<h2 class="md-end-block md-heading"><span class="md-plain">Power Apps Administration PowerShell Tasks</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">The </span><span class=""><strong><span class="md-plain">PowerShell module for Power Apps Administration tasks</span></strong></span><span class="md-plain"> is an extremely useful way to view and take action on </span><span class=""><strong><span class="md-plain">environments</span></strong></span><span class="md-plain">, </span><span class=""><strong><span class="md-plain">apps</span></strong></span><span class="md-plain">, </span><span class=""><strong><span class="md-plain">flows</span></strong></span><span class="md-plain">, </span><span class=""><strong><span class="md-plain">connectors</span></strong></span><span class="md-plain"> and </span><span class=""><strong><span class="md-plain">permissions</span></strong></span><span class="md-plain">. The </span><span class=""><strong><span class="md-plain">PowerShell Support for Power Apps</span></strong></span><span class="md-plain"> page </span><span class=" md-link"><a href="https://docs.microsoft.com/en-us/power-platform/admin/powerapps-powershell#environments-commands" rel="noopener noreferrer" target="_blank"><span class="md-plain">contains a list of common operations</span></a></span><span class="md-plain"> an administrator would find useful for governing an organization's use of the </span><span class=""><strong><span class="md-plain">Power Platform</span></strong></span><span class="md-plain"> and its environments. Some commands I'd like to call out are:</span></p>
+<figure class="md-table-fig">
+<table class="md-table" border="2">
+<thead>
+<tr class="md-end-block">
+<th><span class="td-span"><span class="md-plain">Command</span></span></th>
+<th><span class="td-span"><span class="md-plain">Description</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Get-AdminDlpPolicy</span></span></td>
+<td><span class="td-span"><span class="md-plain">Displays all of the Data Loss Prevention Policies</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Remove-AllowedConsentPlans</span></span></td>
+<td><span class="td-span"><span class="md-plain">Can be used to remove the ability for uses to create trial licenses.</span><span class="md-br md-tag"> </span><span class="md-plain">NOTE: It is important to note that when using </span><span class=""><em><span class="md-plain">Remove-AllowedConsentPlans</span></em></span><span class="md-plain"> all existing plans of the specified type will be removed from all users in the tenant and will not be recoverable.</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Set-AdminPowerAppEnvironmentConnectionRoleAssignment</span></span></td>
+<td><span class="td-span"><span class="md-plain">Update connection permissions</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Set-AdminFlowOwnerRole</span></span></td>
+<td><span class="td-span"><span class="md-plain">Changes the owner of a Power Automate Flow. Again, useful for reassignment.</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Get-AdminFlowUserDetails</span></span></td>
+<td><span class="td-span"><span class="md-plain">Read a user's Power Automate settings, which are not visible to user, but that support flow execution</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Get-AdminPowerAppConnector</span></span></td>
+<td><span class="td-span"><span class="md-plain">Returns a list of all custom connector details in the tenant.</span></span></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<p class="md-end-block md-p"><span class="md-plain">The "</span><span class=""><strong><span class="md-plain">Get</span></strong></span><span class="md-plain">" cmdlets can all be used for </span><span class=""><strong><span class="md-plain">reporting and logging of the current state of an environment</span></strong></span><span class="md-plain">. The below command from the examples on the </span><span class=""><strong><span class="md-plain">Power Apps PowerShell</span></strong></span><span class="md-plain"> page shows how to use the </span><span class=""><strong><span class="md-plain">Export-Csv</span></strong></span><span class="md-plain"> cmdlet with the </span><span class=""><strong><span class="md-plain">-Path</span></strong></span><span class="md-plain"> argument to </span><span class=""><strong><span class="md-plain">write to a text file</span></strong></span><span class="md-plain">. In this example, we will get all flows in an environment.</span></p>
+<pre class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><span>[embed:dc8ab71f-3b98-42d9-b0f6-e21e02a0f8e2:7d1fc9ec-826a-46e4-80cd-d73b938c986c:type=powershell&text=Get-AdminFlow%20%7C%20Export-Csv%20-Path%20%27.%5CFlowExport.csv%27]</span></pre>
+<p class="md-end-block md-p"><span class="md-plain">With the </span><span class=""><strong><span class="md-plain">Get-AdminFlow</span></strong></span><span class="md-plain"> command below, we are filtering for flows with the word "</span><span class=""><em><span class="md-plain">Approval</span></em></span><span class="md-plain">" in the title.</span></p>
+<pre class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><span>[embed:dc8ab71f-3b98-42d9-b0f6-e21e02a0f8e2:f80e7943-1a1c-421c-80d6-b136e9be5e72:type=powershell&text=Get-AdminFlow%20-EnvironmentName%20%27%7BEnvironment%20Name%7D%27%20%2AApproval%2A]</span></pre>
+<p class="md-end-block md-p"><span class="md-plain">To view a specific user's flows across all environments, use the </span><span class=""><strong><span class="md-plain">Get-FlowOwnerRole</span></strong></span><span class="md-plain"> command:</span></p>
+<pre class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><span>[embed:dc8ab71f-3b98-42d9-b0f6-e21e02a0f8e2:72531a74-42dc-4fa9-acab-2a2f6a5bd1a2:type=powershell&text=Get-FlowOwnerRole%20-PrincipalObjectId%20%27%7BuserId%7D%27]</span></pre>
+<p class="md-end-block md-p" style="padding-left: 120px;"><span class="md-image md-img-error"><img alt="" height="119" src="/resized-image/__size/320x240/__key/communityserver-components-multipleuploadfilemanager/3bc61470_2D00_8456_2D00_4df0_2D00_b96f_2D00_c29019ed46ee-245500-complete/Microsoft.PowerApps.Administratiom.PowerShell.Get_2D00_FlowOwnerRole.Response.JPG" width="595" /></span></p>
+<p class="md-end-block md-p"><span class="md-plain">Consider the use of these commands with techniques discussed in </span><strong><span class=""><em><span class=" md-link"><a href="/crm/b/crminthefield/posts/monitoring-the-power-platform-power-automate---auditing-and-activity-logs-part-2" rel="noopener noreferrer" target="_blank"><span class="md-plain">Part 2 of Power Automate - Auditing and Activity Logs</span></a></span></em></span></strong><span class="md-plain"> for additional logging capabilities.</span></p>
+<p class="md-end-block md-p"><span class="md-plain"><span class="md-plain md-expand">For additional </span><span class=""><strong>Power Automate samples</strong></span>, please visit the <span class="md-link"><a href="https://github.com/aliyoussefi/MonitoringPowerPlatform/tree/PowerAutomate">Monitoring the Power Platform GitHub repository</a></span><span class="md-plain md-expand">.</span></span></p>
+<h2 class="md-end-block md-heading"><span class="md-plain">Activity Events for Power Automate</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<h3 class="md-end-block md-heading"><span class="md-plain">What events are audited?</span></h3>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">The events audited by the </span><span class=""><strong><span class="md-plain">Office 365 Security and Compliance Center</span></strong></span><span class="md-plain"> allow for administrators to search across multiple services offered including </span><span class=""><strong><span class="md-plain">Power Automate</span></strong></span><span class="md-plain">. These </span><span class=""><strong><span class="md-plain">logs are collected at the SDK layer</span></strong></span><span class="md-plain">, meaning one action can actually trigger multiple event logs in the log store. Events collected include flow lifecycle actions such as when an flow is </span><span class=""><strong><span class="md-plain">created</span></strong></span><span class="md-plain">, </span><span class=""><strong><span class="md-plain">edited</span></strong></span><span class="md-plain"> or </span><span class=""><strong><span class="md-plain">deleted</span></strong></span><span class="md-plain">. User actions include </span><span class=""><strong><span class="md-plain">modifying permissions</span></strong></span><span class="md-plain"> or </span><span class=""><strong><span class="md-plain">working with paid trials</span></strong></span><span class="md-plain">.</span></p>
+<h4 class="md-end-block md-heading"><span class="md-plain">Common Audit Properties</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">Each audit record includes common properties that can be used to help search or even correlate events together. Fields such as </span><span class=""><strong><span class="md-plain">precise time stamps</span></strong></span><span class="md-plain">, the </span><span class=""><strong><span class="md-plain">specific Power Automate Flow</span></strong></span><span class="md-plain">, the </span><span class=""><strong><span class="md-plain">operation performed</span></strong></span><span class="md-plain"> and </span><span class=""><strong><span class="md-plain">Identity of the record</span></strong></span><span class="md-plain">. The </span><span class=""><strong><span class="md-plain">Identity</span></strong></span><span class="md-plain"> value is key as it can help us better understand a chain of events. </span></p>
+<figure class="md-table-fig">
+<table class="md-table" border="2">
+<thead>
+<tr class="md-end-block">
+<th><span class="td-span"><span class="md-plain">Field name</span></span></th>
+<th><span class="td-span"><span class="md-plain">Description</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Date</span></span></td>
+<td><span class="td-span"><span class="md-plain">Date and time of when the log was generated in UTC</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">App Name</span></span></td>
+<td><span class="td-span"><span class="md-plain">Unique Identifier of the Flow</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Id</span></span></td>
+<td><span class="td-span"><span class="md-plain">Unique GUID for every row logged</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Result Status</span></span></td>
+<td><span class="td-span"><span class="md-plain">Status of the row logged. Success in most cases.</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Organization Id</span></span></td>
+<td><span class="td-span"><span class="md-plain">Unique identifier of the organization from which the log was generated.</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">CreationTime</span></span></td>
+<td><span class="td-span"><span class="md-plain">Date and time of when the log was generated in UTC</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Operation</span></span></td>
+<td><span class="td-span"><span class="md-plain">Name of operation</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">UserKey</span></span></td>
+<td><span class="td-span"><span class="md-plain">Unique Identifier of the User in Azure AD</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">UserType</span></span></td>
+<td><span class="td-span"><span class="md-plain">The audit type (Admin, Regular, System)</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Additional Info</span></span></td>
+<td><span class="td-span"><span class="md-plain">Additional information if any (e.g. the environment name)</span></span></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<p><span class="md-plain"></span>&nbsp;</p>
+<h4 class="md-end-block md-heading"><span class="md-plain">List of Events</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">The article, </span><span class=" md-link"><a href="https://flow.microsoft.com/en-us/blog/security-and-compliance-center/" rel="noopener noreferrer" target="_blank"><span class="md-plain">Microsoft Flow audit events now available in Office 365 Security &amp; Compliance Center</span></a></span><span class="md-plain">, by </span><span class=" md-link"><a href="https://flow.microsoft.com/en-us/blog/author/keweare/" rel="noopener noreferrer" target="_blank"><span class=""><strong><span class="md-plain">Kent Weare</span></strong></span></a></span><span class="md-plain"> explains the various activities that are audited for </span><span class=""><strong><span class="md-plain">Power Automate Flows</span></strong></span><span class="md-plain">. It also goes into the </span><span class=""><strong><span class="md-plain">Office 365 Security and Compliance Center</span></strong></span><span class="md-plain"> discussed in </span><strong><span class=" md-link"><a href="/crm/b/crminthefield/posts/monitoring-the-power-platform-power-automate---auditing-and-activity-logs-part-2" rel="noopener noreferrer" target="_blank"><span class="md-plain">Part 2</span></a></span></strong><span class="md-plain">.</span></p>
+<figure class="md-table-fig">
+<table class="md-table" border="2">
+<thead>
+<tr class="md-end-block">
+<th><span class="td-span"><span class="md-plain">Created flow</span></span></th>
+<th><span class="td-span"><span class="md-plain">Description</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Created flow</span></span></td>
+<td><span class="td-span"><span class="md-plain">Creating a flow</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Edited flow</span></span></td>
+<td><span class="td-span"><span class="md-plain">Updating a flow</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Deleted flow</span></span></td>
+<td><span class="td-span"><span class="md-plain">Removing a flow</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Edited permissions</span></span></td>
+<td><span class="td-span"><span class="md-plain">Adding a Owner or Run-Only User(s)</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Deleted permissions</span></span></td>
+<td><span class="td-span"><span class="md-plain">Removing an Owner or Run-Only User(s)</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Started a paid trial</span></span></td>
+<td><span class="td-span"><span class="md-plain">Power Automate user started a paid trial</span></span></td>
+</tr>
+<tr class="md-end-block">
+<td><span class="td-span"><span class="md-plain">Renewed a paid trial</span></span></td>
+<td><span class="td-span"><span class="md-plain">Power Automate renewed a paid trial</span></span></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<p><span class="md-plain"></span>&nbsp;</p>
+<h5 class="md-end-block md-heading"><span class="md-plain">Life Cycle Events</span></h5>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">Life cycle events include when a maker </span><span class=""><strong><span class="md-plain">creates</span></strong></span><span class="md-plain">, </span><span class=""><strong><span class="md-plain">edits</span></strong></span><span class="md-plain"> and </span><span class=""><strong><span class="md-plain">deletes</span></strong></span><span class="md-plain"> a </span><span class=""><strong><span class="md-plain">Power Automate Flow</span></strong></span><span class="md-plain">. These events include the exact time that a user created or modified a flow.</span></p>
+<h5 class="md-end-block md-heading"><span class="md-plain">Edited / Deleted Flow Permission Event</span></h5>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">The </span><span class=""><strong><span class="md-plain">Edited Flow Permission event</span></strong></span><span class="md-plain"> can show administrators which flows are actively shared between users and groups. Flow permissions can be set to </span><span class=""><strong><span class="md-plain">Owners</span></strong></span><span class="md-plain"> or </span><span class=""><strong><span class="md-plain">Run-Only Users</span></strong></span><span class="md-plain">. The image below shows a sample of setting the run-only permission, highlighting the connections users and the scopes available.</span></p>
+<p class="md-end-block md-p" style="padding-left: 150px;"><span class="md-image md-img-loaded"><img alt=" " height="423" src="/resized-image/__size/320x240/__key/communityserver-components-multipleuploadfilemanager/c58a8dd9_2D00_bd5a_2D00_4e84_2D00_aacd_2D00_6a40cbb5af39-245500-complete/pastedimage1588036913977v12.jpeg" width="310" /></span></p>
+<h2 class="md-end-block md-heading"><span class="md-plain">Next Steps</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-plain">In this article we have covered getting started with the </span><span class=""><strong><span class="md-plain">Power Automate Management and Admin Connectors</span></strong></span><span class="md-plain">. Each offers unique actions to help administrators report and taken action on environment flow. Continue exploring the capabilities of these connectors and actions through usage within </span><span class=""><strong><span class="md-plain">Power Automate Flows</span></strong></span><span class="md-plain"> or </span><span class=""><strong><span class="md-plain">Canvas Apps</span></strong></span><span class="md-plain">. </span></p>
+<p class="md-end-block md-p"><span class="md-plain">We have also covered the what activities are currently captured for </span><span class=""><strong><span class="md-plain">Power Automate</span></strong></span><span class="md-plain">. Discussed in </span><span class=" md-link"><a href="/crm/b/crminthefield/posts/monitoring-the-power-platform-power-automate---auditing-and-activity-logs-part-2" rel="noopener noreferrer" target="_blank"><span class=""><strong><span class="md-plain">Part 2</span></strong></span></a></span><span class="md-plain"> are techniques to view the audit logs within the </span><span class=""><strong><span class="md-plain">Office 365 Security and Compliance Portal</span></strong></span><span class="md-plain"> as well as </span><span class=""><strong><span class="md-plain">automated techniques</span></strong></span><span class="md-plain">. </span></p>
+<p class="md-end-block md-p"><span class="md-plain">This article is designed to supplement the article on </span><span class=""><strong><span class="md-plain">Power Automate Analytics</span></strong></span><span class="md-plain">, which provides more of an all up view of </span><span class=""><strong><span class="md-plain">Power Automate</span></strong></span><span class="md-plain"> usage. Combining these two documents, an administrator can now </span><span><u><span class="md-plain">track analytic metrics as well as the events that define those metrics</span></u></span><span class="md-plain">.</span></p>
+<p class="md-end-block md-p"><span class="md-plain">If you are interested in learning more about </span><span class=" md-link"><a href="/crm/b/crminthefield/posts/pfe-dynamics-365-service-offerings" rel="noopener noreferrer" target="_blank"><span class=""><strong><span class="md-plain">specialized guidance and training</span></strong></span><span class="md-plain"> for monitoring or other areas of the Power Platform</span></a></span><span class="md-plain">, which includes a </span><span class=" md-link"><a href="/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/WorkshopPLUS-_2D00_-Dynamics-365-Customer-Engagement-Monitoring-with-Application-lnsights-1-Day-with-Lab_2D00_FA5D599F_2D00_20E4_2D00_4087_2D00_A713_2D00_39FBD14DF7E5.pdf" rel="noopener noreferrer" target="_blank"><span class="md-plain">monitoring workshop</span></a></span><span class="md-plain">, please contact your </span><span class=""><strong><span class="md-plain">Technical Account Manager</span></strong></span><span class="md-plain"> or </span><span class=""><strong><span class="md-plain">Microsoft representative</span></strong></span><span class="md-plain"> for further details. </span></p>
+<p class="md-end-block md-p"><span class="md-plain">Your feedback is </span><span class=""><strong><span><u><span class="md-plain">extremely valuable</span></u></span></strong></span><span class="md-plain"> so please leave a comment below and I'll be happy to help where I can! Also, if you find any inconsistencies, omissions or have suggestions, </span><span class=" md-link"><a href="https://github.com/aliyoussefi/MonitoringPowerPlatform/issues" rel="noopener noreferrer" target="_blank"><span class="md-plain">please go here to submit a new issue</span></a></span><span class="md-plain">.</span></p>
+<h2 class="md-end-block md-heading"><span class="md-plain">Index</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p class="md-end-block md-p"><span class="md-link"><a href="/crm/b/crminthefield/posts/monitoring-the-power-platform-introduction" rel="noopener noreferrer" target="_blank"><span class="md-plain">Monitoring the Power Platform: Introduction and Index</span></a></span></p>
