@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Samples",
+    "\\Samples\\AzureFunction",
+    "\\Samples\\AzureFunction\\MonitoringWithApplicationInsights",
+    "\\Samples\\AzureFunction\\MonitoringWithApplicationInsights\\AzureFunctionAndApplicationInsights"
+  ],
+  "SelectedNode": "\\Samples\\AzureFunction\\MonitoringWithApplicationInsights\\AzureFunctionAndApplicationInsights\\AzureFunctionAndApplicationInsights.sln",
+  "PreviewInSolutionExplorer": false
+}
