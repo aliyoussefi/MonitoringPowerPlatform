@@ -12,6 +12,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.AspNetCore.JsonPatch.Operations;
 using System.Net.Http;
 using System.Net;
+using Microsoft.ApplicationInsights.DataContracts;
 
 namespace Dynamics365.Monitoring.AzureFunctions
 {
@@ -28,9 +29,9 @@ namespace Dynamics365.Monitoring.AzureFunctions
             this.telemetryClient.TrackTrace("MonitorWithApplicationInsightsExample constructor called. Using Environment Variable APPINSIGHTS_INSTRUMENTATIONKEY to get Application Insights Key");
         }
 
-
-        [FunctionName("TrackTelemetry")]
-        public async Task<HttpResponseMessage> TrackTelemetry(
+        #region trace
+        [FunctionName("TrackTrace")]
+        public async Task<HttpResponseMessage> TrackTrace(
         [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage req, ExecutionContext exCtx,
         ILogger log)
         {
@@ -62,7 +63,148 @@ namespace Dynamics365.Monitoring.AzureFunctions
             }
 
         }
+        #endregion
+        #region event
+        [FunctionName("TrackEvent")]
+        public async Task<HttpResponseMessage> TrackEvent(
+        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage req, ExecutionContext exCtx,
+        ILogger log)
+        {
+            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionName));
+            try
+            {
+                foreach (var header in req.Headers)
+                {
+                    log.LogInformation(header.Key, header.Value);
+                }
 
+                var content = req.Content;
+                string jsonContent = content.ReadAsStringAsync().Result;
+                dynamic data = JsonConvert.DeserializeObject(jsonContent);
+                var test = data?.name;
+                telemetryClient.TrackEvent("MonitorWithApplicationInsightsExample Function ended. Returning " + $"Hello, {test}");
+
+                RequestModel objRequestModel = new RequestModel();
+                objRequestModel.FirstName = data.FirstName;
+                objRequestModel.LastName = data.LastName;
+
+                HttpResponseMessage rtnObject = req.CreateResponse(HttpStatusCode.OK, objRequestModel);
+                rtnObject.Headers.Add("InvocationId", exCtx.InvocationId.ToString());
+                return rtnObject;
+            }
+            catch (Exception ex)
+            {
+                return req.CreateResponse(HttpStatusCode.BadRequest, "Cannot Create Request! Reason: {0}", string.Format(ex.Message));
+            }
+
+        }
+        #endregion
+        #region pageView
+        [FunctionName("TrackPageView")]
+        public async Task<HttpResponseMessage> TrackPageView(
+        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage req, ExecutionContext exCtx,
+        ILogger log)
+        {
+            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionName));
+            try
+            {
+                foreach (var header in req.Headers)
+                {
+                    log.LogInformation(header.Key, header.Value);
+                }
+
+                var content = req.Content;
+                string jsonContent = content.ReadAsStringAsync().Result;
+                dynamic data = JsonConvert.DeserializeObject(jsonContent);
+                var test = data?.name;
+                telemetryClient.TrackPageView("MonitorWithApplicationInsightsExample Function ended. Returning " + $"Hello, {test}");
+
+                RequestModel objRequestModel = new RequestModel();
+                objRequestModel.FirstName = data.FirstName;
+                objRequestModel.LastName = data.LastName;
+
+                HttpResponseMessage rtnObject = req.CreateResponse(HttpStatusCode.OK, objRequestModel);
+                rtnObject.Headers.Add("InvocationId", exCtx.InvocationId.ToString());
+                return rtnObject;
+            }
+            catch (Exception ex)
+            {
+                return req.CreateResponse(HttpStatusCode.BadRequest, "Cannot Create Request! Reason: {0}", string.Format(ex.Message));
+            }
+
+        }
+        #endregion
+        #region exception
+        [FunctionName("TrackException")]
+        public async Task<HttpResponseMessage> TrackException(
+        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage req, ExecutionContext exCtx,
+        ILogger log)
+        {
+            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionName));
+            try
+            {
+                foreach (var header in req.Headers)
+                {
+                    log.LogInformation(header.Key, header.Value);
+                }
+
+                var content = req.Content;
+                string jsonContent = content.ReadAsStringAsync().Result;
+                dynamic data = JsonConvert.DeserializeObject(jsonContent);
+                var test = data?.name;
+                ExceptionTelemetry exceptionTelemetry = new ExceptionTelemetry();
+                telemetryClient.TrackException(exceptionTelemetry);
+
+                RequestModel objRequestModel = new RequestModel();
+                objRequestModel.FirstName = data.FirstName;
+                objRequestModel.LastName = data.LastName;
+
+                HttpResponseMessage rtnObject = req.CreateResponse(HttpStatusCode.OK, objRequestModel);
+                rtnObject.Headers.Add("InvocationId", exCtx.InvocationId.ToString());
+                return rtnObject;
+            }
+            catch (Exception ex)
+            {
+                return req.CreateResponse(HttpStatusCode.BadRequest, "Cannot Create Request! Reason: {0}", string.Format(ex.Message));
+            }
+
+        }
+        #endregion
+        #region dependency
+        [FunctionName("TrackDependency")]
+        public async Task<HttpResponseMessage> TrackDependency(
+        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage req, ExecutionContext exCtx,
+        ILogger log)
+        {
+            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionName));
+            try
+            {
+                foreach (var header in req.Headers)
+                {
+                    log.LogInformation(header.Key, header.Value);
+                }
+
+                var content = req.Content;
+                string jsonContent = content.ReadAsStringAsync().Result;
+                dynamic data = JsonConvert.DeserializeObject(jsonContent);
+                var test = data?.name;
+                //telemetryClient.TrackDependency("MonitorWithApplicationInsightsExample Function ended. Returning " + $"Hello, {test}");
+
+                RequestModel objRequestModel = new RequestModel();
+                objRequestModel.FirstName = data.FirstName;
+                objRequestModel.LastName = data.LastName;
+
+                HttpResponseMessage rtnObject = req.CreateResponse(HttpStatusCode.OK, objRequestModel);
+                rtnObject.Headers.Add("InvocationId", exCtx.InvocationId.ToString());
+                return rtnObject;
+            }
+            catch (Exception ex)
+            {
+                return req.CreateResponse(HttpStatusCode.BadRequest, "Cannot Create Request! Reason: {0}", string.Format(ex.Message));
+            }
+
+        }
+        #endregion
         public class RequestModel
         {
             public string FirstName { get; set; }
