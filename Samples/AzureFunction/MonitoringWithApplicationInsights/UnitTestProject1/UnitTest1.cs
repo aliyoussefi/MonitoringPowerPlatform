@@ -8,6 +8,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethod1()
         {
+            //string request = @"{{""correlationid"": ""testcorrelation""",""name"": ""test app insight","properties": {"user": "Ali","userTwo": "Leslie"}}}";
         }
     }
 }
