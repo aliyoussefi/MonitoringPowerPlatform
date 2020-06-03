@@ -1,0 +1,59 @@
+swagger: '2.0'
+info: {title: AzureFunctionAndApplicationInsights, version: '1.0', description: Import
+    from "AzureFunctionAndApplicationInsights" Function App}
+host: azurefunctionandapplicationinsights.azurewebsites.net
+basePath: /api
+schemes: [https]
+consumes: []
+produces: []
+paths:
+  /TrackEvent:
+    post:
+      operationId: post-trackevent
+      summary: TrackEvent
+      responses:
+        '200': {description: "null"}
+      description: Track customEvents
+  /TrackException:
+    post:
+      operationId: post-trackexception
+      summary: TrackException
+      responses:
+        '200': {description: "null"}
+      description: Track exceptions
+  /TrackDependency:
+    post:
+      operationId: post-trackdependency
+      summary: TrackDependency
+      responses:
+        '200': {description: "null"}
+      description: Track dependencies
+  /TrackTrace:
+    post:
+      operationId: post-tracktrace
+      summary: TrackTrace
+      responses:
+        '200': {description: "null"}
+      description: Track traces
+  /TrackRequest:
+    post:
+      operationId: post-trackrequest
+      summary: TrackRequest
+      responses:
+        '200': {description: "null"}
+      description: Track requests
+  /TrackPageView:
+    post:
+      operationId: post-trackpageview
+      summary: TrackPageView
+      responses:
+        '200': {description: "null"}
+      description: Track pageView
+definitions: {}
+parameters: {}
+responses: {}
+securityDefinitions:
+  API Key: {type: apiKey, in: query, name: ApiKey}
+security:
+- API Key: []
+tags: []

@@ -1,0 +1,102 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "AzureFunctionAndApplicationInsights",
+    "version": "1.0",
+    "description": "Import from \"AzureFunctionAndApplicationInsights\" Function App"
+  },
+  "host": "alyousseworkshopv9.azure-api.net",
+  "basePath": "/AzureFunctionAndApplicationInsights",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "apiKeyHeader": {
+      "type": "apiKey",
+      "name": "Ocp-Apim-Subscription-Key",
+      "in": "header"
+    },
+    "apiKeyQuery": {
+      "type": "apiKey",
+      "name": "subscription-key",
+      "in": "query"
+    }
+  },
+  "security": [
+    {
+      "apiKeyHeader": []
+    },
+    {
+      "apiKeyQuery": []
+    }
+  ],
+  "paths": {
+    "/TrackEvent": {
+      "post": {
+        "operationId": "post-trackevent",
+        "summary": "TrackEvent",
+        "responses": {
+          "200": {
+            "description": null
+          }
+        }
+      }
+    },
+    "/TrackException": {
+      "post": {
+        "operationId": "post-trackexception",
+        "summary": "TrackException",
+        "responses": {
+          "200": {
+            "description": null
+          }
+        }
+      }
+    },
+    "/TrackDependency": {
+      "post": {
+        "operationId": "post-trackdependency",
+        "summary": "TrackDependency",
+        "responses": {
+          "200": {
+            "description": null
+          }
+        }
+      }
+    },
+    "/TrackTrace": {
+      "post": {
+        "operationId": "post-tracktrace",
+        "summary": "TrackTrace",
+        "responses": {
+          "200": {
+            "description": null
+          }
+        }
+      }
+    },
+    "/TrackRequest": {
+      "post": {
+        "operationId": "post-trackrequest",
+        "summary": "TrackRequest",
+        "responses": {
+          "200": {
+            "description": null
+          }
+        }
+      }
+    },
+    "/TrackPageView": {
+      "post": {
+        "operationId": "post-trackpageview",
+        "summary": "TrackPageView",
+        "responses": {
+          "200": {
+            "description": null
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

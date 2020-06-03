@@ -1,0 +1,39 @@
+{
+    "@odata.context": "https://orgd616cf64.crm.dynamics.com/api/data/v9.0/$metadata#solutioncomponents",
+    "value": [
+        {
+            "@odata.etag": "W/\"4712826\"",
+            "rootcomponentbehavior": 0,
+            "_solutionid_value": "c2f645a9-48a0-ea11-a812-000d3a3349d4",
+            "_modifiedonbehalfby_value": "095662d0-a39a-4995-9e15-dd7af35ca530",
+            "_createdonbehalfby_value": "095662d0-a39a-4995-9e15-dd7af35ca530",
+            "ismetadata": true,
+            "componenttype": 1,
+            "_createdby_value": "11f862b0-aeac-4682-9220-f43d70a5a2e4",
+            "modifiedon": "2020-05-27T18:35:02Z",
+            "solutioncomponentid": "5eb121c6-48a0-ea11-a812-000d3a3349d4",
+            "_modifiedby_value": "11f862b0-aeac-4682-9220-f43d70a5a2e4",
+            "versionnumber": 4712826,
+            "createdon": "2020-05-27T18:35:02Z",
+            "objectid": "0e6dbcb5-48a0-ea11-a812-000d3a3349d4",
+            "rootsolutioncomponentid": null
+        },
+        {
+            "@odata.etag": "W/\"4712993\"",
+            "rootcomponentbehavior": 0,
+            "_solutionid_value": "c2f645a9-48a0-ea11-a812-000d3a3349d4",
+            "_modifiedonbehalfby_value": "095662d0-a39a-4995-9e15-dd7af35ca530",
+            "_createdonbehalfby_value": "095662d0-a39a-4995-9e15-dd7af35ca530",
+            "ismetadata": true,
+            "componenttype": 1,
+            "_createdby_value": "11f862b0-aeac-4682-9220-f43d70a5a2e4",
+            "modifiedon": "2020-05-27T18:36:16Z",
+            "solutioncomponentid": "3ac389ee-48a0-ea11-a812-000d3a3349d4",
+            "_modifiedby_value": "11f862b0-aeac-4682-9220-f43d70a5a2e4",
+            "versionnumber": 4712993,
+            "createdon": "2020-05-27T18:36:16Z",
+            "objectid": "33d6eb2f-f28c-4ed7-a5fc-d9ddce6e8d75",
+            "rootsolutioncomponentid": null
+        }
+    ]
+}
