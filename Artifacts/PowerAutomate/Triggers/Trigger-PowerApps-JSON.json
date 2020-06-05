@@ -1,0 +1,67 @@
+{
+  "name": "manual",
+  "inputs": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "GetBuilds_RelativeURI": {
+          "type": "string",
+          "description": "The relative URI. Example: {project}/{team}/_apis/wit/templates?api-version=5.0-preview.1.. This parameter is used as part of \"4C9204D9-D0D0-4EA7-B309-694664274FDE\"",
+          "x-ms-powerflows-param-ispartial": true
+        },
+        "GetBuilds_OrganizationName": {
+          "type": "string",
+          "description": "The name of the Organization. This can be found in the instance URL i.e. {Organization}.visualstudio.com. The Organization should have \"Third-party application access via OAuth\" enabled to prevent errors in the operation.",
+          "x-ms-powerflows-param-ispartial": false
+        }
+      },
+      "required": [
+        "GetBuilds_RelativeURI",
+        "GetBuilds_OrganizationName"
+      ]
+    }
+  },
+  "outputs": {
+    "headers": {
+      "Cache-Control": "no-store, no-cache",
+      "Accept": "*/*",
+      "Accept-Encoding": "br,gzip,deflate",
+      "Accept-Language": "en-US",
+      "Expect": "100-continue",
+      "Host": "prod-00.westus.logic.azure.com",
+      "Referer": "https://apps.powerapps.com/play/e088ba59-5b77-479c-a207-96579386fc6f?tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47&source=portal&screenColor=rgba(0%2C%20176%2C%20240%2C%201)",
+      "User-Agent": "Mozilla/5.0,(Windows NT 10.0; Win64; x64),AppleWebKit/537.36,(KHTML, like Gecko),Chrome/80.0.3987.149,Safari/537.36,Edg/80.0.361.69",
+      "x-ms-client-session-id": "f0e580bb-7faf-4637-8227-f4008f74165d",
+      "origin": "https://apps.powerapps.com",
+      "sec-fetch-dest": "empty",
+      "x-ms-client-request-id": "182901d0-6c1f-4e92-935c-7b836857b100",
+      "x-ms-user-agent": "PowerApps/3.20033.16 (Web Player; AppName=e088ba59-5b77-479c-a207-96579386fc6f)",
+      "x-ms-gateway-object-id": "",
+      "sec-fetch-site": "cross-site",
+      "sec-fetch-mode": "cors",
+      "X-MS-APIM-Referrer": "https://msmanaged-na.azure-apim.net/apim/logicflows/a572e51f335e4c2797802b62f6f5bf3a-94c1116ab49485e2/triggers/manual/run?api-version=2015-02-01-preview",
+      "X-MS-APIM-Tokens": "eyJ3b3JrZmxvd05hbWUiOiJhNTcyZTUxZi0zMzVlLTRjMjctOTc4MC0yYjYyZjZmNWJmM2EiLCJ3b3JrZmxvd1BhdGgiOiIvc3Vic2NyaXB0aW9ucy80YTk3MWJiZC1jM2Q4LTQ2ZTEtYjE1MC00ODcwY2FjOWYxOWMvcmVzb3VyY2VHcm91cHMvNzJmOTg4YmY4NmYxNDFhZjkxYWIyZDdjZDAxMWRiNDctNTBjNDMzY2YwMWVkNDBiMmI2YWFhYTVkMDljNWFmZTgtZW52L3Byb3ZpZGVycy9NaWNyb3NvZnQuTG9naWMvd29ya2Zsb3dzL2E1NzJlNTFmLTMzNWUtNGMyNy05NzgwLTJiNjJmNmY1YmYzYSIsIndvcmtmbG93RW5kcG9pbnQiOiIvc3Vic2NyaXB0aW9ucy80YTk3MWJiZC1jM2Q4LTQ2ZTEtYjE1MC00ODcwY2FjOWYxOWMvcmVzb3VyY2VHcm91cHMvNzJmOTg4YmY4NmYxNDFhZjkxYWIyZDdjZDAxMWRiNDctNTBjNDMzY2YwMWVkNDBiMmI2YWFhYTVkMDljNWFmZTgtZW52L3Byb3ZpZGVycy9NaWNyb3NvZnQuTG9naWMvd29ya2Zsb3dzL2E1NzJlNTFmLTMzNWUtNGMyNy05NzgwLTJiNjJmNmY1YmYzYSIsIndvcmtGbG93Q2FsbGJhY2tVcmkiOiJodHRwczovL3Byb2QtMDAud2VzdHVzLmxvZ2ljLmF6dXJlLmNvbTo0NDMvd29ya2Zsb3dzLzllMWU2ZGEyMDcxMTQ2NmFiY2FmYjAzNGQyNjhiNzQ4L3RyaWdnZXJzL21hbnVhbC9wYXRocy9pbnZva2U/YXBpLXZlcnNpb249MjAxNi0wNi0wMSZzcD0lMkZ0cmlnZ2VycyUyRm1hbnVhbCUyRnJ1biZzdj0xLjAmc2lnPTZOOE1PbFpBUExsUmlteUVKOVRjV1lhMkNnVW9reldncVFTSXNYeG8zLUkiLCIkY29ubmVjdGlvbnMiOnsic2hhcmVkX3Zpc3VhbHN0dWRpb3RlYW1zZXJ2aWNlcyI6eyJhcGlJZCI6Ii9wcm92aWRlcnMvTWljcm9zb2Z0LlBvd2VyQXBwcy9hcGlzL3NoYXJlZF92aXN1YWxzdHVkaW90ZWFtc2VydmljZXMiLCJjb25uZWN0aW9uSWQiOiIvcHJvdmlkZXJzL01pY3Jvc29mdC5Qb3dlckFwcHMvYXBpcy9zaGFyZWRfdmlzdWFsc3R1ZGlvdGVhbXNlcnZpY2VzL2Nvbm5lY3Rpb25zL3NoYXJlZC12aXN1YWxzdHVkaW90LTEzNTg1M2Y0LWRhYjktNDRjMi1hZjBjLWQ2ZDQ2NWZlMzYyMiIsInNvdXJjZSI6Ikludm9rZXIifX0sIiRDb25uZWN0aW9uS2V5IjoiS2V5IGV5SjBlWEFpT2lKS1YxUWlMQ0poYkdjaU9pSlNVekkxTmlJc0luZzFkQ0k2SWpOcFVHOHlUV0pHYVZKb2JqTjRObkl6UWw5MGVtYzFNelV5VVNKOS5leUowY3lJNklqY3laams0T0dKbUxUZzJaakV0TkRGaFppMDVNV0ZpTFRKa04yTmtNREV4WkdJME55SXNJbU56SWpvaWJYTnRZVzVoWjJWa0xXNWhMMnh2WjJsalpteHZkM012WVRVM01tVTFNV1l6TXpWbE5HTXlOemszT0RBeVlqWXlaalptTldKbU0yRXRPVFJqTVRFeE5tRmlORGswT0RWbE1pSXNJbllpT2lJNU1qSXpNemN5TURNMk9EVTBOemMxT0RBM0lpd2laVzUyYVdRaU9pSTFNR00wTXpOalppMHdNV1ZrTFRRd1lqSXRZalpoWVMxaFlUVmtNRGxqTldGbVpUZ2lMQ0poZFdRaU9pSm9kSFJ3Y3pvdkx6VXdZelF6TTJObUxUQXhaV1F0TkRCaU1pMWlObUZoTFdGaE5XUXdPV00xWVdabE9DNHdNQzVqYjIxdGIyNHVkWE5oTG1GNmRYSmxMV0Z3YVdoMVlpNXVaWFF2WVhCcGJTOXNiMmRwWTJac2IzZHpMMkUxTnpKbE5URm1Nek0xWlRSak1qYzVOemd3TW1JMk1tWTJaalZpWmpOaExUazBZekV4TVRaaFlqUTVORGcxWlRJaUxDSnBjM01pT2lKb2RIUndjem92TDIxemJXRnVZV2RsWkMxdVlTNWhlblZ5WlMxaGNHbHRMbTVsZEM4aUxDSmxlSEFpT2pFMU9EYzNPRFExTnpJc0ltNWlaaUk2TVRVNE5URXdOakUzTW4wLmk4dzR1U1lMX3NYUC1BTlJDVUxzN3BzTTBNNUpnT05MdmlGcDBzRXZRS0c0TjlFejdKVi1RbFZlSTdNcDk5YTE3MndicDk3TGU0OTg4QkRWVVdzZElLLWNoUFQtOG9BeXY5alp3R3BpeWxHWFZ3LWNDcDhGd1pMQXBGSlZ3WGttQ2dSTGpaWWo0d25Yam5ZTXA5Mk5oNi0xNFU2N18xNS1PdExLQldkOWp1Z3NvZG9jWFhPcC12OEN0blRDWGxOS3JwUmowaWg3ZFY0UWYyNUIwVUJGTTR0Vk9odmFtSWpkRTVwWkRvVGdvVkZJTk9XejdqT2lkMjZFdU5BOExJRFRPamVjZ1REOWpXX1I4RnBXRUV5Nm9zMjE2RkJZNW54V05aS3ZsTk80TURJb3VtcXpJRGdmc3VkSWhCS0lkN1VPNFNFYnBWTnQzQkhrUU96cW5NakxDdyIsIiRjYWxsZXJJZGVudGl0eSI6eyJvYmplY3RpZCI6Ijk3YjA1YmI1LTA3M2YtNGE5ZC04ZTA4LWE4ZmZiNDMxNjlmMSIsInByaW5jaXBhbHR5cGUiOiJBY3RpdmVEaXJlY3RvcnkiLCJ0ZW5hbnRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImVtYWlsIjoiYWx5b3Vzc2VAbWljcm9zb2Z0LmNvbSIsImRpc3BsYXlOYW1lIjoiQWxpIFlvdXNzZWZpIn19",
+      "X-MS-APIM-Referrer-Prefix": "https://msmanaged-na.azure-apim.net/apim/logicflows/a572e51f335e4c2797802b62f6f5bf3a-94c1116ab49485e2",
+      "X-MS-APIM-Callback": "https://msmanaged-na.consent.azure-apim.net",
+      "x-ms-user-id": "97b05bb5-073f-4a9d-8e08-a8ffb43169f1",
+      "x-ms-user-name": "Ali Youssefi",
+      "x-ms-user-name-encoded": "QWxpIFlvdXNzZWZp",
+      "x-ms-user-email": "alyousse@microsoft.com",
+      "x-ms-user-email-encoded": "YWx5b3Vzc2VAbWljcm9zb2Z0LmNvbQ==",
+      "x-ms-user-timestamp": "2020-03-25T03:17:26.2460846Z",
+      "X-Forwarded-For": "73.155.9.212",
+      "Content-Length": "79",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "GetBuilds_RelativeURI": "Project",
+      "GetBuilds_OrganizationName": "Organization"
+    }
+  },
+  "startTime": "2020-03-25T03:17:26.4944594Z",
+  "endTime": "2020-03-25T03:17:26.4944594Z",
+  "trackingId": "5a27a7b4-9566-4376-8441-8f15b12de5f5",
+  "clientTrackingId": "08586165006389711986235085198CU06",
+  "originHistoryName": "08586165006389711986235085198CU06",
+  "status": "Succeeded"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "manual",
+  "inputs": {
+    "schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  "outputs": {
+    "headers": {
+      "Accept-Language": "en-US",
+      "User-Agent": "azure-logic-apps/1.0,(workflow d70049391929431fb766080eae658799; version 08586164693175471712),microsoft-flow/1.0",
+      "x-ms-workflow-id": "d70049391929431fb766080eae658799",
+      "x-ms-workflow-version": "08586164693175471712",
+      "x-ms-workflow-name": "9b4a3fca-5667-4fdf-969d-a1f5226e3b4b",
+      "x-ms-workflow-system-id": "/locations/westus/scaleunits/prod-86/workflows/d70049391929431fb766080eae658799",
+      "x-ms-workflow-run-id": "08586164691703553194009573245CU109",
+      "x-ms-workflow-run-tracking-id": "f3cb7e9f-1c3a-4c8e-905f-cdad5b1238df",
+      "x-ms-workflow-operation-name": "Run_a_Child_Flow",
+      "x-ms-execution-location": "westus",
+      "x-ms-workflow-subscription-id": "4a971bbd-c3d8-46e1-b150-4870cac9f19c",
+      "x-ms-workflow-resourcegroup-name": "72F988BF86F141AF91AB2D7CD011DB47-50C433CF01ED40B2B6AAAA5D09C5AFE8-ENV",
+      "x-ms-tracking-id": "b5ace75e-887f-4dca-8343-b22d3ae6eb06",
+      "x-ms-correlation-id": "b5ace75e-887f-4dca-8343-b22d3ae6eb06",
+      "x-ms-client-request-id": "b5ace75e-887f-4dca-8343-b22d3ae6eb06",
+      "x-ms-client-tracking-id": "08586164692660680536305951133CU82",
+      "x-ms-action-tracking-id": "c9800e27-e438-422a-a14b-ff122dd47e1b",
+      "x-ms-client-keywords": "testFlow",
+      "x-ms-activity-vector": "IN.0T.IN.05.IN.08"
+    }
+  },
+  "startTime": "2020-03-25T12:01:55.5302067Z",
+  "endTime": "2020-03-25T12:01:55.5302067Z",
+  "trackingId": "5022b590-f457-4a86-80da-ce22ce2d24a6",
+  "clientTrackingId": "08586164692660680536305951133CU82",
+  "originHistoryName": "08586164691702351831364616174CU73",
+  "clientKeywords": [
+    "testFlow"
+  ],
+  "status": "Succeeded"
+}
