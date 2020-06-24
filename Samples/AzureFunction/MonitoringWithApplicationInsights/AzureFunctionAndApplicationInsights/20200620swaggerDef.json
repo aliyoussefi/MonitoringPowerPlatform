@@ -1,0 +1,134 @@
+swagger: '2.0'
+info: {title: AzureFunctionAndApplicationInsights, version: '1.0', description: Import
+    from "AzureFunctionAndApplicationInsights" Function App}
+host: azurefunctionandapplicationinsights.azurewebsites.net
+basePath: /api
+schemes: [https]
+consumes: []
+produces: []
+paths:
+  /TrackEvent:
+    post:
+      operationId: post-trackevent
+      summary: Track Event
+      responses:
+        '200': {description: 'null'}
+      description: Track customEvents
+      parameters:
+      - name: body
+        in: body
+        required: false
+        schema:
+          type: object
+          properties:
+            correlationid: {type: string, description: correlationid}
+            name: {type: string, description: name}
+            workflowName: {type: string, description: Workflow Name(from workflow())}
+            environmentName: {type: string, description: environmentName}
+            workflowRunName: {type: string, description: workflowRunName}
+            actionName: {type: string, description: actionName}
+            message: {type: string, description: message}
+  /TrackException:
+    post:
+      operationId: post-trackexception
+      summary: Track Exception
+      responses:
+        '200': {description: 'null'}
+      description: Track exceptions
+      parameters:
+      - name: body
+        in: body
+        required: false
+        schema:
+          type: object
+          properties:
+            correlationid: {type: string, description: correlationid}
+            name: {type: string, description: name}
+            exceptionMessage: {type: string, description: Exception Message}
+            workflowName: {type: string, description: Workflow Name(from workflow())}
+            environmentName: {type: string, description: environmentName}
+            workflowRunName: {type: string, description: workflowRunName}
+            actionName: {type: string, description: actionName}
+            severityLevel: {type: integer, description: severityLevel}
+            exceptionCode: {type: string, description: exceptionCode}
+  /TrackDependency:
+    post:
+      operationId: post-trackdependency
+      summary: Track Dependency
+      responses:
+        '200': {description: 'null'}
+      description: Track dependencies
+      parameters:
+      - name: body
+        in: body
+        required: false
+        schema:
+          type: object
+          properties:
+            correlationid: {type: string, description: correlationid}
+            name: {type: string, description: name}
+            duration: {type: string, description: duration}
+            workflowName: {type: string, description: Workflow Name(from workflow())}
+            environmentName: {type: string, description: environmentName}
+            workflowRunName: {type: string, description: workflowRunName}
+            actionName: {type: string, description: actionName}
+            id: {type: string, description: id}
+            type: {type: string, description: type}
+  /TrackTrace:
+    post:
+      operationId: post-tracktrace
+      summary: Track Trace
+      responses:
+        '200':
+          description: A player resource.
+          schema: {$ref: '#/definitions/Player'}
+      description: Track traces
+      parameters:
+      - name: body
+        in: body
+        required: false
+        schema:
+          type: object
+          properties:
+            correlationid: {type: string, description: correlationid}
+            name: {type: string, description: name}
+            workflowName: {type: string, description: Workflow Name(from workflow())}
+            environmentName: {type: string, description: environmentName}
+            workflowRunName: {type: string, description: workflowRunName}
+            actionName: {type: string, description: actionName}
+            message: {type: string, description: message}
+  /TrackRequest:
+    post:
+      operationId: post-trackrequest
+      summary: Track Request
+      responses:
+        '200': {description: 'null'}
+      description: Track requests
+      parameters:
+      - name: body
+        in: body
+        required: false
+        schema:
+          type: object
+          properties:
+            correlationid: {type: string, description: correlationid}
+            name: {type: string, description: name}
+            timestamp: {type: string, description: timestamp}
+            duration: {type: string, description: duration}
+            responseCode: {type: string, description: responseCode}
+            success: {type: string, description: success}
+definitions:
+  Player:
+    type: object
+    properties:
+      playerId: {type: string}
+      alias: {type: string}
+      displayName: {type: string}
+      profilePhotoUrl: {type: string}
+parameters: {}
+responses: {}
+securityDefinitions:
+  API Key: {type: apiKey, in: query, name: code}
+security:
+- API Key: []
+tags: []
