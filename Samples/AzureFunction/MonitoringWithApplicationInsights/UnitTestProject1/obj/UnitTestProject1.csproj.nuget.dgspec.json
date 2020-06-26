@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alyousse\\source\\repos\\aliyoussefi\\MonitoringPowerPlatform\\Samples\\AzureFunction\\MonitoringWithApplicationInsights\\UnitTestProject1\\UnitTestProject1.csproj": {}
+    "C:\\Data\\AzureFunction\\MonitoringWithApplicationInsights\\UnitTestProject1\\UnitTestProject1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alyousse\\source\\repos\\aliyoussefi\\MonitoringPowerPlatform\\Samples\\AzureFunction\\MonitoringWithApplicationInsights\\UnitTestProject1\\UnitTestProject1.csproj": {
+    "C:\\Data\\AzureFunction\\MonitoringWithApplicationInsights\\UnitTestProject1\\UnitTestProject1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alyousse\\source\\repos\\aliyoussefi\\MonitoringPowerPlatform\\Samples\\AzureFunction\\MonitoringWithApplicationInsights\\UnitTestProject1\\UnitTestProject1.csproj",
+        "projectUniqueName": "C:\\Data\\AzureFunction\\MonitoringWithApplicationInsights\\UnitTestProject1\\UnitTestProject1.csproj",
         "projectName": "UnitTestProject1",
-        "projectPath": "C:\\Users\\alyousse\\source\\repos\\aliyoussefi\\MonitoringPowerPlatform\\Samples\\AzureFunction\\MonitoringWithApplicationInsights\\UnitTestProject1\\UnitTestProject1.csproj",
+        "projectPath": "C:\\Data\\AzureFunction\\MonitoringWithApplicationInsights\\UnitTestProject1\\UnitTestProject1.csproj",
         "packagesPath": "C:\\Users\\alyousse\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alyousse\\source\\repos\\aliyoussefi\\MonitoringPowerPlatform\\Samples\\AzureFunction\\MonitoringWithApplicationInsights\\UnitTestProject1\\obj\\",
+        "outputPath": "C:\\Data\\AzureFunction\\MonitoringWithApplicationInsights\\UnitTestProject1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -49,6 +49,10 @@
               "target": "Package",
               "version": "[2.0.0, )"
             },
+            "Microsoft.ApplicationInsights": {
+              "target": "Package",
+              "version": "[2.14.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.2.0, )"
@@ -73,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
