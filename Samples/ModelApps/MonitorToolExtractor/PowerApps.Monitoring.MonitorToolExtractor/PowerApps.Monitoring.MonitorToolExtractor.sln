@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerApps.Monitoring.MonitorToolExtractor", "PowerApps.Monitoring.MonitorToolExtractor.csproj", "{FD708F80-9D4C-4AE6-B363-8E32A2B935DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD708F80-9D4C-4AE6-B363-8E32A2B935DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD708F80-9D4C-4AE6-B363-8E32A2B935DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD708F80-9D4C-4AE6-B363-8E32A2B935DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD708F80-9D4C-4AE6-B363-8E32A2B935DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36B76220-6C93-41E0-82DE-9E97F27BB988}
+	EndGlobalSection
+EndGlobal
