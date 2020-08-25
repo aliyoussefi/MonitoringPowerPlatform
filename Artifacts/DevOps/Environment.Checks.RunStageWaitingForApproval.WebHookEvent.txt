@@ -1,0 +1,142 @@
+Method: POST
+URI: http://tempuri.org/
+HTTP Version: 1.1
+Headers:
+{
+  Content-Type: application/json; charset=utf-8
+}
+Content:
+{
+  "subscriptionId": "5815706d-047c-4bd4-8210-840be6d05a4d",
+  "notificationId": 1,
+  "id": "f469e1bb-2558-400e-be2a-e8e605da5cc9",
+  "eventType": "ms.vss-pipelinechecks-events.approval-pending",
+  "publisherId": "pipelines",
+  "message": {
+    "text": "Approval pending for deployment of pipeline 20200825.3 to environment QA.",
+    "html": "Approval pending for deployment of pipeline <a href=https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_build/results?buildId=568> 20200825.3 </a> to environment <a href=https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_environments/6>QA</a>.",
+    "markdown": "Approval pending for deployment of pipeline [https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_build/results?buildId=568](20200825.3) to environment [QA](https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_environments/6)"
+  },
+  "detailedMessage": {
+    "text": "Approval pending for deployment of pipeline 20200825.3 to environment QA.",
+    "html": "Approval pending for deployment of pipeline <a href=https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_build/results?buildId=568> 20200825.3 </a> to environment <a href=https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_environments/6>QA</a>.",
+    "markdown": "Approval pending for deployment of pipeline [https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_build/results?buildId=568](20200825.3) to environment [QA](https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_environments/6)"
+  },
+  "resource": {
+    "approval": {
+      "id": "4317d4db-f39b-43ae-9f91-d036e801b80e",
+      "steps": [
+        {
+          "assignedApprover": {
+            "displayName": "Ali Youssefi",
+            "id": "34af508d-e817-49bb-90ce-d87dc7c2cb2f",
+            "uniqueName": "alyousse@microsoft.com",
+            "descriptor": "aad.MGMxYzcwMDctNTM2OS03NTRkLTgwZTUtNzJlZWMzYzliNzRm"
+          },
+          "status": "pending",
+          "lastModifiedOn": "2020-08-25T22:58:32.3454509Z",
+          "order": 1,
+          "lastModifiedBy": {
+            "displayName": "Microsoft.VisualStudio.Services.TFS",
+            "id": "00000002-0000-8888-8000-000000000000",
+            "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+            "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          },
+          "initiatedOn": "2020-08-25T22:58:32.3454509Z",
+          "history": []
+        },
+        {
+          "assignedApprover": {
+            "displayName": "Lucas Catalán Diez",
+            "id": "c43dc13f-29bf-6975-b664-0a6957d406ad",
+            "uniqueName": "lucatala@microsoft.com",
+            "descriptor": "aad.YzQzZGMxM2YtMjliZi03OTc1LWI2NjQtMGE2OTU3ZDQwNmFk"
+          },
+          "status": "pending",
+          "lastModifiedOn": "2020-08-25T22:58:32.3454509Z",
+          "order": 1,
+          "lastModifiedBy": {
+            "displayName": "Microsoft.VisualStudio.Services.TFS",
+            "id": "00000002-0000-8888-8000-000000000000",
+            "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+            "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          },
+          "initiatedOn": "2020-08-25T22:58:32.3454509Z",
+          "history": []
+        }
+      ],
+      "status": "pending",
+      "createdOn": "2020-08-25T22:58:32.347Z",
+      "lastModifiedOn": "2020-08-25T22:58:32.3454509Z",
+      "executionOrder": "anyOrder",
+      "minRequiredApprovers": 1,
+      "blockedApprovers": [],
+      "_links": {
+        "self": {
+          "href": "https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_apis/pipelines/approvals/4317d4db-f39b-43ae-9f91-d036e801b80e"
+        }
+      }
+    },
+    "projectId": "96cfdf55-7b0f-42b5-b4d2-7d66d4da8550",
+    "pipeline": {
+      "id": "49",
+      "name": "Environment Pipeline",
+      "_links": {
+        "web": {
+          "href": "https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_build/definition?definitionId=49"
+        }
+      }
+    },
+    "stage": {
+      "id": "96ac2280-8cb4-5df5-99de-dd2da759617d",
+      "name": "__default",
+      "_links": {
+        "web": {
+          "href": "https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_build/results?buildId=568"
+        }
+      }
+    },
+    "run": {
+      "runReason": "Manual",
+      "queuedOn": "Tue, 25 Aug 2020 22:58:31 GMT",
+      "requestedFor": "Ali Youssefi",
+      "id": "568",
+      "name": "20200825.3",
+      "_links": {
+        "web": {
+          "href": "https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_build/results?buildId=568"
+        },
+        "self": {
+          "href": "https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_apis/build/Builds/568"
+        }
+      }
+    },
+    "resource": {
+      "resourceType": "environment",
+      "id": "6",
+      "name": "QA",
+      "_links": {
+        "web": {
+          "href": "https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_environments/6"
+        }
+      }
+    },
+    "runId": 568,
+    "runUrl": "https://dev.azure.com/mip-d365-easyrepro/96cfdf55-7b0f-42b5-b4d2-7d66d4da8550/_build/results?buildId=568",
+    "stageName": "__default",
+    "attemptId": 1,
+    "approvalId": "4317d4db-f39b-43ae-9f91-d036e801b80e"
+  },
+  "resourceVersion": "5.1-preview.1",
+  "resourceContainers": {
+    "collection": {
+      "id": "65b53e70-3063-4593-8340-1c931df9379d",
+      "baseUrl": "https://dev.azure.com/mip-d365-easyrepro/"
+    },
+    "account": {
+      "id": "b873325f-2fed-47f3-8517-27c96e5b9a36",
+      "baseUrl": "https://dev.azure.com/mip-d365-easyrepro/"
+    }
+  },
+  "createdDate": "2020-08-25T22:58:38.4639788Z"
+}
