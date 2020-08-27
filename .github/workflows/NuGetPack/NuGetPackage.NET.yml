@@ -1,0 +1,38 @@
+name: Publish NuGet Package for .NET Framework DLL
+ 
+on:
+  milestone:
+    types: [closed]
+ 
+jobs:
+  build:
+ 
+    runs-on: windows-latest
+ 
+    steps:
+    - uses: actions/checkout@v1
+      name: Checkout Code
+     
+    - name: Setup MSBuild Path
+      uses: warrenbuckley/Setup-MSBuild@v1
+       
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+     
+    - name: Restore NuGet Packages
+      run: nuget restore Dynamics365.Monitoring.sln
+ 
+    - name: Build and Publish Web App
+      run: msbuild Dynamics365.Monitoring.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+ 
+    - name: Push generated package to GitHub registry
+      run: nuget pack nuspec\D365.Monitoring.nuspec  -prop configuration=debug -BasePath Dynamics365.Monitoring.Plugins\
+ 
+    - name: Push generated package to GitHub registry
+      run: dotnet nuget push ./<project>/out/*.nupkg --skip-duplicate --no-symbols true
+ 
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: published_webapp
+        path: bin\Release\Publish
