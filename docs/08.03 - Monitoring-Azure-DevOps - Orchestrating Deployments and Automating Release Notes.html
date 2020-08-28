@@ -1,0 +1,528 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>08.03 - Monitoring-Azure-DevOps - Orchestrating Deployments and Automating Release Notes</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = ''><h1><a name="monitoring-the-power-platform-azure-devops---orchestrating-deployments-and-automating-release-notes" class="md-header-anchor"></a><span>Monitoring the Power Platform: Azure DevOps - Orchestrating Deployments and Automating Release Notes</span></h1><h2><a name="summary" class="md-header-anchor"></a><span>Summary</span></h2><p><a href='https://azure.microsoft.com/en-us/overview/what-is-devops/'><span>DevOps</span></a><span> has become more and more ingrained into our </span><strong><span>Power Platform</span></strong><span> project lifecycle. Work item tracking and feedback tools for teamwork. Continuous integration and delivery for code changes and solution deployments. Automated testing for assurance, compliance and governance considerations. Microsoft&#39;s tool, </span><strong><a href='https://azure.microsoft.com/en-us/overview/what-is-devops/#culture'><span>Azure DevOps</span></a></strong><span> provides native capabilities to plan, work, collaborate and deliver. Each step along the way in our </span><a href='https://docs.microsoft.com/en-us/power-platform/alm/devops-build-tools'><strong><span>Power Platform DevOps</span></strong><span> journey</span></a><span> can be tracked and monitored which will be the primary objective of this article.</span></p><p><span>In this article, we will focus on </span><strong><span>integrating Azure DevOps with Microsoft Teams to help coordinate and collaborate during a deployment</span></strong><span>. We will explore the various bots and how to set them up. From there we will walk through a sample scenario involving multiple teams working together. Finally, we will look to automate release notes using web hooks and </span><strong><span>Azure Function</span></strong><span>.</span></p><h2><a name="sources" class="md-header-anchor"></a><span>Sources</span></h2><p><span>Sources of </span><strong><span>Azure DevOps</span></strong><span> events that impact our delivery can come from virtually any area of the platform including work items, pipelines, source control, testing and artifact delivery. For each one of these events, such as completed work items, we can setup visualizations such as charts based on defined queries. Service hooks and notification subscriptions can be configured to allow real time reporting of events to external parties and systems allowing for us to stay in a state of continuous communication and collaboration.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/ADO.Areas.png" style="zoom:50%;" /></p><h2><a name="microsoft-teams-continuous-collaboration-and-integration" class="md-header-anchor"></a><span>Microsoft Teams, Continuous Collaboration and Integration</span></h2><p><strong><u><span>Azure DevOps bots with Microsoft Teams has quickly grown into one of my favorite features</span></u></strong><span>. For instance, </span><a href='https://docs.microsoft.com/en-us/azure/devops/boards/integrations/boards-teams?view=azure-devops'><span>Azure DevOps dashboards and kanban boards can be added to channels for visualizations of progress</span></a><span> as shown below.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/WorkItems-Dashboard-TeamsEmbedded.JPG" style="zoom:50%;" /></p><p><span>Multiple </span><strong><span>Azure DevOps</span></strong><span> bots can be configured to deliver messages to and from </span><strong><span>Microsoft Teams</span></strong><span> to allow for continuous collaboration across multiple teams and channels. These bots can work with </span><a href='https://docs.microsoft.com/en-us/azure/devops/pipelines/integrations/microsoft-teams?view=azure-devops'><span>Azure Pipelines</span></a><span>, </span><a href='https://docs.microsoft.com/en-us/azure/devops/boards/integrations/boards-teams?view=azure-devops'><span>work items</span></a><span> and </span><a href='https://docs.microsoft.com/en-us/azure/devops/repos/integrations/repos-teams?view=azure-devops'><span>code pull requests</span></a><span>.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Teams-Azure-DevOps-Bots.JPG"  /></p><figure><table><thead><tr><th><span>Work Items</span></th><th><span>Code</span></th><th><span>Pipelines</span></th></tr></thead><tbody><tr><td><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Teams.DevOps.Boards.png" style="zoom:50%;" /></td><td><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Teams.DevOps.Code.png" style="zoom:50%;" /></td><td><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Teams.DevOps.Pipelines.png" style="zoom:50%;" /></td></tr></tbody></table></figure><p><span>For monitoring and orchestrating deployments across our various teams, the Azure Pipelines bot is essential. Let&#39;s begin by setting up subscriptions to monitor a release pipeline.</span></p><p><strong><u><span>NOTE: The rest of this document will be using a release pipeline as an example, but this will also work with multi-stage build pipelines that utilize environments.</span></u></strong></p><h3><a name="configuring-the-azure-pipelines-bot-in-microsoft-teams" class="md-header-anchor"></a><span>Configuring the Azure Pipelines Bot in Microsoft Teams</span></h3><p><span>Use the &quot;</span><strong><em><span>subscriptions</span></em></strong><span>&quot; keyword  with the </span><strong><span>Azure Pipelines bot</span></strong><span> to review and modify existing subscriptions and add new ones. </span></p><p><img src="https://raw.githubusercontent.com/wiki/aliyoussefi/D365-Monitoring/Artifacts/DevOps/Teams-Azure-Pipelines-Subscriptions.JPG" style="zoom:50%;" /></p><p><span>In the above example, we are subscribing to any changes in stages or approvals for a specific release pipeline. </span><strong><u><span>Its recommend to filter to a specific pipeline to reduce clutter in our Teams messaging</span></u></strong><span>. </span><strong><span>The Azure Pipeline bot</span></strong><span>, using actions described in the article &quot;</span><strong><a href='https://community.dynamics.com/crm/b/crminthefield/posts/monitoring-the-power-platform-azure-devops---notifications-and-service-hooks#web-hooks'><span>Azure DevOps - Notifications and Service Hooks</span></a></strong><span>&quot;, can be further filtered by build statuses. This is helpful to isolate the messages delivered to a specific Teams channel.</span></p><p><img src="https://raw.githubusercontent.com/wiki/aliyoussefi/D365-Monitoring/Artifacts/DevOps/Teams-Azure-Pipelines-Subscriptions-Filter.JPG" style="zoom:50%;" /></p><p><span>Once configured, as soon as our pipeline begins to run, </span><strong><span>Microsoft Teams</span></strong><span> will begin to receive messages. Below is an example showing the deployment of a specific release including stages and approval requests. What I find nice about this is that </span><strong><span>Microsoft Teams</span></strong><span> </span><strong><span>works on both my mobile devices and even Linux based operating systems</span></strong><span>, allowing any team on any workload to utilize this approach.</span></p><p><img src="https://raw.githubusercontent.com/wiki/aliyoussefi/D365-Monitoring/Artifacts/DevOps/Teams-Azure-Pipelines-Notifications-Thread-GatedApproval.JPG" style="zoom:50%;" /></p><p><span>I also want to point out that </span><strong><span>Azure DevOps</span></strong><span> also has the ability to natively integrate with other 3rd party tools such as </span><a href='https://docs.microsoft.com/en-us/azure/devops/pipelines/integrations/slack?view=azure-devops'><span>Slack</span></a><span> (Similar to the Teams bots), </span><a href='https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/servicenow?view=azure-devops'><span>ServiceNow</span></a><span> and </span><a href='https://docs.microsoft.com/en-us/azure/devops/pipelines/release/integrate-jenkins-pipelines-cicd?view=azure-devops&amp;tabs=yaml'><span>Jenkins</span></a><span>.</span></p><h2><a name="release-pipelines" class="md-header-anchor"></a><span>Release Pipelines</span></h2><h4><a name="quality-deployments" class="md-header-anchor"></a><span>Quality Deployments</span></h4><p><strong><span>Deployments</span></strong><span> within a release pipeline allow for numerous ways to integrate monitoring into </span><strong><span>Azure DevOps</span></strong><span> processes. </span><a href='https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops'><span>Each deployment include pre and post conditions</span></a><span> which can be leveraged to send events and metrics. For instance, the </span><strong><span>Azure Function</span></strong><span> gate can be used to invoke a micro service that writes to </span><strong><span>Azure Application Insights</span></strong><span>, creates </span><strong><span>ServiceNow</span></strong><span> tickets or even </span><strong><span>Kafka</span></strong><span> events. The possibilities are endless, imagine sending messages back to the </span><strong><span>Power Platform</span></strong><span> for each stage of a deployment!</span></p><h5><a name="approvals" class="md-header-anchor"></a><span>Approvals</span></h5><p><a href='https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops&amp;viewFallbackFrom=vsts'><span>Pre and Post approvals</span></a><span> can be added to each job in the release pipeline. Adding these can assist during a complex deployment requiring coordination between multiple teams dispersed geographically. Shown below is a hypothetical setup of multiple teams each with specific deliverables as part of a release. </span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/OrchestrateRelease.TeamsChannels.PNG" style="zoom:50%;" /></p><p><span>In this scenario, a core solution needs to be deployed and installed before relying features can begin. When any of the steps in the delivery process begins, the originating team needs to be notified in case of any issues that come up. </span></p><p><strong><u><span>Using approvals allows the lead of the specific feature team to align the resources and communicate to the broader team that the process can move forward.</span></u></strong><span> The full example can be found below.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Teams-Overview.JPG" style="zoom:50%;" /></p><p><span>Here is an example of an approval within </span><strong><span>Microsoft Teams</span></strong><span>, notifying the lead of the core solution team that the import process is ready. The approval request shows the build artifacts (e.g. solutions, code files, etc), the branch and pipeline information.</span></p><p><img src="https://raw.githubusercontent.com/wiki/aliyoussefi/D365-Monitoring/Artifacts/DevOps/Teams-Azure-Pipelines-Notifications-Thread-GatedApproval-Filtered-Team.JPG" style="zoom:50%;" /></p><h4><a name="deployment-gates" class="md-header-anchor"></a><span>Deployment Gates</span></h4><p><span>At the heart of a gated deployment approach is the ability to search for inconsistencies or negative signals to minimize unwanted impact further in the process. These gates, which can be set to run before or after a deployment job, allow us to query for potential issues and alerts. They also could be used to notify or perform an operation on an external system.</span></p><p><img src="https://raw.githubusercontent.com/wiki/aliyoussefi/D365-Monitoring/Artifacts/DevOps/ReleasePipeline-PreDeployment-ReleaseGates.JPG" style="zoom:50%;" /></p><h5><a name="queries-and-alerts" class="md-header-anchor"></a><span>Queries and Alerts</span></h5><p><span>Deployment gates provide the ability to run queries on work items within your </span><strong><span>Azure DevOps</span></strong><span> project. For instance this allows release coordinators and deployment managers to check for bugs reported from automated testing using RSAT for </span><strong><span>Dynamics 365 F&amp;O</span></strong><span> or EasyRepro for </span><strong><span>Dynamics 365 CE</span></strong><span>. These queries are created within the Work Items area of </span><strong><span>Azure DevOps</span></strong><span>. From there they are referenced within the pipeline and based on the data returned, upper and lower thresholds can be set. If these thresholds are crossed, the gate condition is not satisified and the process will halt until corrections are made.</span></p><h5><a name="external-integrations" class="md-header-anchor"></a><span>External Integrations</span></h5><p><span>As mentioned above </span><strong><span>Azure Function</span></strong><span> is natively integrated within deployment gates for </span><strong><span>Release Pipelines</span></strong><span>. </span><strong><u><span>These can be used for both a pre condition and post condition to report or integrate with external systems</span></u></strong><span>. </span></p><p><span>Deployment gates can also </span><strong><span>invoke REST API endpoints</span></strong><span>. </span><strong><u><span>This could be used within the Power Platform to query the CDS API or run Power Automate flows.</span></u></strong><span> An example could be to query the </span><strong><span>Common Data Service</span></strong><span> for running asynchronous jobs, creating activities within a </span><strong><span>Dynamics 365</span></strong><span> environment or admin actions such as </span><strong><span>enabling Admin mode</span></strong><span>. Another could be to use the robust approval process built in </span><strong><span>Power Automate</span></strong><span> for pre and post approvals outside of the </span><strong><span>Azure DevOps</span></strong><span> licensed user base. </span></p><h2><a name="using-build-pipelines-or-release-pipelines" class="md-header-anchor"></a><span>Using Build Pipelines or Release Pipelines</span></h2><p><span>In the previous section I described how to introduce quality gates to a release securing each stage of the pipeline. </span><strong><span>Release pipelines are useful</span></strong><span> to help control and coordinate deployments. That said, </span><strong><span>environments and build pipelines allow for use of YAML templates</span></strong><span> which are flexible across both </span><strong><span>Azure DevOps</span></strong><span> and </span><strong><span>GitHub</span></strong><span> and </span><strong><span>allow for teams to treat pipelines like other source code</span></strong><span>.</span></p><h3><a name="environments" class="md-header-anchor"></a><span>Environments</span></h3><p><a href='https://docs.microsoft.com/en-us/azure/devops/pipelines/process/environments?view=azure-devops'><span>Environments</span></a><span> in </span><strong><span>Azure DevOps</span></strong><span> allow for </span><strong><u><span>targeted deployment of artifacts to a collection of resources</span></u></strong><span>. In the case of the </span><strong><span>Power Platform</span></strong><span>, this can be thought of </span><strong><u><span>a release to an Power Platform environment</span></u></strong><span>. The use of pipeline environments is optional, that is unless you begin work using Release pipelines which do require environments. Two of the main advantages of environments are deployment history and security and permissions.</span></p><h3><a name="environment-security-checks" class="md-header-anchor"></a><span>Environment Security Checks</span></h3><p><strong><span>Environment security checks</span></strong><span>, as mentioned above, can provide quality gates similar to the current capabilities of </span><strong><span>Release Pipelines</span></strong><span>. Below is an example of the current options compared to </span><a href='https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops'><strong><span>Release Pre and Post Deployment Quality Gates</span></strong></a><span>.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Environment.Checks.Overview.PNG" style="zoom:50%;" /></p><p><span>Here is an example of linking to a template in </span><strong><span>GitHub</span></strong><span>.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Environment.RequiredTemplate.GitHubSourced.PNG" style="zoom:50%;" /></p><p><span>Compare this to the </span><strong><span>Release Pipeline Pre or Post Deployment Quality Gates</span></strong><span>.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/ReleasePipeline-PreDeployment-ReleaseGates.JPG" style="zoom: 67%;" /></p><p>&nbsp;</p><h2><a name="scenario-orchestrating-a-release" class="md-header-anchor"></a><span>Scenario: Orchestrating a Release</span></h2><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Ochestrate Release with Teams - Full.gif" style="zoom:50%;" /></p><p><span>In the above example, we have a multi-stage release pipeline that encompasses multiple teams from development to support to testing. The pipeline relies on multiple artifacts and code branches for importing and testing. </span></p><p><span>In this example, we have a core solution containing </span><strong><span>Dynamics 365</span></strong><span> entity changes that are needed by integrations. They will need to lead the deployment and test and notify the subsequent teams that everything has passed and can move on. </span></p><p><span>Below is an example of coordination between the deployment team and the Core team lead.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Ochestrate Release with Teams.gif" style="zoom:50%;" /></p><p><span>Below is an image </span><strong><span>showing the entire release deployment with stages</span></strong><span> completed.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/OrchestrateRelease.AllUp.PNG" style="zoom:50%;" /></p><h2><a name="automating-release-notes" class="md-header-anchor"></a><span>Automating Release Notes</span></h2><h3><a name="azure-application-insights-release-annotations" class="md-header-anchor"></a><span>Azure Application Insights Release Annotations</span></h3><p><span>The </span><a href='https://docs.microsoft.com/en-us/azure/azure-monitor/app/annotations'><span>Azure Application Insights Release Annotations task</span></a><span> is a marketplace extension from Microsoft allowing a release pipeline to signal an event in a release pipeline. An event could be the start of the pipeline, the end, or any event we are interested in. From here we can use native functionality of </span><strong><span>Azure Application Insights</span></strong><span> to stream metrics and logs.</span></p><h3><a name="using-an-azure-function-with-web-hooks" class="md-header-anchor"></a><span>Using an Azure Function with Web Hooks</span></h3><p><a href='https://docs.microsoft.com/en-us/azure/devops/service-hooks/overview?view=azure-devops#what-is-a-service-hook'><span>Service Hooks</span></a><span> are a great way of staying informed of events happening within </span><strong><span>Azure DevOps</span></strong><span> allowing you to be freed up to focus on other things. Examples include pushing notifications to your teams&#39; mobile devices, notifying team members on </span><strong><span>Microsoft Teams</span></strong><span> or even invoking Microsoft Power Automate flows.</span></p><p><img src="https://docs.microsoft.com/en-us/azure/devops/service-hooks/_img/service-hooks.png?view=azure-devops" referrerpolicy="no-referrer"></p><p><span>The sample code for generating </span><strong><span>Azure DevOps</span></strong><span> release notes using an </span><strong><span>Azure Function</span></strong><span> can </span><a href='https://github.com/aliyoussefi/MonitoringPowerPlatform/tree/master/Samples/DevOps/ReleaseNotesGenerator'><span>be found here</span></a><span>.</span></p><h2><a name="next-steps" class="md-header-anchor"></a><span>Next Steps</span></h2><p><span>In this article we have worked with </span><strong><span>Azure DevOps</span></strong><span> externally. Using the SDK or REST API, </span><strong><span>Azure DevOps</span></strong><span> can be explored in detail, allowing us to reimagine how we consume and work with the service.</span></p><p><a href='https://community.dynamics.com/crm/b/crminthefield/posts/monitoring-the-power-platform-azure-devops---notifications-and-service-hooks#web-hooks'><span>Previously we looked at setting up notifications and web hooks to popular services</span></a><span>. We then reviewed </span><a href='https://community.dynamics.com/crm/b/crminthefield/posts/monitoring-the-power-platform-azure-devops---using-the-rest-api-to-monitor-pipelines'><span>the </span><strong><span>Azure DevOps REST API</span></strong><span> to better understand build pipelines and environments.</span></a></p><p><span>If you are interested in learning more about </span><a href='https://community.dynamics.com/crm/b/crminthefield/posts/pfe-dynamics-365-service-offerings'><strong><span>specialized guidance and training</span></strong><span> for monitoring or other areas of the Power Platform</span></a><span>, which includes a </span><a href='https://community.dynamics.com/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/WorkshopPLUS-_2D00_-Dynamics-365-Customer-Engagement-Monitoring-with-Application-lnsights-1-Day-with-Lab_2D00_FA5D599F_2D00_20E4_2D00_4087_2D00_A713_2D00_39FBD14DF7E5.pdf'><span>monitoring workshop</span></a><span>, please contact your </span><strong><span>Technical Account Manager</span></strong><span> or </span><strong><span>Microsoft representative</span></strong><span> for further details. </span></p><p><span>Your feedback is </span><strong><u><span>extremely valuable</span></u></strong><span> so please leave a comment below and I&#39;ll be happy to help where I can! Also, if you find any inconsistencies, omissions or have suggestions, </span><a href='https://github.com/aliyoussefi/MonitoringPowerPlatform/issues'><span>please go here to submit a new issue</span></a><span>.</span></p><h2><a name="index" class="md-header-anchor"></a><span>Index</span></h2><p><a href='https://community.dynamics.com/crm/b/crminthefield/posts/monitoring-the-power-platform-introduction'><span>Monitoring the Power Platform: Introduction and Index</span></a></p><p>&nbsp;</p></div>
+</body>
+</html>

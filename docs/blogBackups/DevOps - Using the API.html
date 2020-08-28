@@ -1,0 +1,348 @@
+<h2 class="md-end-block md-heading"><span class="md-plain">Summary</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><a href="https://azure.microsoft.com/en-us/overview/what-is-devops/" rel="noopener noreferrer" target="_blank"><span>DevOps</span></a><span> has become more and more ingrained into our </span><strong><span>Power Platform</span></strong><span> project lifecycle. Work item tracking and feedback tools for teamwork. Continuous integration and delivery for code changes and solution deployments. Automated testing for assurance, compliance and governance considerations. Microsoft's tool, </span><strong><a href="https://azure.microsoft.com/en-us/overview/what-is-devops/#culture" rel="noopener noreferrer" target="_blank"><span>Azure DevOps</span></a></strong><span> provides native capabilities to plan, work, collaborate and deliver. Each step along the way in our </span><a href="https://docs.microsoft.com/en-us/power-platform/alm/devops-build-tools" rel="noopener noreferrer" target="_blank"><strong><span>Power Platform DevOps</span></strong><span> journey</span></a><span> can be tracked and monitored which will be the primary objective of this article.</span></p>
+<p><span>This article will focus on reviewing the current setup of our </span><strong><span>Azure DevOps</span></strong><span> implementation using APIs. We will </span><strong><u><span>work with environments and builds that can help to control and coordinate</span></u></strong><span>. From there, we will deep dive into </span><u><strong><span>build runs to capture work items and change information to help with annotation</span></strong></u><span>. We will explore </span><strong><span>build timelines and logs, helping us determine where things may have gone wrong or could be tuned</span></strong><span>. </span><strong><u><span>Finally, I'll provide references to useful REST API calls and PowerShell samples.</span></u></strong></p>
+<h2><a class="md-header-anchor" name="sources"></a><span>Sources</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><span>Sources of </span><strong><span>Azure DevOps</span></strong><span> events that impact our delivery can come from virtually </span><strong><u><span>any area of the platform including work items, pipelines, source control, testing and artifact delivery</span></u></strong><span>. As mentioned, this article will focus on using the </span><strong><span>Azure DevOps REST API</span></strong><span> to expose these sources externally.</span></p>
+<p><span style="font-size: 150%;"><strong>AUTHOR NOTE: Click each image to enlarge for detail.</strong></span></p>
+<p style="padding-left: 240px;"><img alt=" " src="/resized-image/__size/320x240/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/8080.pastedimage1598620779873v1.png" /></p>
+<h2><a class="md-header-anchor" name="azure-devops-rest-api"></a><span>Azure DevOps REST API</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<h3><a class="md-header-anchor" name="choosing-between-the-sdk-and-invoking-the-endpoint-directly"></a><span>Choosing between the SDK and invoking the endpoint directly</span></h3>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><span>To connect to the </span><strong><span>Azure DevOps REST API</span></strong><span> an administrator can use </span><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-5.1" rel="noopener noreferrer" target="_blank"><span>HTTP requests</span></a><span> directly or the </span><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-5.1#client-libraries" rel="noopener noreferrer" target="_blank"><span>client library (SDK)</span></a><span>. The SDK will </span><strong><u><span>help simplify your code and works across multiple frameworks include .NET, Node.js and Python</span></u></strong><span>. A </span><a href="https://github.com/microsoft/azure-devops-dotnet-samples" rel="noopener noreferrer" target="_blank"><span>reference to the Azure DevOps Dot Net Sample code</span></a><span> can be found on </span><strong><span>GitHub</span></strong><span>.</span></p>
+<p><span>If you choose to not take on the dependency of the SDK the REST API can still be used and invoked. The decision here is how you plan to utilize your solution. If you are working within an </span><strong><span>Azure Function</span></strong><span> for instance, </span><strong><u><span>consider using the SDK</span></u></strong><span>. For workloads, such as </span><strong><u><span>Power Automate or PowerShell, I would recommend the REST API</span></u></strong><span>.</span></p>
+<h3><a class="md-header-anchor" name="authenticating-with-a-personal-access-token-or-ssh"></a><span>Authenticating with a Personal Access Token or SSH</span></h3>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><strong><span>Personal Access Tokens</span></strong><span> are alternative passwords that allow </span><strong><span>Azure DevOps</span></strong><span> administrators to issue temporary access to trusted applications that wish to work with the REST API. To setup a PAT, please review </span><a href="https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&amp;tabs=preview-page" rel="noopener noreferrer" target="_blank"><span>this article</span></a><span>.</span></p>
+<p><span>For a detailed description of how to choose the right authentication mechanism, please go </span><a href="https://docs.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance?view=azure-devops" rel="noopener noreferrer" target="_blank"><span>here</span></a><span>. If you are working with a Linux container or environment continue using the SSH Keys.</span></p>
+<h3><a class="md-header-anchor" name="components-of-a-rest-request"></a><span>Components of a REST Request</span></h3>
+<p><span class="md-plain"></span>&nbsp;</p>
+<h4><a class="md-header-anchor" name="the-url-and-api-versions"></a><span>The URL and API Versions</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="">
+<div class="CodeMirror-scroll">
+<div class="CodeMirror-sizer">
+<div>
+<div class="CodeMirror-lines">
+<div>
+<div class="CodeMirror-code">
+<div class="CodeMirror-activeline">
+<pre class=" CodeMirror-line "><span>[embed:dc8ab71f-3b98-42d9-b0f6-e21e02a0f8e2:0ae00d67-fe24-4020-bef8-78f79db8ec7a:type=text&text=VERB%20https%3A%2F%2Fdev.azure.com%2F%7Borganization%7D%2F_apis%5B%2F%7Barea%7D%5D%2F%7Bresource%7D%3Fapi-version%3D%7Bversion%7D]</span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><span>You should leverage API versioning when working with </span><strong><span>Azure DevOps REST APIs</span></strong><span> to avoid breaking changes. </span><strong><span>Azure DevOps REST API</span></strong><span> offers backwards compatibility with this approach. The API versioning reference is located </span><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-5.1#api-and-tfs-version-mapping" rel="noopener noreferrer" target="_blank"><span>here</span></a><span>. </span><strong><u><span>Its key to the subsequent calls below so be sure to make a point to review the reference regularly.</span></u></strong><span> </span></p>
+<p><strong><u><span>NOTE</span></u></strong><span>: In the </span><strong><span>PowerShell</span></strong><span> examples provided below, I'll be providing </span><strong><u><span>a parameter approach for supplying the API version which is helpful to quickly update to a newer version</span></u></strong><span>.</span></p>
+<h4><a class="md-header-anchor" name="sample-request-and-response"></a><span>Sample Request and Response</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><span>Below is an example using a HTTP request to list projects in the </span><em><span>contoso</span></em><span> organization:</span></p>
+<p><span>Request:</span></p>
+<div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="">
+<div class="CodeMirror-scroll">
+<div class="CodeMirror-sizer">
+<div>
+<div class="CodeMirror-lines">
+<div>
+<div class="CodeMirror-measure"><span></span></div>
+<div class="CodeMirror-code">
+<div class="CodeMirror-activeline">
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+[embed:dc8ab71f-3b98-42d9-b0f6-e21e02a0f8e2:f6754d59-40a7-4c0f-9e72-bc0ef4785775:type=text&text=GET%20https%3A%2F%2Fdev.azure.com%2Fcontoso%2F_apis%2Fprojects%3Fapi-version%3D5.0%20HTTP%2F1.1%0D%0Aauthorization%3A%20Basic%20%2A%2A%2Asanitizied%2A%2A%2A%0D%0AUser-Agent%3A%20Mozilla%2F5.0%20%28Windows%20NT%3B%20Windows%20NT%2010.0%3B%20en-US%29%20WindowsPowerShell%2F5.1.18362.145%0D%0AContent-Type%3A%20application%2Fjson%0D%0AHost%3A%20dev.azure.com]
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><span>Response:</span></p>
+<div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="">
+<div class="CodeMirror-scroll">
+<div class="CodeMirror-sizer">
+<div>
+<div class="CodeMirror-lines">
+<div>
+<div class="CodeMirror-code">
+<div class="CodeMirror-activeline">
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+[embed:dc8ab71f-3b98-42d9-b0f6-e21e02a0f8e2:2e019b38-491b-49d3-8eae-fba710d25474:type=text&text=%7B%0D%0A%20%20%22count%22%3A%201%2C%0D%0A%20%20%22value%22%3A%20%5B%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%22id%22%3A%20%22%3Cproject%20guid%3E%22%2C%0D%0A%20%20%20%20%20%20%22name%22%3A%20%22%3Cproject%20name%3E%22%2C%0D%0A%20%20%20%20%20%20%22url%22%3A%20%22https%3A%2F%2Fdev.azure.com%2Fcontoso%2F_apis%2Fprojects%2F%7Bproject%20guid%7D%22%2C%0D%0A%20%20%20%20%20%20%22state%22%3A%20%22wellFormed%22%2C%0D%0A%20%20%20%20%20%20%22revision%22%3A%2019%2C%0D%0A%20%20%20%20%20%20%22visibility%22%3A%20%22public%22%2C%0D%0A%20%20%20%20%20%20%22lastUpdateTime%22%3A%20%222019-11-04T15%3A38%3A16.723Z%22%0D%0A%20%20%20%20%7D%0D%0A%20%20%5D%0D%0A%7D]
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h3><a class="md-header-anchor" name="common-operations"></a><span>Common Operations</span></h3>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><span>The </span><strong><span>Azure DevOps APIs</span></strong><span> and SDK provide many different operations from project and user membership, to work items, source control, automation, testing and governance. Common operations of interest for monitoring include identifying the status of builds and deployments and capturing logs from pipelines and tasks which will be detailed below. </span></p>
+<h2><a class="md-header-anchor" name="build-environments"></a><span>Build Environments</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<h3><a class="md-header-anchor" name="environments"></a><span>Environments</span></h3>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><strong><a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/environments?view=azure-devops" rel="noopener noreferrer" target="_blank"><span>Environments</span></a></strong><span> in </span><strong><span>Azure DevOps</span></strong><span> allow for </span><strong><u><span>targeted deployment of artifacts to a collection of resources</span></u></strong><span>. In the case of the </span><strong><span>Power Platform</span></strong><span>, this can be thought of </span><strong><u><span>a release to an Power Platform environment</span></u></strong><span>. The use of pipeline environments is optional, that is unless you begin work using Release pipelines which do require environments. </span><strong><u><span>Two of the main advantages of environments are deployment history and security and permissions</span></u></strong><span>. Using the </span><strong><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environmentdeployment%20records/list?view=azure-devops-rest-6.0" rel="noopener noreferrer" target="_blank"><span>Azure DevOps REST API for Environments</span></a></strong><span> we can evaluate both...</span><em><span>mostly</span></em><span>.</span></p>
+<p><span>Using the following </span><strong><span>PowerShell</span></strong><span> script we can extract information regarding an environment.</span></p>
+<div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="">
+<div class="CodeMirror-scroll">
+<div class="CodeMirror-sizer">
+<div>
+<div class="CodeMirror-lines">
+<div>
+<div class="CodeMirror-code">
+<div class="CodeMirror-activeline">
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+[embed:dc8ab71f-3b98-42d9-b0f6-e21e02a0f8e2:5e89106a-e122-4239-b93e-2b11795ee278:type=text&text=%24environmentsUrl%20%3D%20%22%24%28%24devopsBaseUrl%29%24%28%24projectId%29%2F_apis%2Fdistributedtask%2Fenvironments%3Fname%3D%24%28%24environmentNameEncoded%29%26%24%28%24apiVersion%29%22%0D%0A%24environments%20%3D%20Invoke-RestMethod%20-Uri%20%24environmentsUrl%20-Method%20Get%20-ContentType%20%22application%2Fjson%22%20-Headers%20%24header]
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><span>The output for each environment </span><strong><span>includes the identifier, name, description and creation properties</span></strong><span>.</span></p>
+<p style="padding-left: 240px;"><img alt=" " src="/resized-image/__size/320x240/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/4061.pastedimage1598620779873v2.png" /></p>
+<h4><a class="md-header-anchor" name="environment-deployment-history"></a><span>Environment Deployment History</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><strong><span>Environments</span></strong><span> allow </span><strong><span>Azure DevOps</span></strong><span> administrators the ability to review and manage each deployment. With this control also comes auditing of previous deployments allowing insight into trends and potential vulnerabilities. </span></p>
+<p><span>Each attempted deployment to an environment includes </span><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environmentdeployment%20records/list?view=azure-devops-rest-6.0#environmentdeploymentexecutionrecord" rel="noopener noreferrer" target="_blank"><span>an execution record</span></a><span> that can expose </span><a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/stages?view=azure-devops&amp;tabs=yaml" rel="noopener noreferrer" target="_blank"><span>stage</span></a><span> (</span><em><span>orchestrations and divisions of labor</span></em><span>) and </span><a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops&amp;tabs=yaml" rel="noopener noreferrer" target="_blank"><span>job</span></a><span> (</span><em><span>sequential tasks</span></em><span>) details. Below is an example of a </span><strong><span>PowerShell</span></strong><span> script to request deployment records on a specific environment using the </span><strong><span>Environment Deployment Records REST API</span></strong><span>.</span></p>
+<div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="">
+<div class="CodeMirror-scroll">
+<div class="CodeMirror-sizer">
+<div>
+<div class="CodeMirror-lines">
+<div>
+<div class="CodeMirror-code">
+<div class="CodeMirror-activeline">
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+[embed:dc8ab71f-3b98-42d9-b0f6-e21e02a0f8e2:0319543c-da1d-45a7-b708-7868c2e32f64:type=powershell&text=%24environmentDeploymentRecordsUrl%20%3D%20%22%24%28%24devopsBaseUrl%29%24%28%24projectId%29%2F_apis%2Fdistributedtask%2Fenvironments%2F%24%28%24envirommentId%29%2Fenvironmentdeploymentrecords%3F%24%28%24apiVersion%29%22%0D%0A%24environmentDeploymentRecords%20%3D%20Invoke-RestMethod%20-Uri%20%24environmentDeploymentRecordsUrl%20-Method%20Get%20-ContentType%20%22application%2Fjson%22%20-Headers%20%24header]
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><span>For each deployment record we can find out a wealth of information. </span><strong><u><span>Build definitions, plans, stages, jobs are all shown</span></u></strong><span>. The </span><strong><span>start and finish timings and statuses</span></strong><span> are also shown, helping engineers determine where things may have gone wrong.</span></p>
+<p style="padding-left: 240px;"><img alt=" " src="/resized-image/__size/320x240/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/8863.pastedimage1598620779874v3.png" /></p>
+<p><span>Here is an </span><strong><span>example showing usage of the Environment and </span><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environmentdeployment%20records/list?view=azure-devops-rest-6.0#environmentdeploymentexecutionrecord" rel="noopener noreferrer" target="_blank"><span>Environment Deployment Record REST API</span></a><span> calls</span></strong><span>. Also included are calls to the </span><strong><span>Build REST API calls detailed below</span></strong><span>.</span></p>
+<p><img alt="" height="371" src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/REST API and Build Environment Deployment.gif" width="937" /></p>
+<h4><a class="md-header-anchor" name="quick-note-on-security-checks"></a><span>Quick Note on Security Checks</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><span>Each deployment, that meets security checks, will be included within the </span><strong><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environmentdeployment%20records/list?view=azure-devops-rest-6.0#environmentdeploymentexecutionrecord" rel="noopener noreferrer" target="_blank"><span>Execution Record REST API</span></a></strong><span> result list. If the deployment is not found, most likely it is awaiting or failed a specific conditional check. </span></p>
+<p><span>Using </span><strong><span>Web Hooks</span></strong><span>, as discussed in the </span><a href="/crm/b/crminthefield/posts/monitoring-the-power-platform-azure-devops---notifications-and-service-hooks#web-hooks" rel="noopener noreferrer" target="_blank"><span>Web Hooks section</span></a><span> of the article "</span><a href="/crm/b/crminthefield/posts/monitoring-the-power-platform-azure-devops---notifications-and-service-hooks" rel="noopener noreferrer" target="_blank"><strong><span>Azure DevOps - Notifications and Service Hooks</span></strong></a><span>", we can see acknowledgement of a pending approval. </span></p>
+<p style="padding-left: 270px;"><img alt=" " src="/resized-image/__size/320x240/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/3755.pastedimage1598620779874v5.png" /></p>
+<h2><a class="md-header-anchor" name="build-pipelines"></a><span>Build Pipelines</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><span>As we continue the journey within the </span><strong><span>Azure DevOps</span></strong><span> service towards continuous integration we will begin using </span><strong><span>Azure DevOps Build Pipelines</span></strong><span> more and more. Pipelines allow tight control and visibility into pretty much all aspects of the service. This includes work item and code changes that resulted in integration and deployment. </span></p>
+<p><span>Each build can be drilled into using the </span><strong><span>Azure DevOps REST API</span></strong><span> to find out about all our builds. This allows us to request for each build, not only the logs and timings, but how the build compares to previous builds. From this we can conclude if our builds are trending in the right direction and if not, what can we do to course correct.</span></p>
+<p style="padding-left: 270px;"><img alt=" " src="/resized-image/__size/320x240/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/8203.pastedimage1598620779874v6.png" /></p>
+<p>&nbsp;</p>
+<p><span>Using the following </span><strong><span>PowerShell</span></strong><span> command, we can review the status of any particular build of interest. For the below example, I had previously scanned the </span><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/get?view=azure-devops-rest-6.1" rel="noopener noreferrer" target="_blank"><strong><span>Build Definition</span></strong><span> REST API</span></a><span> for builds.</span></p>
+<div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="">
+<div class="CodeMirror-scroll">
+<div class="CodeMirror-sizer">
+<div>
+<div class="CodeMirror-lines">
+<div>
+<div class="CodeMirror-code">
+<div class="CodeMirror-activeline">
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+[embed:dc8ab71f-3b98-42d9-b0f6-e21e02a0f8e2:333795e3-8de4-4101-9f12-df958692dcfc:type=powershell&text=%24buildUrl%20%3D%20%22%24%28%24devopsBaseUrl%29%24%28%24projectId%29%2F_apis%2Fbuild%2Fbuilds%2F%24%28%24buildId%29%3F%24%28%24apiVersion%29%22%3B%0D%0A%24build%20%3D%20Invoke-RestMethod%20-Uri%20%24buildChangesUrl%20-Method%20Get%20-ContentType%20%22application%2Fjson%22%20-Headers%20%24header]
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><span>Here is the output:</span></p>
+<p style="padding-left: 240px;"><img alt=" " src="/resized-image/__size/320x240/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/6545.pastedimage1598620779874v7.png" /></p>
+<p><span>In the above example, we can see that </span><strong><u><span>the build number, the status and result, the start and finish times are returned</span></u></strong><span>. Also included is </span><strong><span>information about the code changes and work items as well as logs</span></strong><span> that can be drilled into for each task.</span></p>
+<h4><a class="md-header-anchor" name="build-changes-and-work-items"></a><span>Build Changes and Work Items</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><span>Each build most likely is associated with changes made by a team of developers or support engineers. </span><strong><u><span>During the typical DevOps process, branches are created, code is crafted and merged with Pull Requests</span></u></strong><span>. Below is an example of a sample commit and pull request triggering a build.</span></p>
+<p style="padding-left: 210px;"><img alt=" " src="/resized-image/__size/320x240/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/2260.pastedimage1598620779875v8.png" /></p>
+<p><span>With the </span><strong><span>Azure DevOps REST API</span></strong><span>, we can review the location and identifiers to help monitor the code changes in each build.</span></p>
+<div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="">
+<div class="CodeMirror-scroll">
+<div class="CodeMirror-sizer">
+<div>
+<div class="CodeMirror-lines">
+<div>
+<div class="CodeMirror-code">
+<div class="CodeMirror-activeline">
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+[embed:dc8ab71f-3b98-42d9-b0f6-e21e02a0f8e2:b80db18b-4eb8-431a-af0c-73ccb2054e69:type=powershell&text=%24buildChangesUrl%20%3D%20%22%24%28%24devopsBaseUrl%29%24%28%24projectId%29%2F_apis%2Fbuild%2Fbuilds%2F%24%28%24buildId%29%2Fchanges%3F%24%28%24apiVersion%29%22%3B%0D%0A%24buildChanges%20%3D%20Invoke-RestMethod%20-Uri%20%24buildChangesUrl%20-Method%20Get%20-ContentType%20%22application%2Fjson%22%20-Headers%20%24header]
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong><span>PowerShell</span></strong><span> example output:</span></p>
+<p style="padding-left: 240px;"><img alt=" " src="/resized-image/__size/320x240/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/1512.pastedimage1598620779875v9.png" /></p>
+<p><span>This is essential to </span><a href="/crm/b/crminthefield/posts/monitoring-the-power-platform-azure-devops---orchestrating-deployments-and-automating-release-notes" rel="noopener noreferrer" target="_blank"><span>helping automate release notes</span></a><span> that include references to each commit and approval. Post deployment, analysts can review and determine gaps in the current process. </span><strong><u><span>This feedback loop is important to internal teams to continuous improve and optimize the code delivery process.</span></u></strong></p>
+<h4><a class="md-header-anchor" name="build-work-items"></a><span>Build Work Items</span></h4>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><span>Each build also brings along information about each work item associated to it. This can include user stories and bugs associated within a Release Record for each release. </span><strong><u><span>By using Web Hooks and the REST API, we can review and provide automated release records to external stakeholders such as users of our platform.</span></u></strong></p>
+<p><span>Here is a sample </span><strong><span>PowerShell</span></strong><span> script requesting associated work item referenced in a build run.</span></p>
+<div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="">
+<div class="CodeMirror-scroll">
+<div class="CodeMirror-sizer">
+<div>
+<div class="CodeMirror-lines">
+<div>
+<div class="CodeMirror-code">
+<div class="CodeMirror-activeline">
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+[embed:dc8ab71f-3b98-42d9-b0f6-e21e02a0f8e2:6e70e118-ea1d-44aa-92a8-ad26bdddf1f5:type=powershell&text=%24buildWorkItemsUrl%20%3D%20%22%24%28%24devopsBaseUrl%29%24%28%24projectId%29%2F_apis%2Fbuild%2Fbuilds%2F%24%28%24buildId%29%2Fworkitems%3F%24%28%24apiVersion%29%22%3B%0D%0A%24buildWorkItems%20%3D%20Invoke-RestMethod%20-Uri%20%24buildWorkItemsUrl%20-Method%20Get%20-ContentType%20%22application%2Fjson%22%20-Headers%20%24header]
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h3><a class="md-header-anchor" name="artifacts"></a><span>Artifacts</span></h3>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><span>Each build can contain artifacts that can be retained and used by other builds, included in documentation or packaged as part of a release using </span><strong><span>the Artifacts REST API call</span></strong><span>. </span></p>
+<p><span>Here is sample </span><strong><span>PowerShell</span></strong><span> script showing how to request the published artifacts from a build run.</span></p>
+<div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="">
+<div class="CodeMirror-scroll">
+<div class="CodeMirror-sizer">
+<div>
+<div class="CodeMirror-lines">
+<div>
+<div class="CodeMirror-code">
+<div class="CodeMirror-activeline">
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+[embed:dc8ab71f-3b98-42d9-b0f6-e21e02a0f8e2:f14e8796-05fc-4141-809e-39e8c1313e0b:type=powershell&text=%24buildArtifactsUrl%20%3D%20%22%24%28%24devopsBaseUrl%29%24%28%24projectId%29%2F_apis%2Fbuild%2Fbuilds%2F%24%28%24buildId%29%2Fartifacts%3F%24%28%24apiVersion%29%22%3B%0D%0A%24buildArtifacts%20%3D%20Invoke-RestMethod%20-Uri%20%24buildArtifactsUrl%20-Method%20Get%20-ContentType%20%22application%2Fjson%22%20-Headers%20%24header]
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><span>Here's the output in </span><strong><span>PowerShell</span></strong><span>. Reference the "</span><strong><em><span>downloadUrl</span></em></strong><span>" to extract and store the published artifacts to external services such as </span><strong><span>Azure Blob Storage</span></strong><span>. </span></p>
+<p style="padding-left: 240px;"><img alt=" " src="/resized-image/__size/320x240/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/5415.pastedimage1598620779875v10.png" /></p>
+<h3><a class="md-header-anchor" name="logs"></a><span>Logs</span></h3>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><span>Gathering build logs are important, </span><strong><u><span>allowing administrators to track the status, the timings and the actions performed by a build</span></u></strong><span>. Within each build, logs are collected for every action, which can be extracted using the "</span><strong><em><span>logs.url</span></em></strong><span>" property within the </span><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/build/Builds/Get?view=azure-devops-rest-5.1" rel="noopener noreferrer" target="_blank"><strong><span>Build REST API command</span></strong></a><span>. Using the </span><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/get%20build%20log?view=azure-devops-rest-5.1" rel="noopener noreferrer" target="_blank"><strong><span>Get Build Log REST API</span></strong></a><span> we can expand each and review or store in another log store such as </span><strong><span>Azure Application Insights</span></strong><span>.</span></p>
+<p><span>Here is a sample </span><strong><span>PowerShell</span></strong><span> script that loops through each log URL in a build and prints the content.</span></p>
+<div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="">
+<div class="CodeMirror-scroll">
+<div class="CodeMirror-sizer">
+<div>
+<div class="CodeMirror-lines">
+<div>
+<div class="CodeMirror-code">
+<div class="CodeMirror-activeline">
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+[embed:dc8ab71f-3b98-42d9-b0f6-e21e02a0f8e2:62f26a1f-a8f2-42f4-82bd-125de79cad7b:type=powershell&text=%24buildTaskLogs%20%3D%20Invoke-RestMethod%20-Uri%20%24build.logs.url%20-Method%20Get%20-ContentType%20%22application%2Fjson%22%20-Headers%20%24header%0D%0A%24buildTaskLogs.value%20%7C%20ForEach-Object%7B%0D%0A%20%20%20%20%23get%20the%20log%20payload%20of%20each%20task%20log%20in%20a%20build%0D%0A%20%20%20%20%24log%20%3D%20Invoke-RestMethod%20-Uri%20%24_.url%20-Method%20Get%20-ContentType%20%22application%2Fjson%22%20-Headers%20%24header%0D%0A%20%20%20%20Write-Host%20%24log%0D%0A%7D]
+<pre class=" CodeMirror-line "><span></span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p style="padding-left: 240px;"><img alt=" " src="/resized-image/__size/320x240/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/1586.pastedimage1598620779875v11.png" /></p>
+<h2><a class="md-header-anchor" name="sample-code"></a><span>Sample Code</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><span>The </span><strong><span>PowerShell</span></strong><span> code referenced in this article can </span><a href="https://github.com/aliyoussefi/MonitoringPowerPlatform/blob/master/Samples/DevOps/PowerShell/Get%20Environment%20Build%20and%20Download%20Logs%20Example.ps1" rel="noopener noreferrer" target="_blank"><span>be found here</span></a><span>.</span></p>
+<h2><a class="md-header-anchor" name="references"></a><span>References</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><span>Below is a list of the </span><strong><span>Azure DevOps REST API</span></strong><span> operations for </span><strong><span>Builds</span></strong><span> I find useful:</span></p>
+<figure>
+<table border="1">
+<thead>
+<tr>
+<th><span>API Definition</span></th>
+<th><span>Comments</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/build/Builds/Get?view=azure-devops-rest-5.1" rel="noopener noreferrer" target="_blank"><span>Builds</span></a></td>
+<td><span>Helps gather build summaries to quickly identify anomalies.</span></td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/get%20build%20log?view=azure-devops-rest-5.1" rel="noopener noreferrer" target="_blank"><span>Get Build Logs</span></a></td>
+<td><span>Helps capture logs for specific builds for troubleshooting and performance monitoring.</span></td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/get%20build%20changes?view=azure-devops-rest-5.1" rel="noopener noreferrer" target="_blank"><span>Get Build Changes</span></a></td>
+<td><span>Helps identify code changes within a specific build.</span></td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/get%20changes%20between%20builds?view=azure-devops-rest-5.1" rel="noopener noreferrer" target="_blank"><span>Get Changes Between Builds</span></a></td>
+<td><span>Helps identify code changes between builds.</span></td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/build/report/get?view=azure-devops-rest-5.1" rel="noopener noreferrer" target="_blank"><span>Get Build Report</span></a></td>
+<td><span>Helps capture the generated build report in html or json formats.</span></td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/get?view=azure-devops-rest-6.1" rel="noopener noreferrer" target="_blank"><span>Get Build Definitions</span></a></td>
+<td><span>Find builds related to a particular Pipeline. Helpful to isolate build runs.</span></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<p><span>Below is a list of the </span><strong><span>Azure DevOps REST API</span></strong><span> operations for </span><strong><span>Environments</span></strong><span> I find useful:</span></p>
+<figure>
+<table border="1">
+<thead>
+<tr>
+<th><span>API Definition</span></th>
+<th><span>Comments</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments/get?view=azure-devops-rest-6.0" rel="noopener noreferrer" target="_blank"><span>Get Environments</span></a></td>
+<td><span>Get environment identifiers and ownership.</span></td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environmentdeployment%20records/list?view=azure-devops-rest-6.0#environmentdeploymentexecutionrecord" rel="noopener noreferrer" target="_blank"><span>Get Environment Deployment Records</span></a></td>
+<td><span>Gather previous and current deployment information.</span></td>
+</tr>
+</tbody>
+</table>
+</figure>
+<h2><a class="md-header-anchor" name="next-steps"></a><span>Next Steps</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><span>In this article we have worked with </span><strong><span>Azure DevOps</span></strong><span> externally. Using the SDK or REST API, </span><strong><span>Azure DevOps</span></strong><span> can be explored in detail, allowing us to reimagine how we consume and work with the service.</span></p>
+<p><span>Previously we looked at </span><a href="/crm/b/crminthefield/posts/monitoring-the-power-platform-azure-devops---notifications-and-service-hooks" rel="noopener noreferrer" target="_blank"><span>setting up notifications and web hooks to popular services</span></a><span>. Continuing from here, we will look into more </span><a href="/crm/b/crminthefield/posts/monitoring-the-power-platform-azure-devops---orchestrating-deployments-and-automating-release-notes" rel="noopener noreferrer" target="_blank"><span>collaboration opportunities. We will review Chat Bots and integrations with </span><strong><span>Microsoft Teams</span></strong></a><span>. For deployment tracking, we will dive into build and release events and opportunities to analyze for greater insights into trends.</span></p>
+<p><span>If you are interested in learning more about </span><a href="/crm/b/crminthefield/posts/pfe-dynamics-365-service-offerings" rel="noopener noreferrer" target="_blank"><strong><span>specialized guidance and training</span></strong><span> for monitoring or other areas of the Power Platform</span></a><span>, which includes a </span><a href="/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/WorkshopPLUS-_2D00_-Dynamics-365-Customer-Engagement-Monitoring-with-Application-lnsights-1-Day-with-Lab_2D00_FA5D599F_2D00_20E4_2D00_4087_2D00_A713_2D00_39FBD14DF7E5.pdf" rel="noopener noreferrer" target="_blank"><span>monitoring workshop</span></a><span>, please contact your </span><strong><span>Technical Account Manager</span></strong><span> or </span><strong><span>Microsoft representative</span></strong><span> for further details. </span></p>
+<p><span>Your feedback is </span><strong><u><span>extremely valuable</span></u></strong><span> so please leave a comment below and I'll be happy to help where I can! Also, if you find any inconsistencies, omissions or have suggestions, </span><a href="https://github.com/aliyoussefi/MonitoringPowerPlatform/issues" rel="noopener noreferrer" target="_blank"><span>please go here to submit a new issue</span></a><span>.</span></p>
+<h2><a class="md-header-anchor" name="index"></a><span>Index</span></h2>
+<p><span class="md-plain"></span>&nbsp;</p>
+<p><a href="/crm/b/crminthefield/posts/monitoring-the-power-platform-introduction" rel="noopener noreferrer" target="_blank"><span>Monitoring the Power Platform: Introduction and Index</span></a></p>

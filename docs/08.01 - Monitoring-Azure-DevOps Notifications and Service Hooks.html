@@ -1,0 +1,528 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>08.01 - Monitoring-Azure-DevOps Notifications and Service Hooks</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = ''><h1><a name="monitoring-the-power-platform-azure-devops---notifications-and-service-hooks" class="md-header-anchor"></a><span>Monitoring the Power Platform: Azure DevOps - Notifications and Service Hooks</span></h1><h2><a name="summary" class="md-header-anchor"></a><span>Summary</span></h2><p><a href='https://azure.microsoft.com/en-us/overview/what-is-devops/'><span>DevOps</span></a><span> has become more and more ingrained into our </span><strong><span>Power Platform</span></strong><span> project lifecycle. Work item tracking and feedback tools for teamwork. Continuous integration and delivery for code changes and solution deployments. Automated testing for assurance, compliance and governance considerations. Microsoft&#39;s tool, </span><strong><a href='https://azure.microsoft.com/en-us/overview/what-is-devops/#culture'><span>Azure DevOps</span></a></strong><span> provides native capabilities to plan, work, collaborate and deliver. Each step along the way in our </span><a href='https://docs.microsoft.com/en-us/power-platform/alm/devops-build-tools'><strong><span>Power Platform DevOps</span></strong><span> journey</span></a><span> can be tracked and monitored which will be the primary objective of this article.</span></p><p><span>This article will focus on feedback, specifically from events that happen with </span><strong><span>Azure DevOps</span></strong><span>. We will first look at subscription setup and notifications to team members and interested parties. From there we will dive deeper into feedback events, how they work, how they can be filtered and delivered. Finally we will review a real world example utilizing service hooks, </span><strong><span>Power Automate</span></strong><span> and </span><strong><span>Microsoft Teams</span></strong><span>.</span></p><h2><a name="sources" class="md-header-anchor"></a><span>Sources</span></h2><p><span>Sources of </span><strong><span>Azure DevOps</span></strong><span> events that impact our delivery can come from virtually any area of the platform including work items, pipelines, source control, testing and artifact delivery. For </span><a href='https://docs.microsoft.com/en-us/azure/devops/notifications/oob-supported-event-types?view=azure-devops'><span>practically any event within </span><strong><span>Azure DevOps</span></strong></a><span>, such as completed work items, executed builds or delivered releases, we can setup notifications. Service hooks and notification subscriptions can be configured to allow real time reporting of events to external parties and systems allowing for us to stay in a state of continuous communication and collaboration.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/ADO.Areas.png" style="zoom:50%;" /></p><h2><a name="subscriptions-and-notifications" class="md-header-anchor"></a><span>Subscriptions and Notifications</span></h2><p><a href='https://docs.microsoft.com/en-us/azure/devops/notifications/about-notifications?view=azure-devops'><strong><span>Notifications</span></strong></a><span> help team members stay informed about completed events within with </span><strong><span>Azure DevOps</span></strong><span>. These events are similar to service hook events except the </span><strong><span>primary delivery mechanism is through email</span></strong><span>. Notifications are based on subscriptions configured with the notifications section of the Project Settings. If the subscription&#39;s filter conditions are met by the event, a notification is generated. </span><strong><span>A notification is generated for every subscription/event match.</span></strong></p><h3><a name="setting-up-subscriptions" class="md-header-anchor"></a><span>Setting up Subscriptions</span></h3><p><strong><a href='https://docs.microsoft.com/en-us/azure/devops/notifications/manage-organization-notifications?view=azure-devops'><span>Subscriptions</span></a></strong><span> can be used to notify stakeholders and downstream sources of events </span><a href='https://docs.microsoft.com/en-us/azure/devops/notifications/oob-built-in-notifications?view=azure-devops'><span>each time an event occurs</span></a><span>. This allows for team members to </span><strong><span>automatically send notifications while performing day to day tasks</span></strong><span> such as updating work items and checking in changes, </span><strong><span>without manual intervention</span></strong><span>. Below is an example of setting up a new subscription for work items.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Notifications-Subscriptions-Work.JPG" style="zoom:50%;" /></p><p><span>Once configured, we can now </span><strong><span>notify the team based on any work item field such as Iteration or Area Path</span></strong><span>. The below image shows filtering to the </span><em><span>University Support Team</span></em><span> </span><strong><span>Area Path</span></strong><span>. This subscription will </span><strong><span>send an email once any work item is closed</span></strong><span> by the team.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Subscription.AreaPath.Example.PNG" style="zoom:50%;" /></p><p><a href='https://docs.microsoft.com/en-us/azure/devops/notifications/concepts-events-and-notifications?view=azure-devops'><strong><span>Subscriptions</span></strong></a><span> can also be used for updates to the code base, helpful for when we need to </span><strong><span>track changes and requests for peer reviews</span></strong><span>. If Git is used for source control management, </span><strong><u><span>each commit and pull request can be subscribed to.</span></u></strong></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Notifications-Subscriptions-Code.JPG" style="zoom:50%;" /></p><p><strong><span>Builds and Releases</span></strong><span> can also be setup to deliver notifications based on their lifecycle events. For builds, subscriptions can be based on build completions or when they fail.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Notifications-Subscriptions-Builds.JPG" style="zoom:50%;" /></p><p><span>Releases can notify stakeholders on completion, on pending approvals and when manual intervention is needed.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Notifications-Subscriptions-Releases.JPG" style="zoom:50%;" /></p><p><span>Example email of a </span><strong><span>pending deployment approval</span></strong><span>:</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Email-Azure-Pipelines-Notifications-Thread.JPG" style="zoom:50%;" /></p><p><span>Each notification can be scoped to a particular role or stakeholder which can help control clutter. The below image shows how the &quot;</span><strong><em><span>Deliver to</span></em></strong><span>&quot; field can be fine tuned to team or project members or even custom email addresses distribution lists. </span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/Notifications-Subscriptions-DeliverTo.JPG" style="zoom:50%;" /></p><p><span>The final option is to use SOAP to deliver these same messages via an API call. I haven&#39;t used this particular feature and I would recommend if interested in API integration to continue reading. </span><strong><u><span>Below we will cover using Service Hooks for notifications.</span></u></strong><span> </span></p><h4><a name="how-are-recipients-determined" class="md-header-anchor"></a><span>How are recipients determined?</span></h4><p><a href='https://docs.microsoft.com/en-us/azure/devops/notifications/concepts-email-recipients?view=azure-devops'><span>Email notifications can be scoped to custom personal addresses, teams and groups</span></a><span>. As the initiator of a particular event, you can void being sent a notification by checking the &quot;</span><strong><em><span>Skip initiator</span></em></strong><span>&quot; option. I would set this option for items like work items but consider leaving on for pull requests or builds.</span></p><h2><a name="service-hooks" class="md-header-anchor"></a><span>Service Hooks</span></h2><p><a href='https://docs.microsoft.com/en-us/azure/devops/service-hooks/overview?view=azure-devops'><strong><span>Service Hooks</span></strong></a><span> are a great way of staying informed and informing others of events happening within </span><strong><span>Azure DevOps</span></strong><span> allowing you to be freed up to focus on other things. Examples include </span><strong><span>pushing notifications to your teams&#39; mobile devices</span></strong><span>, </span><strong><span>notifying team members on Microsoft Teams</span></strong><span> or even </span><strong><span>invoking Microsoft Power Automate flows</span></strong><span>. Services can include other build and release platforms (i.e. Jenkins and Slack), Collaboration tools like </span><strong><span>Office 365</span></strong><span>, Customer Support interfaces like </span><strong><span>UserVoice</span></strong><span> and Integration services (</span><strong><span>Azure Service Bus, Azure Storage, Zapier</span></strong><span>, etc). </span></p><p><img src="https://docs.microsoft.com/en-us/azure/devops/service-hooks/_img/service-hooks.png?view=azure-devops" referrerpolicy="no-referrer"></p><p><span>When an </span><strong><span>event</span></strong><span> occurs in </span><strong><span>Azure DevOps Services or TFS</span></strong><span>, its content is compared with every </span><strong><span>subscription</span></strong><span> of that event type. If the subscription&#39;s filter conditions are met by the event, a notification is generated. </span><strong><span>A notification is generated for every subscription/event match.</span></strong><span> In the example below, the service hook is configured to send a consumer the &quot;</span><strong><em><span>Build Completed</span></em></strong><span>&quot; event.</span></p><p><img src="https://raw.githubusercontent.com/wiki/aliyoussefi/D365-Monitoring/Artifacts/DevOps/ServiceHooks-Events-OverviewA.JPG"  /></p><p><span>Release events are also available, allowing teams to track when a deployment starts and when each deployment stage state has changed. In a following article, we will discuss the importance of deployment stages can be for collaboration across multiple teams during a deployment. Below is an example of the &quot;</span><strong><em><span>Release deployment started</span></em></strong><span>&quot; trigger.</span></p><p><img src="https://raw.githubusercontent.com/wiki/aliyoussefi/D365-Monitoring/Artifacts/DevOps/ServiceHooks-Events-OverviewB.JPG" referrerpolicy="no-referrer"></p><p><span>An example of the &quot;</span><strong><em><span>Run Stage State Changed</span></em></strong><span>&quot; trigger.</span></p><p><img src="https://raw.githubusercontent.com/wiki/aliyoussefi/D365-Monitoring/Artifacts/DevOps/ServiceHooks-Events-OverviewC.JPG" referrerpolicy="no-referrer"></p><h3><a name="filtering-for-specific-events" class="md-header-anchor"></a><span>Filtering for Specific Events</span></h3><p><span>Filters include the ability to scope to a particular type of event but also in some cases statuses. For instance consider the build completed event. This can be filtered a specific pipeline for unpacking and committing </span><strong><span>Power Apps</span></strong><span> solutions to source. If successful we may not necessary care but on a failure we want to understand and automate a potential fix. By filtering on the Failed status of our </span><strong><span>Power Apps</span></strong><span> solution pipeline we can send these events to 3rd party communication systems or messaging systems like </span><strong><span>Azure Service Bus</span></strong><span>.</span></p><h4><a name="example-azure-service-bus-messages-for-release-start-and-completion" class="md-header-anchor"></a><span>Example: Azure Service Bus Messages for Release Start and Completion</span></h4><p><span>Here&#39;s an example of </span><strong><span>Azure Service Bus</span></strong><span> and the different locations events can be sent to such as </span><strong><span>Notification Hub, Queues and Topics</span></strong><span>. Each event type such as sending failed events can be sent to queues and topics allowing for integrations between external systems.</span></p><p><img src="https://raw.githubusercontent.com/wiki/aliyoussefi/D365-Monitoring/Artifacts/DevOps/ServiceHooks-AzureServiceBus-Overview.JPG" referrerpolicy="no-referrer"></p><p><span>Once configured, the service hook will deliver a message to the </span><strong><span>Azure Service Bus queue</span></strong><span> based on the filtered event. The below images show an example of messages from a release pipeline start taken using </span><a href='https://github.com/paolosalvatori/ServiceBusExplorer'><span>Azure Service Bus Explorer</span></a><span>. </span><strong><em><span>NOTE: Since writing this, the </span><a href='https://docs.microsoft.com/en-us/azure/service-bus-messaging/explorer'><span>Azure Portal has a new feature</span></a><span> to allow for peeking into queue messages.</span></em></strong></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/ServiceBusExplorerPreviewPortal.PNG" style="zoom:50%;" /></p><p><span>Notice the event type &quot;</span><strong><em><span>ms.vss-release.deplyment-started-event</span></em></strong><span>&quot; signaling the start of the release.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/ServiceHooks-AzureServiceBus-ServiceBusExplorer-ReleaseStarted.JPG" style="zoom:50%;" /></p><p><span> For completed releases, the event type &quot;</span><strong><em><span>ms.vss-release.deplyment-completed-event</span></em></strong><span>&quot; will be shown:</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/ServiceHooks-AzureServiceBus-ServiceBusExplorer-ReleaseCompleted.JPG" style="zoom:50%;" /></p><p><span>As highlighted above, the </span><strong><em><span>EventType</span></em></strong><span> field contains what event happened and can help identify and differentiate between events. Included in the release is a markdown message that can be used as part of our release notes. The </span><strong><em><span>createdDate</span></em></strong><span> for both can help determine the length of the deployment of our </span><strong><span>Power Platform</span></strong><span> artifacts.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/DeploymentEvents.gif" style="zoom:50%;" /></p><h3><a name="considerations-for-service-hooks" class="md-header-anchor"></a><span>Considerations for Service Hooks</span></h3><p><strong><span>Service Hooks</span></strong><span>, like all services within </span><strong><span>Azure DevOps</span></strong><span> can be altered </span><a href='https://community.dynamics.com/crm/b/crminthefield/posts/monitoring-the-power-platform-azure-devops---using-the-rest-api-to-monitor-pipelines'><span>using the </span><strong><span>Azure DevOps REST API</span></strong></a><span>. </span><a href='https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/notifications/create?view=azure-devops-rest-5.1'><span>The ability to test notifications</span></a><span> will be helpful as you explore how events are triggers and the payload associated with each event.</span></p><h2><a name="web-hooks" class="md-header-anchor"></a><span>Web Hooks</span></h2><p><strong><span>Web Hooks</span></strong><span>, used by Service Hooks, allow for publishing messages and events to any type of service interested in the </span><strong><span>Power Apps</span></strong><span> DevOps process. </span><strong><span>Azure DevOps</span></strong><span> provides the ability to integrate with a </span><a href='https://docs.microsoft.com/en-us/azure/devops/service-hooks/services/webhooks?view=azure-devops'><span>generic web hook</span></a><span> that may not be available in the </span><strong><span>Visual Studio Marketplace</span></strong><span>. Web Hooks can be used to deliver messages to low code solutions such as </span><strong><span>Power Automate</span></strong><span> or </span><strong><span>Azure Logic Apps</span></strong><span>. They can also be used for development platforms such as </span><strong><span>Azure Functions</span></strong><span>, </span><a href='https://github.com/aliyoussefi/MonitoringPowerPlatform/tree/master/Samples/DevOps/ReleaseNotesGenerator'><span>allowing for usage of the Azure DevOps SDK</span></a><span> as well as other toolkits and frameworks.</span></p><h3><a name="creating-a-web-hook" class="md-header-anchor"></a><span>Creating a Web Hook</span></h3><p><span>Creating a web hook requires a subscription for events to be sent to as shown in the diagram above. Messages can be consumed by listeners interested in a particular event or topic. This architectural pattern known as Publish and Subscribe (Pub/Sub) allows </span><strong><span>Azure DevOps</span></strong><span> to publish many types of messages and for subscribers to only be notified of events they are concerned about.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/ReleasePipeline-PreDeployment-ReleaseGates-POST.JPG" style="zoom:50%;" /></p><h3><a name="example-web-hooks-in-action" class="md-header-anchor"></a><span>Example: Web Hooks in Action</span></h3><p><span>A real world example of using a web hook came up when I needed to come up with a solution for creating a notification that a build pipeline was started to migrate a </span><strong><span>Dynamics 365</span></strong><span> solution to another environment for testing. Typically, I would first look to notifications as detailed above. However in this particular scenario, I needed to provide additional detail from other platforms that are used for work item tracking outside of </span><strong><span>Azure DevOps</span></strong><span>. The solution needed to provide an update to the development team that their work was being promoted and the ability to track the work items.</span></p><p><span>In this scenario, the solution I settled on four services: </span><strong><span>Azure DevOps Web Hooks</span></strong><span>, </span><strong><span>Power Automate Flows</span></strong><span>, </span><strong><a href='https://adaptivecards.io/'><span>Microsoft Adaptive Cards</span></a></strong><span> and </span><strong><span>Microsoft Teams</span></strong><span>. </span><strong><span>Azure DevOps Web Hooks</span></strong><span> were used to fire an event to </span><strong><span>Power Automate,</span></strong><span> which was listening for an HTTP request. </span><strong><span>Power Automate</span></strong><span> would then query the 3rd party work item tracking service for detailed on work items. From there, </span><strong><span>Power Automate</span></strong><span> would create an </span><strong><span>Adaptive Card</span></strong><span>. The </span><strong><span>Adaptive Card</span></strong><span> was designed to provide direct links back to the 3rd part work item service and to the </span><strong><span>Azure DevOps Build</span></strong><span>, currently in progress. Finally, the </span><strong><span>Adaptive Card</span></strong><span> was sent to a </span><strong><span>Microsoft Teams Channel</span></strong><span> for distribution.</span></p><p><img src="https://raw.githubusercontent.com/aliyoussefi/MonitoringPowerPlatform/master/Artifacts/DevOps/WebHookToTeamsAdaptiveCard.gif" style="zoom:50%;" /></p><p><span>For sample code and further documentation, please </span><a href='https://github.com/aliyoussefi/MonitoringPowerPlatform/tree/master/Samples/DevOps/PowerAutomate'><span>refer to this link</span></a><span>.</span></p><h2><a name="next-steps" class="md-header-anchor"></a><span>Next Steps</span></h2><p><span>In this article we have the beginning stages of collecting and distributing feedback for our teams and stakeholders. Email notifications based on work item updates and code changes allow specific teams to quickly respond to changes. Service hooks allow for events to be sent to first and third party integrations. Web hooks allow for complete flexibility, delivering stateful messages to HTTP endpoint subscribers.</span></p><p><span>Continuing from here, </span><a href='https://community.dynamics.com/crm/b/crminthefield/posts/monitoring-the-power-platform-azure-devops---using-the-rest-api-to-monitor-pipelines'><span>we will explore the Azure DevOps REST API and specific actions that can be useful for tracking changes</span></a><span>. </span><a href='https://community.dynamics.com/crm/b/crminthefield/posts/monitoring-the-power-platform-azure-devops---orchestrating-deployments-and-automating-release-notes'><span>For collaboration, we will review Chat Bots and integrations with Microsoft Teams</span></a><span>. For deployment tracking, we will dive into build and release events and opportunities to analyze for greater insights into trends.</span></p><p><span>If you are interested in learning more about </span><a href='https://community.dynamics.com/crm/b/crminthefield/posts/pfe-dynamics-365-service-offerings'><strong><span>specialized guidance and training</span></strong><span> for monitoring or other areas of the Power Platform</span></a><span>, which includes a </span><a href='https://community.dynamics.com/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-17-38/WorkshopPLUS-_2D00_-Dynamics-365-Customer-Engagement-Monitoring-with-Application-lnsights-1-Day-with-Lab_2D00_FA5D599F_2D00_20E4_2D00_4087_2D00_A713_2D00_39FBD14DF7E5.pdf'><span>monitoring workshop</span></a><span>, please contact your </span><strong><span>Technical Account Manager</span></strong><span> or </span><strong><span>Microsoft representative</span></strong><span> for further details. </span></p><p><span>Your feedback is </span><strong><u><span>extremely valuable</span></u></strong><span> so please leave a comment below and I&#39;ll be happy to help where I can! Also, if you find any inconsistencies, omissions or have suggestions, </span><a href='https://github.com/aliyoussefi/MonitoringPowerPlatform/issues'><span>please go here to submit a new issue</span></a><span>.</span></p><h2><a name="index" class="md-header-anchor"></a><span>Index</span></h2><p><a href='https://community.dynamics.com/crm/b/crminthefield/posts/monitoring-the-power-platform-introduction'><span>Monitoring the Power Platform: Introduction and Index</span></a></p></div>
+</body>
+</html>
