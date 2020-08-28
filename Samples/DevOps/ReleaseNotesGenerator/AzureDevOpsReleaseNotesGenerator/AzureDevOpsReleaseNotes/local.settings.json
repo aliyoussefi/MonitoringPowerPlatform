@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
+    "StorageAccountConnectionString": "UseDevelopmentStorage=true",
+    "DevOps.OrganizationURL": "https://dev.azure.com/<org>",
+    "DevOps.AccessToken": "",
+    "DevOps.ProjectName": "",
+    "DevOps.Username": ""
+
+  }
+}
