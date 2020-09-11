@@ -1,0 +1,99 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\alyousse\\source\\repos\\aliyoussefi\\MonitoringPowerPlatform\\Samples\\DevOps\\ReleaseNotesGenerator\\AzureDevOpsReleaseNotesGenerator\\AzureDevOpsReleaseNotes\\AzureDevOpsReleaseNotes.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\alyousse\\source\\repos\\aliyoussefi\\MonitoringPowerPlatform\\Samples\\DevOps\\ReleaseNotesGenerator\\AzureDevOpsReleaseNotesGenerator\\AzureDevOpsReleaseNotes\\AzureDevOpsReleaseNotes.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alyousse\\source\\repos\\aliyoussefi\\MonitoringPowerPlatform\\Samples\\DevOps\\ReleaseNotesGenerator\\AzureDevOpsReleaseNotesGenerator\\AzureDevOpsReleaseNotes\\AzureDevOpsReleaseNotes.csproj",
+        "projectName": "AzureDevOpsReleaseNotes",
+        "projectPath": "C:\\Users\\alyousse\\source\\repos\\aliyoussefi\\MonitoringPowerPlatform\\Samples\\DevOps\\ReleaseNotesGenerator\\AzureDevOpsReleaseNotesGenerator\\AzureDevOpsReleaseNotes\\AzureDevOpsReleaseNotes.csproj",
+        "packagesPath": "C:\\Users\\alyousse\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alyousse\\source\\repos\\aliyoussefi\\MonitoringPowerPlatform\\Samples\\DevOps\\ReleaseNotesGenerator\\AzureDevOpsReleaseNotesGenerator\\AzureDevOpsReleaseNotes\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\alyousse\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/mip-d365-easyrepro/_packaging/EasyRepro.DevOps.AzureArtifacts/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/mip-d365-easyrepro/_packaging/mip-d365-easyrepro/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.Azure.WebJobs": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.Azure.WebJobs.Extensions": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.Azure.WebJobs.Extensions.Http": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.NET.Sdk.Functions": {
+              "target": "Package",
+              "version": "[1.0.22, )"
+            },
+            "Microsoft.TeamFoundationServer.Client": {
+              "target": "Package",
+              "version": "[16.153.0, )"
+            },
+            "Microsoft.VisualStudio.Services.Client": {
+              "target": "Package",
+              "version": "[16.153.0, )"
+            },
+            "Microsoft.VisualStudio.Services.InteractiveClient": {
+              "target": "Package",
+              "version": "[16.153.0, )"
+            },
+            "Microsoft.VisualStudio.Services.Release.Client": {
+              "target": "Package",
+              "version": "[16.153.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
