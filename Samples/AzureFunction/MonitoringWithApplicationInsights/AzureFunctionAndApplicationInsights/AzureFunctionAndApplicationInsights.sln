@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionAndApplicationInsights", "AzureFunctionAndApplicationInsights.csproj", "{1611C5C7-2575-4365-BBF6-6749961BD6D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "..\UnitTestProject1\UnitTestProject1.csproj", "{26ED2C8D-3966-4AF7-84F4-98195B8EAF2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestProject1", "..\UnitTestProject1\UnitTestProject1.csproj", "{26ED2C8D-3966-4AF7-84F4-98195B8EAF2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
