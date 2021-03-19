@@ -20,7 +20,6 @@ appInsights.addTelemetryInitializer(telemetryInitializer);
 //Add User Context
 {% if user %}
 var cdsContactId = "{{ user.id }}";
-var cdsContactName = "{{ user.fullname }}";
 appInsights.setAuthenticatedUserContext(cdsContactId);
 {% endif %}
 
