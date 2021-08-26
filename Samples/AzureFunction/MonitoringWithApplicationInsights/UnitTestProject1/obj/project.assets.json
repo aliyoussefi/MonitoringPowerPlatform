@@ -6941,11 +6941,13 @@
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.pkg.github.com/Azure/index.json": {},
         "https://pkgs.dev.azure.com/mip-d365-easyrepro/_packaging/EasyRepro.DevOps.AzureArtifacts/nuget/v3/index.json": {},
         "https://pkgs.dev.azure.com/mip-d365-easyrepro/_packaging/mip-d365-easyrepro/nuget/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -6957,6 +6959,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "MSTest.TestAdapter": {
             "target": "Package",
@@ -6994,7 +6997,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.5.21302.13\\RuntimeIdentifierGraph.json"
       }
     }
   }
