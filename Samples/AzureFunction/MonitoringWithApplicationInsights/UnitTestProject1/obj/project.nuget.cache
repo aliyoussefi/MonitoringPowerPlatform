@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BQSgnJjL90KGElICbOmgsWyq4mI6CYjHO7Qd85HKVTXAelkJI5f4AbebNOX96Qpphjh2U8fDbiFVRz3GqIqVNw==",
+  "dgSpecHash": "8axR1H+LCx3CFSRTylLLwDj2qZnqRjrBiMkLssgNyXuuoWbUGNCHslC4M7fcw0F2vbN+dtoBa84M1S7fqS3JLg==",
   "success": true,
   "projectFilePath": "C:\\Users\\alyousse\\source\\repos\\aliyoussefi\\MonitoringPowerPlatform\\Samples\\AzureFunction\\MonitoringWithApplicationInsights\\UnitTestProject1\\UnitTestProject1.csproj",
   "expectedPackageFiles": [
