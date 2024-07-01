@@ -1,2 +1,6 @@
 
 Samples/TenantLevelAnalytics/Tenant Level Analytics - params.pbix
+Samples/AzureFunction/MonitoringWithApplicationInsights/UnitTestProject1/obj/Debug/netcoreapp3.1/UnitTestProject1.AssemblyInfo.cs
+/Samples/AzureFunction/MonitoringWithApplicationInsights/UnitTestProject1/obj
+/Samples/AzureFunction/MonitoringWithApplicationInsights/.vs
+/Samples/AzureFunction/MonitoringWithApplicationInsights/UnitTestProject1/obj

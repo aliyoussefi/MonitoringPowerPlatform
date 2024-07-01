@@ -1,0 +1,82 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Specify the name of the workspace."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "Specify the location for the workspace."
+      }
+    },
+    "sku": {
+      "type": "string",
+      "defaultValue": "PerGB2018",
+      "allowedValues": [
+        "CapacityReservation",
+        "Free",
+        "LACluster",
+        "PerGB2018",
+        "PerNode",
+        "Premium",
+        "Standalone",
+        "Standard"
+      ],
+      "metadata": {
+        "description": "Specify the pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+      }
+    },
+    "retentionInDays": {
+      "type": "int",
+      "defaultValue": 120,
+      "metadata": {
+        "description": "Specify the number of days to retain data."
+      }
+    },
+    "resourcePermissions": {
+      "type": "bool",
+      "metadata": {
+        "description": "Specify true to use resource or workspace permissions, or false to require workspace permissions."
+      }
+    },
+    "heartbeatTableRetention": {
+      "type": "int",
+      "metadata": {
+        "description": "Specify the number of days to retain data in Heartbeat table."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "apiVersion": "2021-12-01-preview",
+      "name": "[parameters('workspaceName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "sku": {
+          "name": "[parameters('sku')]"
+        },
+        "retentionInDays": "[parameters('retentionInDays')]",
+        "features": {
+          "enableLogAccessUsingOnlyResourcePermissions": "[parameters('resourcePermissions')]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.OperationalInsights/workspaces/tables",
+      "apiVersion": "2021-12-01-preview",
+      "name": "[format('{0}/{1}', parameters('workspaceName'), 'Heartbeat')]",
+      "properties": {
+        "retentionInDays": "[parameters('heartbeatTableRetention')]"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+      ]
+    }
+  ]
+}
