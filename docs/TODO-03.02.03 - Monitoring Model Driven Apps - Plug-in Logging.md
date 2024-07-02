@@ -34,7 +34,7 @@ Interactions with the Dataverse include multiple stages, most of which can be ex
 
 ## How to Implement Tracing
 
-Plug-ins provide the ability to insert custom business logic but there is a catch...they must run in a sandbox or partial trust environment. This help protect malaicious code from accessing or manipulating settings, services, etc on the backend infrastructure. With that said, developers can not simply bring a logging mechanism along but they can implement an interface to help surface tracing. These interfaces come in two distinct forms: one allowing for telemetry that can be captured and used in Azure Application Insights and one surfacing tracing to the Dataverse platform.
+Plug-ins provide the ability to insert custom business logic but there is a catch...they must run in a sandbox or partial trust environment. This help protect malicious code from accessing or manipulating settings, services, etc on the backend infrastructure. With that said, developers can not simply bring a logging mechanism along but they can implement an interface to help surface tracing. These interfaces come in two distinct forms: one allowing for telemetry that can be captured and used in Azure Application Insights and one surfacing tracing to the Dataverse platform.
 
 ### ITracingService
 
