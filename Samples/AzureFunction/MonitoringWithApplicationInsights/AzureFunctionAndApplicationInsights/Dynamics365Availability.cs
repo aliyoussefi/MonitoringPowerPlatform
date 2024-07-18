@@ -8,24 +8,19 @@
 # (ii) to include a valid copyright notice on Your software product in which the Sample Code is embedded; 
 # and (iii) to indemnify, hold harmless, and defend Us and Our suppliers from and against any claims or lawsuits, including attorneys’ fees, that arise or result from the use or distribution of the Sample Code 
 */
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net;
-using Newtonsoft.Json.Linq;
-using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Diagnostics;
-using System.Linq;
+using System.Net;
+using System.Net.Http.Headers;
 
 namespace AzureFunctionAndApplicationInsights
 {
@@ -56,9 +51,9 @@ namespace AzureFunctionAndApplicationInsights
         [FunctionName("TestAvailability")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-            ExecutionContext exCtx,
-            ILogger log)
+            FunctionContext exCtx)
         {
+            var log = exCtx.GetLogger(nameof(Run));
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             string name = req.Query["name"];
@@ -81,7 +76,7 @@ namespace AzureFunctionAndApplicationInsights
             requestTime.Stop();
             //rtnObject.Headers.Add("InvocationId", exCtx.InvocationId.ToString());
            
-            SendAvailabilityTelemetry(exCtx.InvocationId, exCtx.InvocationId, whoAmIResponse, Convert.ToInt32(requestTime.ElapsedMilliseconds));
+            SendAvailabilityTelemetry(new Guid(exCtx.InvocationId), new Guid(exCtx.InvocationId), whoAmIResponse, Convert.ToInt32(requestTime.ElapsedMilliseconds));
             string responseMessage = string.IsNullOrEmpty(name)
                 ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
                 : $"Hello, {name}. This HTTP triggered function executed successfully.";

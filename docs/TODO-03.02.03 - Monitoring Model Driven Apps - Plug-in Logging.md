@@ -34,7 +34,7 @@ Interactions with the Dataverse include multiple stages, most of which can be ex
 
 ## How to Implement Tracing
 
-Plug-ins provide the ability to insert custom business logic but there is a catch...they must run in a sandbox or partial trust environment. This help protect malicious code from accessing or manipulating settings, services, etc on the backend infrastructure. With that said, developers can not simply bring a logging mechanism along but they can implement an interface to help surface tracing. These interfaces come in two distinct forms: one allowing for telemetry that can be captured and used in Azure Application Insights and one surfacing tracing to the Dataverse platform.
+Plug-ins provide the ability to insert custom business logic but there is a catch...they must run in a sandbox or partial trust environment. This help protect malicious code from accessing or manipulating settings, services, etc on the backend infrastructure. With that said, developers can not simply bring a logging mechanism along but they can implement an interface to help surface tracing. These interfaces come in two distinct forms: one allowing for telemetry that can be captured and used in Azure Application Insights (ILogger) and one surfacing tracing to the Dataverse platform (ITracingService).
 
 ### ITracingService
 
@@ -57,7 +57,7 @@ public void Trace(ITracingService tracingService, string message){
 
 ```
 
-Trace data is persisted for 24 hours, however if its needed to keep this data for a longer duration or to run a trend analysis, the ILogger interface can be used in conjuction.
+Trace data is persisted for 24 hours, however if its needed to keep this data for a longer duration or to run a trend analysis, the ILogger interface can be used in conjunction.
 
 ### ILogger
 
@@ -72,18 +72,25 @@ ILogger logger = (ILogger)serviceProvider.GetService(typeof(ILogger));
 
 
 
-## How to Turn on Tracing
+## How to Turn on Dataverse Tracing
 
-ddd
+To enable Plug-In tracing, administrators can use the System Settings to configure. [Detailed information for enabling via the System Settings in the UI or programmatically can be found here.](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/logging-tracing#enable-trace-logging)
 
+Tracing comes with three options: None, Exceptions or All (Verbose). Traditionally its recommended to NOT enable verbose tracing in production systems unless debugging or troubleshooting. One thing to note from the reference above is what happens when an exception occurs. **In synchronous operations encountering an error, the trace log will remain** while data changes will be rolled back.
 
+## How to Turn on Azure Application Insights Tracing
 
-## How to Explain the Trace Data
+To enable Plug-Ins to send log information to Azure Application Insights, an admin needs to configure the out of the box feature for Dataverse.
 
-dd
+## How to choose one or both options?
 
-## Additional Content and Source Code
+[This article](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/application-insights-ilogger) does a very good job detailing scenarios when tracing or logging should be used. The key items to look out for in the table found in the article are the trace block available in client errors and data storage and retention.
 
+I recommend a mix of both tracing and logging. Azure Application Insights typically is considered cheaper but it is consumption based. Additional considerations need to be taken into account for cost optimization. Techniques like data retention to long term storage in Azure Storage. Data Sampling and Data Collection Rules can also help. Finally, the Purge option is available. 
+
+If your organization has the storage capacity and has Azure Application Insights, the benefits of having both of these logging implementations in place is ideal. The development cost is minimal and can be reduced further with helper functions. Azure Application Insights has the benefit of Azure Monitor alerting trigger Power Automate Flows or other platforms. Dataverse has the benefit of trace blocks returned to users and instant write to Dataverse. 
+
+## How to interpret and correlate the data sent to both Dataverse and Azure Application Insights
 ddd
 
 ## Next Steps

@@ -14,6 +14,8 @@ local.settings.json
 *.userprefs
 
 # Build results
+**/[Dd]ebug/
+**/**/[Dd]ebug/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/

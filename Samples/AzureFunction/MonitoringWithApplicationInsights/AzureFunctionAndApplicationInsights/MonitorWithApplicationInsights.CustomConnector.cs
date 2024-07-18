@@ -8,22 +8,16 @@
 # (ii) to include a valid copyright notice on Your software product in which the Sample Code is embedded; 
 # and (iii) to indemnify, hold harmless, and defend Us and Our suppliers from and against any claims or lawsuits, including attorneys’ fees, that arise or result from the use or distribution of the Sample Code 
 */
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
+using Azure;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Microsoft.ApplicationInsights;
-using Microsoft.ApplicationInsights.Extensibility;
-using Microsoft.AspNetCore.JsonPatch.Operations;
-using System.Net.Http;
 using System.Net;
-using Microsoft.ApplicationInsights.DataContracts;
-using System.Collections.Generic;
+using System.Text;
+using System.Threading;
 
 namespace Dynamics365.Monitoring.AzureFunctions
 {
@@ -41,45 +35,48 @@ namespace Dynamics365.Monitoring.AzureFunctions
         }
 
         #region trace
-        [FunctionName("TrackTrace")]
-        public async Task<HttpResponseMessage> TrackTrace(
-        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage req, ExecutionContext exCtx,
-        ILogger log)
+        [Function("TrackTrace")]
+        public async Task<HttpResponseData> TrackTrace(
+        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestData req, FunctionContext exCtx)
         {
-            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionName));
+            var log = exCtx.GetLogger(nameof(TrackTrace));
+            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionDefinition.Name));
             try
             {
                 foreach (var header in req.Headers)
                 {
-                    //log.LogInformation(header.Key, header.Value);
+                    log.LogInformation(header.Key, header.Value);
                 }
 
-                var content = req.Content;
-                string jsonContent = content.ReadAsStringAsync().Result;
+                //var content = req.Content;
+                string jsonContent = req.ReadAsStringAsync().Result;
                 dynamic data = JsonConvert.DeserializeObject(jsonContent);
                 var test = data?.name;
                 telemetryClient.TrackTrace("MonitorWithApplicationInsightsExample Function ended. Returning " + $"Hello, {test}");
 
                 RequestModel objRequestModel = new RequestModel();
 
-                HttpResponseMessage rtnObject = req.CreateResponse(HttpStatusCode.OK, objRequestModel);
+                HttpResponseData rtnObject = req.CreateResponse(HttpStatusCode.OK);
+                await rtnObject.WriteAsJsonAsync(objRequestModel);
+                await rtnObject.Body.WriteAsync(System.Text.Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(objRequestModel)));
                 rtnObject.Headers.Add("InvocationId", exCtx.InvocationId.ToString());
                 return rtnObject;
             }
             catch (Exception ex)
             {
-                return req.CreateResponse(HttpStatusCode.BadRequest, "Cannot Create Request! Reason: {0}", string.Format(ex.Message));
+                await req.Body.WriteAsync(System.Text.Encoding.UTF8.GetBytes(ex.Message));
+                return req.CreateResponse(HttpStatusCode.BadRequest);
             }
 
         }
         #endregion
         #region event
-        [FunctionName("TrackEvent")]
-        public async Task<HttpResponseMessage> TrackEvent(
-        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage req, ExecutionContext exCtx,
-        ILogger log)
+        [Function("TrackEvent")]
+        public async Task<HttpResponseData> TrackEvent(
+        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestData req, FunctionContext exCtx)
         {
-            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionName));
+            var log = exCtx.GetLogger(nameof(TrackTrace));
+            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionDefinition.Name));
             try
             {
                 foreach (var header in req.Headers)
@@ -87,8 +84,8 @@ namespace Dynamics365.Monitoring.AzureFunctions
                     //log.LogInformation(header.Key, header.Value);
                 }
 
-                var content = req.Content;
-                string jsonContent = content.ReadAsStringAsync().Result;
+                //var content = req.Content;
+                string jsonContent = req.ReadAsStringAsync().Result;
                 dynamic data = JsonConvert.DeserializeObject(jsonContent);
                 string correlationId = data?.correlationid;
                 var name = data?.name;
@@ -124,24 +121,26 @@ namespace Dynamics365.Monitoring.AzureFunctions
                 objRequestModel.eventType = "customEvent";
                 objRequestModel.success = true;
 
-                HttpResponseMessage rtnObject = req.CreateResponse(HttpStatusCode.OK, objRequestModel);
+                HttpResponseData rtnObject = req.CreateResponse(HttpStatusCode.OK);
+                await rtnObject.WriteAsJsonAsync(objRequestModel);
                 rtnObject.Headers.Add("InvocationId", exCtx.InvocationId.ToString());
                 return rtnObject;
             }
             catch (Exception ex)
             {
-                return req.CreateResponse(HttpStatusCode.BadRequest, "Cannot Create Request! Reason: {0}", string.Format(ex.Message));
+                await req.Body.WriteAsync(System.Text.Encoding.UTF8.GetBytes(ex.Message));
+                return req.CreateResponse(HttpStatusCode.BadRequest);
             }
 
         }
         #endregion
         #region pageView
-        [FunctionName("TrackPageView")]
-        public async Task<HttpResponseMessage> TrackPageView(
-        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage req, ExecutionContext exCtx,
-        ILogger log)
+        [Function("TrackPageView")]
+        public async Task<HttpResponseData> TrackPageView(
+        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestData req, FunctionContext exCtx)
         {
-            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionName));
+            var log = exCtx.GetLogger(nameof(TrackTrace));
+            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionDefinition.Name));
             try
             {
                 foreach (var header in req.Headers)
@@ -149,21 +148,23 @@ namespace Dynamics365.Monitoring.AzureFunctions
                     log.LogInformation(header.Key, header.Value);
                 }
 
-                var content = req.Content;
-                string jsonContent = content.ReadAsStringAsync().Result;
+                //var content = req.Content;
+                string jsonContent = req.ReadAsStringAsync().Result;
                 dynamic data = JsonConvert.DeserializeObject(jsonContent);
                 var test = data?.name;
                 telemetryClient.TrackPageView("MonitorWithApplicationInsightsExample Function ended. Returning " + $"Hello, {test}");
 
                 RequestModel objRequestModel = new RequestModel();
 
-                HttpResponseMessage rtnObject = req.CreateResponse(HttpStatusCode.OK, objRequestModel);
+                HttpResponseData rtnObject = req.CreateResponse(HttpStatusCode.OK);
+                await rtnObject.WriteAsJsonAsync(objRequestModel);
                 rtnObject.Headers.Add("InvocationId", exCtx.InvocationId.ToString());
                 return rtnObject;
             }
             catch (Exception ex)
             {
-                return req.CreateResponse(HttpStatusCode.BadRequest, "Cannot Create Request! Reason: {0}", string.Format(ex.Message));
+                await req.Body.WriteAsync(System.Text.Encoding.UTF8.GetBytes(ex.Message));
+                return req.CreateResponse(HttpStatusCode.BadRequest);
             }
 
         }
@@ -173,12 +174,12 @@ namespace Dynamics365.Monitoring.AzureFunctions
             public string code { get; set; }
             public string message { get; set; }
         }
-        [FunctionName("TrackException")]
-        public async Task<HttpResponseMessage> TrackException(
-        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage req, ExecutionContext exCtx,
-        ILogger log)
+        [Function("TrackException")]
+        public async Task<HttpResponseData> TrackException(
+        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestData req, FunctionContext exCtx)
         {
-            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionName));
+            var log = exCtx.GetLogger(nameof(TrackTrace));
+            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionDefinition.Name));
             try
             {
                 foreach (var header in req.Headers)
@@ -186,9 +187,9 @@ namespace Dynamics365.Monitoring.AzureFunctions
                     //log.LogInformation(header.Key, header.Value);
                 }
 
-                var content = req.Content;
-                string jsonContent = content.ReadAsStringAsync().Result;
-                dynamic data = JsonConvert.DeserializeObject(jsonContent);
+                var content = req.ReadAsStringAsync().Result;
+                //string jsonContent = content.ReadAsync().Result;
+                dynamic data = JsonConvert.DeserializeObject(content);
                 var test = data?.name;
                 var correlationId = data?.correlationid;
                 string exceptionMessage = data?.exceptionMessage;
@@ -220,33 +221,37 @@ namespace Dynamics365.Monitoring.AzureFunctions
 
                 RequestModel objRequestModel = new RequestModel();
 
-                HttpResponseMessage rtnObject = req.CreateResponse(HttpStatusCode.OK, objRequestModel);
+                HttpResponseData rtnObject = req.CreateResponse(HttpStatusCode.OK);
                 rtnObject.Headers.Add("InvocationId", exCtx.InvocationId.ToString());
                 return rtnObject;
             }
             catch (Exception ex)
             {
-                return req.CreateResponse(HttpStatusCode.BadRequest, "Cannot Create Request! Reason: {0}", string.Format(ex.Message));
+                await req.Body.WriteAsync(System.Text.Encoding.UTF8.GetBytes(ex.Message));
+                return req.CreateResponse(HttpStatusCode.BadRequest);
             }
 
         }
         #endregion
         #region dependency
-        [FunctionName("TrackDependency")]
-        public async Task<HttpResponseMessage> TrackDependency(
-        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage req, ExecutionContext exCtx,
-        ILogger log)
+        [Function("TrackDependency")]
+        public async Task<HttpResponseData> TrackDependency(
+        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestData req, FunctionContext exCtx)
         {
-            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionName));
+            var log = exCtx.GetLogger(nameof(TrackTrace));
+            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionDefinition.Name));
             try
             {
-                foreach (var header in req.Headers)
+
+                IEnumerable<string> values;
+                string session = string.Empty;
+                if (req.Headers.TryGetValues("X-BB-SESSION", out values))
                 {
-                    //log.LogInformation(header.Key, header.Value);
+                    session = values.FirstOrDefault();
                 }
 
-                var content = req.Content;
-                string jsonContent = content.ReadAsStringAsync().Result;
+                //var content = req.Content;
+                string jsonContent = req.ReadAsStringAsync().Result;
                 dynamic data = JsonConvert.DeserializeObject(jsonContent);
                 string correlationId = data?.correlationid;
                 var name = data?.name;
@@ -269,25 +274,29 @@ namespace Dynamics365.Monitoring.AzureFunctions
                 objRequestModel.correlationid = correlationId;
                 objRequestModel.eventType = Type;
                 objRequestModel.name = name;
-                HttpResponseMessage rtnObject = req.CreateResponse(HttpStatusCode.OK, objRequestModel);
-                
+                HttpResponseData rtnObject = req.CreateResponse(HttpStatusCode.OK);
                 rtnObject.Headers.Add("InvocationId", exCtx.InvocationId.ToString());
+                rtnObject.Headers.Add("test", "test");
+                await rtnObject.WriteAsJsonAsync(objRequestModel);
+
                 return rtnObject;
             }
             catch (Exception ex)
             {
-                return req.CreateResponse(HttpStatusCode.BadRequest, "Cannot Create Request! Reason: {0}", string.Format(ex.Message));
+                req.CreateResponse(HttpStatusCode.BadRequest);
+                await req.CreateResponse().WriteAsJsonAsync(ex.Message);
+                throw ex;
             }
 
         }
         #endregion
         #region requests
-        [FunctionName("TrackRequest")]
-        public async Task<HttpResponseMessage> TrackRequest(
-        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage req, ExecutionContext exCtx,
-        ILogger log)
+        [Function("TrackRequest")]
+        public async Task<HttpResponseData> TrackRequest(
+        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestData req, FunctionContext exCtx)
         {
-            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionName));
+            var log = exCtx.GetLogger(nameof(TrackTrace));
+            log.LogInformation(String.Format("{0} Function called.", exCtx.FunctionDefinition.Name));
             try
             {
                 foreach (var header in req.Headers)
@@ -295,8 +304,8 @@ namespace Dynamics365.Monitoring.AzureFunctions
                     //log.LogInformation(header.Key, header.Value);
                 }
 
-                var content = req.Content;
-                string jsonContent = content.ReadAsStringAsync().Result;
+                //var content = req.Content;
+                string jsonContent = req.ReadAsStringAsync().Result;
                 dynamic data = JsonConvert.DeserializeObject(jsonContent);
                 string test = data?.name;
                 DateTimeOffset timestamp = DateTime.Now;
@@ -308,13 +317,14 @@ namespace Dynamics365.Monitoring.AzureFunctions
 
                 RequestModel objRequestModel = new RequestModel();
                 objRequestModel.correlationid = data?.correlationId ?? exCtx.InvocationId.ToString();
-                HttpResponseMessage rtnObject = req.CreateResponse(HttpStatusCode.OK, objRequestModel);
+                HttpResponseData rtnObject = req.CreateResponse(HttpStatusCode.OK);
                 rtnObject.Headers.Add("InvocationId", exCtx.InvocationId.ToString());
                 return rtnObject;
             }
             catch (Exception ex)
             {
-                return req.CreateResponse(HttpStatusCode.BadRequest, "Cannot Create Request! Reason: {0}", string.Format(ex.Message));
+                await req.Body.WriteAsync(System.Text.Encoding.UTF8.GetBytes(ex.Message));
+                return req.CreateResponse(HttpStatusCode.BadRequest);
             }
 
         }
