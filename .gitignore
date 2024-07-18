@@ -5,3 +5,13 @@ Samples/AzureFunction/MonitoringWithApplicationInsights/UnitTestProject1/obj/Deb
 /Samples/AzureFunction/MonitoringWithApplicationInsights/.vs
 /Samples/AzureFunction/MonitoringWithApplicationInsights/UnitTestProject1/obj
 /.vs/slnx.sqlite
+/Samples/AzureFunction/MonitoringWithApplicationInsights/UnitTestProject1/bin/Debug/netcoreapp3.1/UnitTestProject1.deps.json
+/Samples/AzureFunction/MonitoringWithApplicationInsights/UnitTestProject1/bin/Debug/netcoreapp3.1/UnitTestProject1.pdb
+/Samples/AzureFunction/MonitoringWithApplicationInsights/UnitTestProject1/bin/Debug/netcoreapp3.1/UnitTestProject1.runtimeconfig.dev.json
+/Samples/AzureFunction/MonitoringWithApplicationInsights/UnitTestProject1/bin/Debug/netcoreapp3.1/UnitTestProject1.dll
+/Samples/DevOps/ReleaseNotesGenerator/AzureDevOpsReleaseNotesGenerator/AzureDevOpsReleaseNotes/obj/Debug/netstandard2.0/.NETStandard,Version=v2.0.AssemblyAttributes.cs
+/Samples/DevOps/ReleaseNotesGenerator/AzureDevOpsReleaseNotesGenerator/AzureDevOpsReleaseNotes/obj/Debug/netstandard2.0/AzureDevOpsReleaseNotes.AssemblyInfo.cs
+/Samples/DevOps/ReleaseNotesGenerator/AzureDevOpsReleaseNotesGenerator/AzureDevOpsReleaseNotes/obj/Debug/netstandard2.0/AzureDevOpsReleaseNotes.AssemblyInfoInputs.cache
+*.editorconfig
+/Samples/DevOps/ReleaseNotesGenerator/AzureDevOpsReleaseNotesGenerator/AzureDevOpsReleaseNotes/obj/Release/netstandard2.0
+/Samples/DevOps/ReleaseNotesGenerator/AzureDevOpsReleaseNotesGenerator/XUnitTestProject1/obj/Release/netcoreapp3.1
